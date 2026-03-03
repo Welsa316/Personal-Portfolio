@@ -20,6 +20,7 @@ const skillGroups = [
 </script>
 
 <template>
+  <div>
   <section class="py-20 sm:py-24">
     <Container>
       <div class="grid items-start gap-16 lg:grid-cols-5">
@@ -79,5 +80,5 @@ const skillGroups = [
       </div>
     </Container>
   </section>
-
+  </div>
 </template>
