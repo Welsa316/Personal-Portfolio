@@ -30,6 +30,7 @@ const features = [
 </script>
 
 <template>
+  <div>
   <!-- Hero -->
   <section class="relative overflow-hidden py-24 sm:py-32">
     <!-- Decorative background -->
@@ -122,4 +123,5 @@ const features = [
       </div>
     </Container>
   </section>
+  </div>
 </template>
