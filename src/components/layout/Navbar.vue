@@ -7,8 +7,7 @@ const mobileOpen = ref(false)
 const navLinks = [
   { name: 'Home', to: { name: 'home' } },
   { name: 'Projects', to: { name: 'projects' } },
-  { name: 'About', to: { name: 'about' } },
-  { name: 'Contact', to: { name: 'contact' } }
+  { name: 'About', to: { name: 'about' } }
 ]
 
 function closeMobile() {
