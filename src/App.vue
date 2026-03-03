@@ -24,4 +24,24 @@ import Footer from '@/components/layout/Footer.vue'
 .page-leave-active {
   animation: fadeIn 0.2s ease-in reverse;
 }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 </style>
