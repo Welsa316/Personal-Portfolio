@@ -19,6 +19,7 @@ const form = reactive<FormData>({
 const errors = reactive<Partial<Record<keyof FormData, string>>>({})
 const submitted = ref(false)
 const loading = ref(false)
+const submitError = ref('')
 
 function validateEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
@@ -44,13 +45,28 @@ async function handleSubmit() {
   if (!validate()) return
 
   loading.value = true
+  submitError.value = ''
 
-  // Simulate network delay
-  await new Promise((resolve) => setTimeout(resolve, 800))
+  try {
+    const response = await fetch('https://formspree.io/f/mwvndnde', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+      }),
+    })
 
-  console.log('Form submitted:', { ...form })
-  submitted.value = true
-  loading.value = false
+    if (!response.ok) throw new Error('Failed to send message.')
+
+    submitted.value = true
+  } catch {
+    submitError.value = 'Something went wrong. Please try again or email me directly.'
+  } finally {
+    loading.value = false
+  }
 }
 </script>
 
@@ -136,6 +152,8 @@ async function handleSubmit() {
       />
       <p v-if="errors.message" class="mt-1 text-xs text-red-500">{{ errors.message }}</p>
     </div>
+
+    <p v-if="submitError" class="text-sm text-red-500">{{ submitError }}</p>
 
     <Button size="lg" :disabled="loading">
       <svg
