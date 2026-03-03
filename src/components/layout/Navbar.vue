@@ -8,8 +8,7 @@ const navLinks = [
   { name: 'Home', to: { name: 'home' } },
   { name: 'Projects', to: { name: 'projects' } },
   { name: 'About', to: { name: 'about' } },
-  { name: 'Contact', to: { name: 'contact' } },
-  { name: 'Resume', to: { name: 'resume' } },
+  { name: 'Contact', to: { name: 'contact' } }
 ]
 
 function closeMobile() {
