@@ -28,18 +28,11 @@ const features = [
   },
 ]
 
-const stats = [
-  { label: 'Years Experience', value: '3+' },
-  { label: 'Projects Shipped', value: '12+' },
-  { label: 'Happy Clients', value: '8' },
-]
-
 const portraitUrl =
   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop&crop=face'
 
 // Template refs for staggered hero animations
 const sideTextRef = ref<HTMLElement | null>(null)
-const statsRef = ref<HTMLElement | null>(null)
 const roleRef = ref<HTMLElement | null>(null)
 const nameRef = ref<HTMLElement | null>(null)
 const portraitRef = ref<HTMLElement | null>(null)
@@ -49,13 +42,12 @@ const scrollRef = ref<HTMLElement | null>(null)
 onMounted(() => {
   // Staggered hero reveal with editorial timing
   const reveals = [
-    { el: statsRef, delay: 100 },
-    { el: roleRef, delay: 200 },
-    { el: nameRef, delay: 350 },
-    { el: portraitRef, delay: 500 },
-    { el: ctaRef, delay: 650 },
-    { el: sideTextRef, delay: 400 },
-    { el: scrollRef, delay: 800 },
+    { el: roleRef, delay: 100 },
+    { el: nameRef, delay: 250 },
+    { el: portraitRef, delay: 400 },
+    { el: ctaRef, delay: 550 },
+    { el: sideTextRef, delay: 350 },
+    { el: scrollRef, delay: 700 },
   ]
 
   reveals.forEach(({ el, delay }) => {
@@ -99,31 +91,12 @@ onMounted(() => {
         <div class="w-px h-24 bg-ink-300/50"></div>
       </div>
 
-      <!-- Stats row -->
-      <div class="relative z-20 w-full">
-        <Container>
-          <div
-            ref="statsRef"
-            class="hero-animate pt-32 lg:pt-40 flex flex-wrap gap-8 md:gap-12"
-          >
-            <div v-for="stat in stats" :key="stat.label" class="text-left">
-              <span class="block font-display text-3xl md:text-4xl text-ink-950 tabular-nums">
-                {{ stat.value }}
-              </span>
-              <span class="text-[9px] uppercase tracking-[0.2em] text-ink-500 font-mono">
-                {{ stat.label }}
-              </span>
-            </div>
-          </div>
-        </Container>
-      </div>
-
       <!-- Role description -->
       <div class="relative z-20">
         <Container>
           <p
             ref="roleRef"
-            class="hero-animate mt-6 font-display text-lg md:text-xl italic text-ink-500"
+            class="hero-animate pt-32 lg:pt-40 font-display text-lg md:text-xl italic text-ink-500"
           >
             Crafting high-end digital experiences for the modern web.
           </p>
@@ -137,30 +110,23 @@ onMounted(() => {
           <div class="px-6 md:px-10">
             <h1
               ref="nameRef"
-              class="hero-animate massive-text text-ink-950 font-display select-none leading-[0.85]"
+              class="hero-animate massive-text font-display select-none leading-[0.85]"
             >
-              <span class="block">WALID</span>
-              <span class="block">ELSAYED</span>
+              <span class="block text-ink-950">WALID</span>
+              <span class="block text-accent">ELSAYED</span>
             </h1>
           </div>
 
-          <!-- Portrait overlapping text from the right -->
+          <!-- Portrait seamlessly integrated into background -->
           <div
             ref="portraitRef"
             class="hero-animate absolute right-[3%] md:right-[5%] xl:right-[10%] bottom-0 translate-y-[10%] w-[65vw] sm:w-[50vw] md:w-[42vw] lg:w-[38vw] max-w-[580px] z-20"
           >
-            <div class="portrait-glow">
-              <img
-                :src="portraitUrl"
-                alt="Walid Elsayed Portrait"
-                class="portrait-hover w-full h-auto"
-                style="filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.15));"
-              />
-            </div>
-            <!-- Decorative vertical accent -->
-            <div class="absolute -left-10 xl:-left-14 bottom-1/4 vertical-text text-accent font-bold text-[10px] tracking-[0.3em] hidden lg:block">
-              ELITE DEVELOPER
-            </div>
+            <img
+              :src="portraitUrl"
+              alt="Walid Elsayed Portrait"
+              class="portrait-hover w-full h-auto mix-blend-multiply"
+            />
           </div>
         </div>
       </div>
