@@ -24,7 +24,7 @@ export const projects: Project[] = [
       github: 'https://github.com/Ax3lJD/OKIcecreamshop',
       demo: 'https://okicecreamshop.com/',
     },
-    image: 'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=800&h=1000&fit=crop',
+    image: '/OKIceCream.jpg',
     featured: true,
   },
   {
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     links: {
       demo: 'https://yamihibachipoboys.com/home',
     },
-    image: 'https://images.unsplash.com/photo-1553909489-cd47e0907980?w=800&h=1000&fit=crop',
+    image: '/YamiHibachi.jpg',
     featured: true,
   },
   {
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     links: {
       demo: '#',
     },
-    image: 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=800&h=1000&fit=crop',
+    image: '/Daris.jpg',
     featured: true,
   },
   {
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     links: {
       demo: '#',
     },
-    image: 'https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=800&h=1000&fit=crop',
+    image: '/CamposMunos.jpg',
     featured: true,
   },
 ]
