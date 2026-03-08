@@ -78,6 +78,11 @@
     filter: grayscale(0%);
   }
 
+  .portrait-seamless {
+    mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 40%, transparent 100%);
+  }
+
   .editorial-divider {
     @apply h-px w-full bg-ink-300/50;
   }
