@@ -7,6 +7,21 @@ import { getFeaturedProjects } from '@/data/projects'
 
 const featured = getFeaturedProjects()
 
+// Project carousel state
+const activeProject = ref(0)
+
+function setActive(index: number) {
+  activeProject.value = index
+}
+
+function nextProject() {
+  activeProject.value = (activeProject.value + 1) % featured.length
+}
+
+function prevProject() {
+  activeProject.value = (activeProject.value - 1 + featured.length) % featured.length
+}
+
 const categoryLabels: Record<string, string> = {
   web: 'Web Development',
   ai: 'AI / Machine Learning',
@@ -112,8 +127,12 @@ onMounted(() => {
           ref="nameRef"
           class="hero-animate massive-text font-hero select-none leading-[0.85]"
         >
-          <span class="block text-ink-950">WALID</span>
-          <span class="block text-accent">ELSAYED</span>
+          <span class="block text-ink-950">
+            <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
+          </span>
+          <span class="block text-accent">
+            <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
+          </span>
         </h1>
         <div
           ref="subtitleRef"
@@ -183,73 +202,171 @@ onMounted(() => {
         <div class="scroll-reveal mb-4">
           <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">Selected Work</p>
           <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
-            Featured <Typewriter
-              :text="['Projects', 'Works', 'Builds', 'Creations']"
-              :speed="70"
-              :wait-time="1500"
-              :delete-speed="40"
-              cursor-char="_"
-              class="text-accent"
-            />
+            Featured Projects
           </h2>
         </div>
-        <div class="editorial-divider scroll-reveal mt-6 mb-12"></div>
+        <div class="editorial-divider scroll-reveal mt-6 mb-16"></div>
 
-        <!-- Asymmetric staggered grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-          <div
-            v-for="(project, i) in featured"
-            :key="project.id"
-            class="group cursor-pointer scroll-reveal"
-            :class="i === 1 ? 'lg:mt-16' : ''"
-            :style="`transition-delay: ${i * 100}ms`"
-          >
-            <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-surface-sunken">
+        <!-- Desktop: ARCHITECH-style interactive carousel -->
+        <div class="hidden lg:block scroll-reveal" style="min-height: 560px">
+          <div class="flex items-end gap-4" style="height: 480px">
+            <div
+              v-for="(project, i) in featured"
+              :key="project.id"
+              class="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer h-full"
+              :class="activeProject === i ? 'flex-[3]' : 'flex-[1]'"
+              @click="setActive(i)"
+            >
+              <!-- Active: big prominent image -->
+              <div v-if="activeProject === i" class="group relative h-full overflow-hidden rounded-lg">
+                <img
+                  :src="project.image"
+                  :alt="project.title"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <a
+                    v-if="project.links.demo && project.links.demo !== '#'"
+                    :href="project.links.demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white font-semibold text-sm flex items-center gap-2"
+                  >
+                    View Project
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </a>
+                </div>
+                <!-- Large number overlay on image -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span class="font-hero text-[10rem] text-white/20 leading-none select-none">
+                    {{ i + 1 }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Inactive: large number only -->
+              <div v-else class="group flex items-center justify-center h-full">
+                <span class="font-hero text-[8rem] xl:text-[10rem] text-ink-200 group-hover:text-ink-400 transition-colors duration-300 leading-none select-none">
+                  {{ i + 1 }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom row: titles + arrows for all items -->
+          <div class="flex gap-4 mt-6">
+            <div
+              v-for="(project, i) in featured"
+              :key="'info-' + project.id"
+              class="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer"
+              :class="activeProject === i ? 'flex-[3]' : 'flex-[1]'"
+              @click="setActive(i)"
+            >
+              <div class="border-t border-ink-200/60 pt-4 flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold text-ink-950" :class="activeProject === i ? 'text-lg' : 'text-sm'">
+                    {{ project.title }}
+                  </h3>
+                  <span class="text-[10px] uppercase tracking-[0.15em] text-accent font-bold mt-1 block">
+                    {{ categoryLabels[project.category] }}
+                  </span>
+                </div>
+                <svg class="w-5 h-5 text-ink-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile/tablet carousel -->
+        <div class="lg:hidden scroll-reveal">
+          <div class="group">
+            <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-sunken">
               <img
-                :src="project.image"
-                :alt="project.title"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                :src="featured[activeProject].image"
+                :alt="featured[activeProject].title"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <a
-                  v-if="project.links.demo && project.links.demo !== '#'"
-                  :href="project.links.demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-white font-bold text-sm flex items-center gap-2"
-                >
-                  View Project
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </a>
-                <span v-else class="text-white font-bold text-sm flex items-center gap-2">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <span class="text-white font-semibold text-sm flex items-center gap-2">
                   View Project
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
                   </svg>
                 </span>
               </div>
+              <!-- Large number overlay -->
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <span class="font-hero text-8xl text-white/15 leading-none select-none">
+                  {{ activeProject + 1 }}
+                </span>
+              </div>
             </div>
-            <div class="flex flex-col gap-1 mt-4">
+            <div class="mt-4">
               <span class="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">
-                {{ categoryLabels[project.category] }}
+                {{ categoryLabels[featured[activeProject].category] }}
               </span>
-              <h3 class="text-xl font-bold text-ink-950 group-hover:underline underline-offset-4 decoration-1">
-                {{ project.title }}
+              <h3 class="mt-1 font-semibold text-xl text-ink-950">
+                {{ featured[activeProject].title }}
               </h3>
-              <p class="text-sm text-ink-500 mt-1">
-                {{ project.tags.slice(0, 3).join(' · ') }}
+              <p class="mt-2 text-sm text-ink-500 leading-relaxed">
+                {{ featured[activeProject].description }}
               </p>
             </div>
           </div>
+
+          <!-- Mobile navigation -->
+          <div class="flex items-center justify-between mt-8">
+            <div class="flex gap-2">
+              <button
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+                @click="prevProject"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
+                </svg>
+              </button>
+              <button
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+                @click="nextProject"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M19 12l-5-5M19 12l-5 5" />
+                </svg>
+              </button>
+            </div>
+            <span class="font-mono text-xs text-ink-400">
+              {{ String(activeProject + 1).padStart(2, '0') }} / {{ String(featured.length).padStart(2, '0') }}
+            </span>
+          </div>
         </div>
 
-        <!-- View all projects -->
-        <div class="scroll-reveal mt-16 flex justify-center" style="transition-delay: 100ms">
+        <!-- View all + nav arrows -->
+        <div class="scroll-reveal mt-16 flex items-center justify-between" style="transition-delay: 100ms">
           <Button :to="{ name: 'projects' }" variant="secondary">
             See All Projects
           </Button>
+          <div class="hidden lg:flex gap-2">
+            <button
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+              @click="prevProject"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
+              </svg>
+            </button>
+            <button
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+              @click="nextProject"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M19 12l-5-5M19 12l-5 5" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>

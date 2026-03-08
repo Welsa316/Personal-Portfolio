@@ -5,58 +5,56 @@ const props = withDefaults(
   defineProps<{
     text: string | string[]
     speed?: number
-    initialDelay?: number
-    waitTime?: number
-    deleteSpeed?: number
+    cursor?: string
     loop?: boolean
-    showCursor?: boolean
-    hideCursorOnType?: boolean
-    cursorChar?: string
+    deleteSpeed?: number
+    delay?: number
+    initialDelay?: number
   }>(),
   {
-    speed: 50,
+    speed: 100,
+    cursor: '|',
+    loop: false,
+    deleteSpeed: 50,
+    delay: 1500,
     initialDelay: 0,
-    waitTime: 2000,
-    deleteSpeed: 30,
-    loop: true,
-    showCursor: true,
-    hideCursorOnType: false,
-    cursorChar: '|',
   }
 )
 
 const displayText = ref('')
 const currentIndex = ref(0)
 const isDeleting = ref(false)
-const currentTextIndex = ref(0)
-const texts = computed(() => (Array.isArray(props.text) ? props.text : [props.text]))
+const textArrayIndex = ref(0)
+
+const textArray = computed(() => (Array.isArray(props.text) ? props.text : [props.text]))
+const currentText = computed(() => textArray.value[textArrayIndex.value] || '')
 
 let timeout: ReturnType<typeof setTimeout> | null = null
 
 function tick() {
-  const currentText = texts.value[currentTextIndex.value]
+  if (!currentText.value) return
 
-  if (isDeleting.value) {
-    if (displayText.value === '') {
-      isDeleting.value = false
-      if (currentTextIndex.value === texts.value.length - 1 && !props.loop) return
-      currentTextIndex.value = (currentTextIndex.value + 1) % texts.value.length
-      currentIndex.value = 0
-      timeout = setTimeout(tick, props.waitTime)
-    } else {
-      displayText.value = displayText.value.slice(0, -1)
-      timeout = setTimeout(tick, props.deleteSpeed)
-    }
-  } else {
-    if (currentIndex.value < currentText.length) {
-      displayText.value += currentText[currentIndex.value]
+  if (!isDeleting.value) {
+    if (currentIndex.value < currentText.value.length) {
+      displayText.value += currentText.value[currentIndex.value]
       currentIndex.value++
       timeout = setTimeout(tick, props.speed)
-    } else if (texts.value.length > 1) {
+    } else if (props.loop) {
       timeout = setTimeout(() => {
         isDeleting.value = true
         tick()
-      }, props.waitTime)
+      }, props.delay)
+    }
+    // If not looping and done typing, just stop — cursor keeps blinking
+  } else {
+    if (displayText.value.length > 0) {
+      displayText.value = displayText.value.slice(0, -1)
+      timeout = setTimeout(tick, props.deleteSpeed)
+    } else {
+      isDeleting.value = false
+      currentIndex.value = 0
+      textArrayIndex.value = (textArrayIndex.value + 1) % textArray.value.length
+      timeout = setTimeout(tick, props.speed)
     }
   }
 }
@@ -66,22 +64,12 @@ timeout = setTimeout(tick, props.initialDelay)
 onUnmounted(() => {
   if (timeout) clearTimeout(timeout)
 })
-
-const cursorHidden = computed(
-  () =>
-    props.hideCursorOnType &&
-    (currentIndex.value < texts.value[currentTextIndex.value].length || isDeleting.value)
-)
 </script>
 
 <template>
-  <span class="inline whitespace-pre-wrap">
+  <span class="inline">
     <span>{{ displayText }}</span>
-    <span
-      v-if="showCursor"
-      class="ml-0.5 animate-cursor-blink"
-      :class="{ 'opacity-0': cursorHidden }"
-    >{{ cursorChar }}</span>
+    <span v-if="cursor" class="animate-cursor-blink">{{ cursor }}</span>
   </span>
 </template>
 
