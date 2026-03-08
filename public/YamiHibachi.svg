@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="50%" style="stop-color:#16213e"/>
+      <stop offset="100%" style="stop-color:#0f3460"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#c45d3e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="650" cy="200" r="120" fill="#e94560" opacity="0.08"/>
+  <circle cx="150" cy="750" r="180" fill="#c45d3e" opacity="0.06"/>
+  <!-- Chopsticks icon -->
+  <g transform="translate(340, 280)" opacity="0.15">
+    <line x1="20" y1="0" x2="60" y2="200" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    <line x1="100" y1="0" x2="60" y2="200" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- Title -->
+  <text x="400" y="520" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="72" fill="#ffffff" letter-spacing="6">YAMI</text>
+  <text x="400" y="580" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="300" font-size="28" fill="#ffffff" opacity="0.7" letter-spacing="12">HIBACHI &amp; POBOY</text>
+  <!-- Accent line -->
+  <rect x="300" y="610" width="200" height="3" rx="1.5" fill="url(#accent)"/>
+  <!-- Subtitle -->
+  <text x="400" y="660" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="16" fill="#ffffff" opacity="0.4" letter-spacing="4">JAPANESE-CAJUN FUSION</text>
+</svg>

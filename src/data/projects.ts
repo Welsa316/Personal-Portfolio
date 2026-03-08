@@ -24,7 +24,7 @@ export const projects: Project[] = [
       github: 'https://github.com/Ax3lJD/OKIcecreamshop',
       demo: 'https://okicecreamshop.com/',
     },
-    image: '/OKIceCream.png',
+    image: '/OKIceCream.svg',
     featured: true,
   },
   {
@@ -42,16 +42,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: 'design-system-kit',
-    title: 'Design System Kit',
+    id: 'yami-hibachi',
+    title: 'Yami Hibachi & Poboy',
     description:
-      'A comprehensive component library with design tokens, accessible primitives, and Storybook documentation for consistent UI across products.',
-    tags: ['React', 'Storybook', 'Figma', 'CSS Variables'],
+      'A full-service restaurant website for a Japanese-Cajun fusion eatery in Metairie, LA. Features online ordering integration, responsive menu display, and location/hours information to drive dine-in and takeout traffic.',
+    tags: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     category: 'web',
     links: {
-      github: '#',
+      demo: 'https://yamihibachipoboys.com/home',
     },
-    image: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&h=1000&fit=crop',
+    image: '/YamiHibachi.svg',
     featured: true,
   },
   {
