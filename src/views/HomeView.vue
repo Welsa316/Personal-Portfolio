@@ -202,7 +202,7 @@ onMounted(() => {
         <div class="scroll-reveal mb-6">
           <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">Selected Work</p>
           <h2 class="font-display text-5xl sm:text-7xl lg:text-8xl tracking-tight text-ink-950 leading-[0.9]">
-            Featured<br />Projects
+            Featured<br /><span class="text-accent">Projects</span>
           </h2>
         </div>
         <div class="editorial-divider scroll-reveal mt-8 mb-20"></div>
@@ -266,7 +266,7 @@ onMounted(() => {
             >
               <div class="border-t border-ink-200/60 pt-4 flex items-start justify-between">
                 <div>
-                  <h3 class="font-semibold text-ink-950" :class="activeProject === i ? 'text-lg' : 'text-sm'">
+                  <h3 class="font-semibold text-ink-950" :class="activeProject === i ? 'text-xl' : 'text-base'">
                     {{ project.title }}
                   </h3>
                   <span class="text-[10px] uppercase tracking-[0.15em] text-accent font-bold mt-1 block">
