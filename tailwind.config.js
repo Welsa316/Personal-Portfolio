@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         display: ['"Instrument Serif"', 'Georgia', 'serif'],
+        hero: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
         body: ['"DM Sans"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
