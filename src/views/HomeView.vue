@@ -272,6 +272,15 @@ onMounted(() => {
                   <span class="text-[10px] uppercase tracking-[0.15em] text-accent font-bold mt-1 block">
                     {{ categoryLabels[project.category] }}
                   </span>
+                  <div v-if="activeProject === i" class="flex flex-wrap gap-1.5 mt-2">
+                    <span
+                      v-for="tag in project.tags"
+                      :key="tag"
+                      class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-ink-100 text-ink-600 border border-ink-200/60"
+                    >
+                      {{ tag }}
+                    </span>
+                  </div>
                 </div>
                 <svg class="w-5 h-5 text-ink-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
@@ -315,6 +324,15 @@ onMounted(() => {
               <p class="mt-2 text-sm text-ink-500 leading-relaxed">
                 {{ featured[activeProject].description }}
               </p>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span
+                  v-for="tag in featured[activeProject].tags"
+                  :key="tag"
+                  class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-ink-100 text-ink-600 border border-ink-200/60"
+                >
+                  {{ tag }}
+                </span>
+              </div>
             </div>
           </div>
 
