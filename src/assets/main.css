@@ -46,7 +46,7 @@
     font-size: clamp(3rem, 10vw, 12rem);
     line-height: 0.85;
     letter-spacing: -0.04em;
-    font-weight: 800;
+    font-weight: 400;
   }
 
   .vertical-text {
@@ -79,8 +79,8 @@
   }
 
   .portrait-seamless {
-    mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 40%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 55% 65% at 50% 30%, black 25%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 55% 65% at 50% 30%, black 25%, transparent 75%);
   }
 
   .editorial-divider {
