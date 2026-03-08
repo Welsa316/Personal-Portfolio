@@ -39,7 +39,7 @@ onUnmounted(() => {
     class="transition-all duration-300"
     :class="isHome
       ? blendActive
-        ? 'fixed top-0 left-0 w-full z-50 mix-blend-difference'
+        ? 'fixed top-0 left-0 w-full z-50'
         : 'fixed top-0 left-0 w-full z-50 border-b border-ink-200/60 bg-surface/80 backdrop-blur-md'
       : 'sticky top-0 z-50 border-b border-ink-200/60 bg-surface/80 backdrop-blur-md'"
   >
@@ -47,12 +47,10 @@ onUnmounted(() => {
       <!-- Logo -->
       <RouterLink
         :to="{ name: 'home' }"
-        :class="blendActive
-          ? 'font-display text-2xl tracking-tight text-white'
-          : 'font-display text-2xl tracking-tight text-ink-950'"
+        class="font-display text-2xl tracking-tight text-ink-950"
         @click="closeMobile"
       >
-        Walid<span :class="blendActive ? 'text-white' : 'text-accent'">Elsayed</span>
+        Walid<span class="text-accent">Elsayed</span>
       </RouterLink>
 
       <!-- Desktop nav -->
@@ -60,10 +58,8 @@ onUnmounted(() => {
         <li v-for="link in navLinks" :key="link.name">
           <RouterLink
             :to="link.to"
-            :class="blendActive
-              ? 'text-sm font-medium tracking-wide text-white/80 transition-colors hover:text-white'
-              : 'link-underline text-sm font-medium tracking-wide text-ink-700 transition-colors hover:text-ink-950'"
-            :active-class="blendActive ? '!text-white' : '!text-accent after:!w-full'"
+            class="link-underline text-sm font-medium tracking-wide text-ink-700 transition-colors hover:text-ink-950"
+            active-class="!text-accent after:!w-full"
           >
             {{ link.name }}
           </RouterLink>
@@ -71,9 +67,7 @@ onUnmounted(() => {
         <li>
           <RouterLink
             :to="{ name: 'contact' }"
-            :class="blendActive
-              ? 'inline-flex items-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-ink-950 transition-all hover:bg-white/90'
-              : 'inline-flex items-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent-dark hover:shadow-md'"
+            class="inline-flex items-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent-dark hover:shadow-md"
           >
             Hire Me
           </RouterLink>
@@ -89,25 +83,16 @@ onUnmounted(() => {
         <span class="sr-only">Menu</span>
         <div class="flex flex-col gap-1.5">
           <span
-            class="block h-0.5 w-6 transition-all duration-300"
-            :class="[
-              mobileOpen ? 'translate-y-2 rotate-45' : '',
-              blendActive && !mobileOpen ? 'bg-white' : 'bg-ink-950'
-            ]"
+            class="block h-0.5 w-6 bg-ink-950 transition-all duration-300"
+            :class="mobileOpen ? 'translate-y-2 rotate-45' : ''"
           />
           <span
-            class="block h-0.5 w-6 transition-all duration-300"
-            :class="[
-              mobileOpen ? 'opacity-0' : '',
-              blendActive && !mobileOpen ? 'bg-white' : 'bg-ink-950'
-            ]"
+            class="block h-0.5 w-6 bg-ink-950 transition-all duration-300"
+            :class="mobileOpen ? 'opacity-0' : ''"
           />
           <span
-            class="block h-0.5 w-6 transition-all duration-300"
-            :class="[
-              mobileOpen ? '-translate-y-2 -rotate-45' : '',
-              blendActive && !mobileOpen ? 'bg-white' : 'bg-ink-950'
-            ]"
+            class="block h-0.5 w-6 bg-ink-950 transition-all duration-300"
+            :class="mobileOpen ? '-translate-y-2 -rotate-45' : ''"
           />
         </div>
       </button>
