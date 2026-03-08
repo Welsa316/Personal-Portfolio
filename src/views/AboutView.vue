@@ -18,26 +18,6 @@ const skillGroups = [
   },
 ]
 
-const values = [
-  {
-    number: '01',
-    title: 'Clean Architecture',
-    description:
-      'Every project starts with structure. I build scalable, maintainable systems that are easy to extend and built to last beyond the first deploy.',
-  },
-  {
-    number: '02',
-    title: 'User-First Design',
-    description:
-      'Mobile-first, conversion-focused, and accessible. I design interfaces that guide users naturally toward meaningful actions.',
-  },
-  {
-    number: '03',
-    title: 'Modern Stack',
-    description:
-      'Vue, Bootstrap, Tailwind, and JavaScript power every project. I pick tools that ship fast, scale well, and keep codebases clean.',
-  },
-]
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -70,10 +50,10 @@ onMounted(() => {
       </div>
 
       <!-- Central composition: portrait + floating badges -->
-      <div class="relative w-full max-w-2xl mx-auto flex flex-col items-center z-10">
+      <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center z-10">
         <!-- Accent glow -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div class="w-[400px] h-[400px] bg-accent/15 rounded-full blur-[80px]"></div>
+          <div class="w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-accent/15 rounded-full blur-[100px]"></div>
         </div>
 
         <!-- Portrait -->
@@ -81,7 +61,7 @@ onMounted(() => {
           <img
             src="/Headshot.png"
             alt="Walid Elsayed"
-            class="w-[280px] md:w-[380px] object-contain drop-shadow-2xl"
+            class="w-[360px] md:w-[500px] lg:w-[600px] object-contain drop-shadow-2xl"
           />
         </div>
 
@@ -131,33 +111,6 @@ onMounted(() => {
           clean architecture, performance, and long-term maintainability.
         </p>
       </div>
-    </section>
-
-    <!-- ======================== PHILOSOPHY ======================== -->
-    <section class="py-24 sm:py-32 bg-surface-sunken border-t border-ink-200/60">
-      <Container>
-        <div class="scroll-reveal mb-12">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">My Approach</p>
-          <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
-            How I think about building for the web.
-          </h2>
-        </div>
-
-        <div class="grid sm:grid-cols-3 gap-12">
-          <div
-            v-for="(val, i) in values"
-            :key="val.title"
-            class="scroll-reveal space-y-4"
-            :style="`transition-delay: ${i * 100}ms`"
-          >
-            <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent uppercase">
-              {{ val.number }}
-            </span>
-            <p class="text-2xl font-semibold text-ink-950">{{ val.title }}</p>
-            <p class="text-sm leading-relaxed text-ink-500">{{ val.description }}</p>
-          </div>
-        </div>
-      </Container>
     </section>
 
     <!-- ======================== SKILLS ======================== -->
