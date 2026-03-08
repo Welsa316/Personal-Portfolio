@@ -59,7 +59,7 @@ onMounted(() => {
         <!-- Portrait -->
         <div class="relative z-10 scroll-reveal">
           <img
-            src="/Headshot.png"
+            src="/AboutPortrait.jpg"
             alt="Walid Elsayed"
             class="w-[500px] md:w-[720px] lg:w-[860px] object-contain drop-shadow-2xl"
           />
