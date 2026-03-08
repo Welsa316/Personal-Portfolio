@@ -34,8 +34,7 @@ const features = [
   },
 ]
 
-const portraitUrl =
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop&crop=face'
+const portraitUrl = '/Headshot.png'
 
 // Template refs for staggered hero animations
 const sideTextRef = ref<HTMLElement | null>(null)
