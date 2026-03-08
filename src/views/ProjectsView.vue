@@ -87,7 +87,7 @@ onMounted(() => {
         <div
           v-for="(project, i) in filtered"
           :key="project.id"
-          class="scroll-reveal group relative overflow-hidden rounded-xl cursor-pointer"
+          class="scroll-reveal group relative overflow-hidden rounded-xl cursor-pointer bg-surface-sunken"
           :class="gridClasses[i % gridClasses.length]"
           :style="`transition-delay: ${i * 100}ms`"
         >
@@ -100,7 +100,7 @@ onMounted(() => {
             <img
               :src="project.image"
               :alt="project.title"
-              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              class="h-full w-full object-contain p-8 transition-transform duration-700 group-hover:scale-105"
             />
             <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 md:p-8">
               <h3
