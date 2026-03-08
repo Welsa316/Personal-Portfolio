@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
-import SectionHeader from '@/components/ui/SectionHeader.vue'
+import Button from '@/components/ui/Button.vue'
 
 const skillGroups = [
   {
     label: 'Frontend',
-    skills: ['Vue 3', 'React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Nuxt'],
+    skills: ['Vue 3', 'React', 'TypeScript', 'Tailwind CSS', 'Bootstrap', 'HTML / CSS'],
   },
   {
     label: 'Backend',
@@ -13,72 +14,232 @@ const skillGroups = [
   },
   {
     label: 'Tools & Infra',
-    skills: ['Git', 'Vite', 'Vercel', 'AWS'],
+    skills: ['Git', 'Vite', 'Vercel', 'AWS', 'Figma'],
   },
 ]
 
+const values = [
+  {
+    number: '01',
+    title: 'Clean Architecture',
+    description:
+      'Every project starts with structure. I build scalable, maintainable systems that are easy to extend and built to last beyond the first deploy.',
+  },
+  {
+    number: '02',
+    title: 'User-First Design',
+    description:
+      'Mobile-first, conversion-focused, and accessible. I design interfaces that guide users naturally toward meaningful actions.',
+  },
+  {
+    number: '03',
+    title: 'Modern Stack',
+    description:
+      'Vue, Bootstrap, Tailwind, and JavaScript power every project. I pick tools that ship fast, scale well, and keep codebases clean.',
+  },
+]
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+  document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el))
+})
 </script>
 
 <template>
   <div>
-  <section class="py-20 sm:py-24">
-    <Container>
-      <div class="grid items-start gap-16 lg:grid-cols-5">
-        <!-- Bio -->
-        <div class="lg:col-span-3">
-          <SectionHeader title="About Me" />
-          <div class="space-y-4 text-ink-600 leading-relaxed">
-            <p>
-              I'm a computer science student focused on building structured, scalable web systems.
-            </p>
-            <p>
-              I design and develop modern websites and digital platforms with an emphasis on clean architecture, performance, and long-term maintainability.
-            </p>
-            <p>
-              My work centers around creating systems that generate measurable results through thoughtful UX, automation, and conversion-focused design.
-            </p>
+    <!-- ======================== HERO ======================== -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-surface overflow-hidden">
+      <!-- Header -->
+      <div class="text-center mb-12 z-10 scroll-reveal">
+        <span class="inline-block px-4 py-1.5 mb-6 font-mono text-xs tracking-[0.2em] text-accent uppercase border border-accent/30 rounded-full bg-accent/5">
+          About the Developer
+        </span>
+        <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-normal leading-[1.1] max-w-3xl mx-auto text-ink-950">
+          Meet the Mind Behind the <span class="text-accent">Digital Experience</span>
+        </h1>
+      </div>
+
+      <!-- Central composition: portrait + floating badges -->
+      <div class="relative w-full max-w-2xl mx-auto flex flex-col items-center z-10">
+        <!-- Accent glow -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div class="w-[400px] h-[400px] bg-accent/15 rounded-full blur-[80px]"></div>
+        </div>
+
+        <!-- Portrait -->
+        <div class="relative z-10 scroll-reveal">
+          <img
+            src="/Headshot.png"
+            alt="Walid Elsayed"
+            class="w-[280px] md:w-[380px] object-contain drop-shadow-2xl"
+          />
+        </div>
+
+        <!-- Floating badges -->
+        <div class="absolute z-20 top-[15%] -left-4 md:left-0 animate-float scroll-reveal" style="transition-delay: 200ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <div class="text-xs md:text-sm font-medium text-ink-700">
+              Projects Delivered <span class="font-bold text-base text-ink-950 ml-1">4+</span>
+            </div>
           </div>
         </div>
 
-        <!-- Photo placeholder -->
-        <div class="lg:col-span-2">
-          <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-surface-sunken border border-ink-200/60">
-            <div class="flex h-full items-center justify-center text-ink-300">
-              <svg class="h-16 w-16" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-              </svg>
+        <div class="absolute z-20 top-[25%] -right-4 md:right-0 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-base">📍</span>
+            <div class="text-xs md:text-sm font-medium text-ink-700">
+              Based in <span class="font-bold text-ink-950">New Orleans</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute z-20 bottom-[30%] -left-8 md:-left-4 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-base">🎓</span>
+            <div class="text-xs md:text-sm font-medium text-ink-700">
+              <span class="font-bold text-ink-950">CS Student</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute z-20 bottom-[22%] -right-8 md:-right-4 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-base">⚡</span>
+            <div class="text-xs md:text-sm font-medium text-ink-700">
+              <span class="font-bold text-ink-950">Full-Stack</span> Focus
             </div>
           </div>
         </div>
       </div>
-    </Container>
-  </section>
 
-  <!-- Skills -->
-  <section class="border-t border-ink-200/60 bg-surface-sunken py-20 sm:py-24">
-    <Container>
-      <SectionHeader title="Skills" subtitle="Technologies and tools I work with regularly." />
-      <div class="grid gap-8 sm:grid-cols-3">
-        <div
-          v-for="group in skillGroups"
-          :key="group.label"
-          class="rounded-2xl border border-ink-200/60 bg-surface-raised p-6"
-        >
-          <h3 class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent">
-            {{ group.label }}
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="skill in group.skills"
-              :key="skill"
-              class="rounded-full bg-surface-sunken px-3 py-1.5 text-sm text-ink-700"
-            >
-              {{ skill }}
+      <!-- Bio text -->
+      <div class="mt-16 text-center max-w-2xl px-6 z-10 scroll-reveal">
+        <p class="text-lg md:text-xl text-ink-600 leading-relaxed">
+          I'm <span class="font-bold text-ink-950 underline decoration-accent decoration-2 underline-offset-4">Walid Elsayed</span>,
+          a computer science student focused on building structured, scalable web systems.
+          I design and develop modern websites and digital platforms with an emphasis on
+          clean architecture, performance, and long-term maintainability.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================== PHILOSOPHY ======================== -->
+    <section class="py-24 sm:py-32 bg-surface-sunken border-t border-ink-200/60">
+      <Container>
+        <div class="scroll-reveal mb-12">
+          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">My Approach</p>
+          <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
+            How I think about building for the web.
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-12">
+          <div
+            v-for="(val, i) in values"
+            :key="val.title"
+            class="scroll-reveal space-y-4"
+            :style="`transition-delay: ${i * 100}ms`"
+          >
+            <span class="font-mono text-xs font-bold tracking-[0.2em] text-accent uppercase">
+              {{ val.number }}
             </span>
+            <p class="text-2xl font-semibold text-ink-950">{{ val.title }}</p>
+            <p class="text-sm leading-relaxed text-ink-500">{{ val.description }}</p>
           </div>
         </div>
-      </div>
-    </Container>
-  </section>
+      </Container>
+    </section>
+
+    <!-- ======================== SKILLS ======================== -->
+    <section class="border-t border-ink-200/60 py-20 sm:py-24">
+      <Container>
+        <div class="scroll-reveal mb-10">
+          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">Toolkit</p>
+          <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
+            Technologies I work with.
+          </h2>
+        </div>
+
+        <div class="grid gap-8 sm:grid-cols-3">
+          <div
+            v-for="(group, i) in skillGroups"
+            :key="group.label"
+            class="scroll-reveal rounded-2xl border border-ink-200/60 bg-surface-raised p-6"
+            :style="`transition-delay: ${i * 100}ms`"
+          >
+            <h3 class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent">
+              {{ group.label }}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="skill in group.skills"
+                :key="skill"
+                class="rounded-full bg-surface-sunken px-3 py-1.5 text-sm text-ink-700"
+              >
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- ======================== CTA ======================== -->
+    <section class="bg-ink-950 py-24 sm:py-32">
+      <Container>
+        <div class="text-center scroll-reveal">
+          <h2 class="font-display text-3xl tracking-tight text-white sm:text-4xl lg:text-5xl">
+            Let's build something together
+          </h2>
+          <p class="mx-auto mt-6 max-w-xl text-lg text-ink-400">
+            Currently open to freelance work and full-time opportunities.
+          </p>
+          <div class="mt-10">
+            <Button :to="{ name: 'contact' }" size="lg">Get in Touch</Button>
+          </div>
+        </div>
+      </Container>
+    </section>
   </div>
 </template>
+
+<style scoped>
+.glass-badge {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-d1 {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+.animate-float-d2 {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
+.animate-float-d3 {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 4.5s;
+}
+</style>
