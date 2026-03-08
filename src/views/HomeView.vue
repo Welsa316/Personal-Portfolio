@@ -218,11 +218,11 @@ onMounted(() => {
               @click="setActive(i)"
             >
               <!-- Active: big prominent image -->
-              <div v-if="activeProject === i" class="group relative h-full overflow-hidden rounded-lg">
+              <div v-if="activeProject === i" class="group relative h-full overflow-hidden rounded-lg bg-surface-sunken">
                 <img
                   :src="project.image"
                   :alt="project.title"
-                  class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  class="h-full w-full object-contain p-12 transition-transform duration-700 group-hover:scale-105"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <a
@@ -297,7 +297,7 @@ onMounted(() => {
               <img
                 :src="featured[activeProject].image"
                 :alt="featured[activeProject].title"
-                class="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                class="h-full w-full object-contain p-10 transition-transform duration-700 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <span class="text-white font-semibold text-sm flex items-center gap-2">
