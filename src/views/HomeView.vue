@@ -97,12 +97,12 @@ onMounted(() => {
       <!-- Portrait: fills right side, no mask (transparent bg image) -->
       <div
         ref="portraitRef"
-        class="hero-animate absolute right-0 top-0 h-full w-[75vw] sm:w-[60vw] md:w-[50vw] lg:w-[45vw] z-10 flex items-end justify-center"
+        class="hero-animate absolute right-0 top-0 h-full w-[75vw] sm:w-[60vw] md:w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center"
       >
         <img
           :src="portraitUrl"
           alt="Walid Elsayed Portrait"
-          class="portrait-hover h-[85%] w-auto max-w-none object-cover object-top"
+          class="h-[85%] w-auto max-w-none object-cover object-top"
         />
       </div>
 
