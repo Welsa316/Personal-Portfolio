@@ -28,6 +28,18 @@ const categoryLabels: Record<string, string> = {
   other: 'Other',
 }
 
+// SVG icon paths for each project (used instead of numbers in the carousel)
+const projectIcons: Record<string, string> = {
+  'ok-ice-cream':
+    'M12 2C10.34 2 9 3.34 9 5c0 .28.04.55.1.8C7.29 6.47 6 8.27 6 10.5c0 .5.07 1 .2 1.46L5 22h14l-1.2-10.04c.13-.46.2-.96.2-1.46 0-2.23-1.29-4.03-3.1-4.7.06-.25.1-.52.1-.8 0-1.66-1.34-3-3-3zM10 5c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm-2.8 7.5c0-1.66.84-3.12 2.1-3.96-.43.3-.8.68-1.1 1.12-.3.44-.5.94-.6 1.48-.06.28-.1.58-.1.86h1c0-1.34.76-2.5 1.87-3.06A3.5 3.5 0 0114 11h1c0-.28-.04-.58-.1-.86-.1-.54-.3-1.04-.6-1.48-.3-.44-.67-.82-1.1-1.12 1.26.84 2.1 2.3 2.1 3.96 0 .34-.04.66-.1.96L16.3 20H7.7l1.1-7.54c-.06-.3-.1-.62-.1-.96z',
+  'ai-task-planner':
+    'M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1.07A7.001 7.001 0 0 1 8 18H7a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 3-5.75V5.73A2.002 2.002 0 0 1 12 2zm-2 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm4 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z',
+  'design-system-kit':
+    'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.38 0 2.5-1.12 2.5-2.5 0-.61-.23-1.2-.64-1.67-.08-.1-.13-.21-.13-.33 0-.28.22-.5.5-.5H16c3.31 0 6-2.69 6-6 0-4.96-4.48-9-10-9zM6.5 13a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3-4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z',
+  'portfolio-v2':
+    'M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z',
+}
+
 const features = [
   {
     number: '01',
@@ -196,20 +208,20 @@ onMounted(() => {
     </section>
 
     <!-- ======================== FEATURED PROJECTS ======================== -->
-    <section class="py-24 sm:py-32 border-t border-ink-200/60">
+    <section class="py-32 sm:py-40 border-t border-ink-200/60">
       <div class="px-6 md:px-10 lg:px-16 max-w-[1400px] mx-auto">
-        <!-- Editorial section header -->
-        <div class="scroll-reveal mb-4">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">Selected Work</p>
-          <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
-            Featured Projects
+        <!-- Section header — significantly bigger -->
+        <div class="scroll-reveal mb-6">
+          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">Selected Work</p>
+          <h2 class="font-display text-5xl sm:text-7xl lg:text-8xl tracking-tight text-ink-950 leading-[0.9]">
+            Featured<br />Projects
           </h2>
         </div>
-        <div class="editorial-divider scroll-reveal mt-6 mb-16"></div>
+        <div class="editorial-divider scroll-reveal mt-8 mb-20"></div>
 
-        <!-- Desktop: ARCHITECH-style interactive carousel -->
-        <div class="hidden lg:block scroll-reveal" style="min-height: 560px">
-          <div class="flex items-end gap-4" style="height: 480px">
+        <!-- Desktop: ARCHITECH-style interactive carousel with icons -->
+        <div class="hidden lg:block scroll-reveal" style="min-height: 720px">
+          <div class="flex items-end gap-4" style="height: 640px">
             <div
               v-for="(project, i) in featured"
               :key="project.id"
@@ -238,25 +250,25 @@ onMounted(() => {
                     </svg>
                   </a>
                 </div>
-                <!-- Large number overlay on image -->
+                <!-- Icon watermark overlay on active image -->
                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <span class="font-hero text-[10rem] text-white/20 leading-none select-none">
-                    {{ i + 1 }}
-                  </span>
+                  <svg class="w-40 h-40 text-white/15" viewBox="0 0 24 24" fill="currentColor">
+                    <path :d="projectIcons[project.id]" />
+                  </svg>
                 </div>
               </div>
 
-              <!-- Inactive: large number only -->
+              <!-- Inactive: large icon -->
               <div v-else class="group flex items-center justify-center h-full">
-                <span class="font-hero text-[8rem] xl:text-[10rem] text-ink-200 group-hover:text-ink-400 transition-colors duration-300 leading-none select-none">
-                  {{ i + 1 }}
-                </span>
+                <svg class="w-24 h-24 xl:w-32 xl:h-32 text-ink-200 group-hover:text-ink-400 transition-colors duration-300" viewBox="0 0 24 24" fill="currentColor">
+                  <path :d="projectIcons[project.id]" />
+                </svg>
               </div>
             </div>
           </div>
 
           <!-- Bottom row: titles + arrows for all items -->
-          <div class="flex gap-4 mt-6">
+          <div class="flex gap-4 mt-8">
             <div
               v-for="(project, i) in featured"
               :key="'info-' + project.id"
@@ -284,7 +296,7 @@ onMounted(() => {
         <!-- Mobile/tablet carousel -->
         <div class="lg:hidden scroll-reveal">
           <div class="group">
-            <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-sunken">
+            <div class="relative aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken">
               <img
                 :src="featured[activeProject].image"
                 :alt="featured[activeProject].title"
@@ -298,11 +310,11 @@ onMounted(() => {
                   </svg>
                 </span>
               </div>
-              <!-- Large number overlay -->
+              <!-- Icon watermark overlay on mobile -->
               <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <span class="font-hero text-8xl text-white/15 leading-none select-none">
-                  {{ activeProject + 1 }}
-                </span>
+                <svg class="w-24 h-24 text-white/10" viewBox="0 0 24 24" fill="currentColor">
+                  <path :d="projectIcons[featured[activeProject].id]" />
+                </svg>
               </div>
             </div>
             <div class="mt-4">
