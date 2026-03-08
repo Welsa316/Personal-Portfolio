@@ -61,7 +61,7 @@ onMounted(() => {
           <img
             src="/AboutPortrait.jpg"
             alt="Walid Elsayed"
-            class="w-[500px] md:w-[720px] lg:w-[860px] object-contain drop-shadow-2xl"
+            class="w-[500px] md:w-[720px] lg:w-[860px] max-h-[400px] md:max-h-[550px] lg:max-h-[650px] object-contain drop-shadow-2xl"
           />
         </div>
 
