@@ -13,8 +13,8 @@ defineProps<{
       v-for="(project, i) in projects"
       :key="project.id"
       :project="project"
-      class="opacity-0 animate-fade-up"
-      :class="`stagger-${i + 1}`"
+      class="scroll-reveal"
+      :style="`transition-delay: ${i * 100}ms`"
     />
   </div>
 </template>

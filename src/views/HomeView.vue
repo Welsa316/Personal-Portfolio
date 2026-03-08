@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
 import ProjectGrid from '@/components/projects/ProjectGrid.vue'
@@ -33,115 +34,192 @@ const stats = [
   { label: 'Happy Clients', value: '8' },
 ]
 
-const portraitUrl = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=face'
+const portraitUrl =
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=1600&fit=crop&crop=face'
+
+// Template refs for staggered hero animations
+const sideTextRef = ref<HTMLElement | null>(null)
+const statsRef = ref<HTMLElement | null>(null)
+const roleRef = ref<HTMLElement | null>(null)
+const nameRef = ref<HTMLElement | null>(null)
+const portraitRef = ref<HTMLElement | null>(null)
+const ctaRef = ref<HTMLElement | null>(null)
+const scrollRef = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+  // Staggered hero reveal with editorial timing
+  const reveals = [
+    { el: statsRef, delay: 100 },
+    { el: roleRef, delay: 200 },
+    { el: nameRef, delay: 350 },
+    { el: portraitRef, delay: 500 },
+    { el: ctaRef, delay: 650 },
+    { el: sideTextRef, delay: 400 },
+    { el: scrollRef, delay: 800 },
+  ]
+
+  reveals.forEach(({ el, delay }) => {
+    setTimeout(() => {
+      if (el.value) el.value.classList.add('revealed')
+    }, delay)
+  })
+
+  // IntersectionObserver for below-fold scroll animations
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+
+  document.querySelectorAll('.scroll-reveal').forEach((el) => {
+    observer.observe(el)
+  })
+})
 </script>
 
 <template>
   <div>
     <!-- ======================== HERO ======================== -->
-    <section class="relative min-h-screen overflow-hidden bg-ink-950 flex items-center">
-      <!-- Massive background typography -->
-      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <h1 class="massive-text text-ink-800/10 whitespace-nowrap font-display">
-          WALID
-        </h1>
-      </div>
+    <section class="relative min-h-screen overflow-hidden bg-surface flex flex-col justify-center">
 
       <!-- Vertical side text -->
-      <div class="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-6 z-10">
-        <span class="vertical-text text-ink-500 font-mono text-[10px] tracking-[0.3em]">
-          Developer &amp; Designer / 2024
+      <div
+        ref="sideTextRef"
+        class="hero-animate absolute left-6 md:left-10 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-6 z-10"
+      >
+        <span class="vertical-text text-ink-400 font-mono text-[10px] tracking-[0.3em]">
+          Portfolio 2024
         </span>
-        <div class="w-px h-24 bg-ink-700/50"></div>
+        <div class="w-px h-24 bg-ink-300/50"></div>
       </div>
 
-      <!-- Main hero content -->
-      <Container class="relative z-20 py-32 lg:py-0">
-        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-0">
-          <!-- Left: Text content -->
-          <div class="max-w-xl">
-            <p class="mb-4 font-mono text-xs tracking-[0.25em] text-accent uppercase opacity-0 animate-fade-up">
-              Hello, I'm
-            </p>
-            <h2 class="font-display text-5xl leading-tight tracking-tight text-white opacity-0 animate-fade-up stagger-1 sm:text-6xl lg:text-7xl">
-              Walid Elsayed
-            </h2>
-            <p class="mt-6 max-w-md text-lg leading-relaxed text-ink-400 opacity-0 animate-fade-up stagger-2">
-              A web developer who builds fast, beautiful interfaces and leverages
-              AI to ship smarter. Currently open to new opportunities.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-4 opacity-0 animate-fade-up stagger-3">
-              <Button :to="{ name: 'projects' }" size="lg">View My Work</Button>
-              <Button :to="{ name: 'contact' }" variant="secondary" size="lg">Get in Touch</Button>
-            </div>
-
-            <!-- Stats -->
-            <div class="mt-12 flex gap-10 opacity-0 animate-fade-up stagger-4">
-              <div v-for="stat in stats" :key="stat.label" class="text-left">
-                <span class="block font-display text-2xl text-white tabular-nums">{{ stat.value }}</span>
-                <span class="text-[9px] uppercase tracking-[0.2em] text-ink-500 font-mono">{{ stat.label }}</span>
-              </div>
+      <!-- Stats row -->
+      <div class="relative z-20 w-full">
+        <Container>
+          <div
+            ref="statsRef"
+            class="hero-animate pt-32 lg:pt-40 flex flex-wrap gap-8 md:gap-12"
+          >
+            <div v-for="stat in stats" :key="stat.label" class="text-left">
+              <span class="block font-display text-3xl md:text-4xl text-ink-950 tabular-nums">
+                {{ stat.value }}
+              </span>
+              <span class="text-[9px] uppercase tracking-[0.2em] text-ink-500 font-mono">
+                {{ stat.label }}
+              </span>
             </div>
           </div>
+        </Container>
+      </div>
 
-          <!-- Right: Portrait -->
-          <div class="hidden lg:block absolute right-[5%] top-1/2 -translate-y-1/2 w-[380px] xl:w-[440px] z-30 opacity-0 animate-fade-up stagger-5">
+      <!-- Role description -->
+      <div class="relative z-20">
+        <Container>
+          <p
+            ref="roleRef"
+            class="hero-animate mt-6 font-display text-lg md:text-xl italic text-ink-500"
+          >
+            Crafting high-end digital experiences for the modern web.
+          </p>
+        </Container>
+      </div>
+
+      <!-- Massive name + portrait overlap -->
+      <div class="relative z-10 mt-4">
+        <div class="relative">
+          <!-- Massive stacked name -->
+          <div class="px-6 md:px-10">
+            <h1
+              ref="nameRef"
+              class="hero-animate massive-text text-ink-950 font-display select-none leading-[0.85]"
+            >
+              <span class="block">WALID</span>
+              <span class="block">ELSAYED</span>
+            </h1>
+          </div>
+
+          <!-- Portrait overlapping text from the right -->
+          <div
+            ref="portraitRef"
+            class="hero-animate absolute right-[3%] md:right-[5%] xl:right-[10%] bottom-0 translate-y-[10%] w-[65vw] sm:w-[50vw] md:w-[42vw] lg:w-[38vw] max-w-[580px] z-20"
+          >
             <div class="portrait-glow">
               <img
                 :src="portraitUrl"
                 alt="Walid Elsayed Portrait"
-                class="portrait-hover w-full h-auto rounded-sm"
-                style="filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));"
+                class="portrait-hover w-full h-auto"
+                style="filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.15));"
               />
             </div>
-            <!-- Decorative label -->
-            <div class="absolute -left-14 bottom-1/4 vertical-text text-accent font-bold text-[10px] tracking-[0.3em] hidden xl:block">
+            <!-- Decorative vertical accent -->
+            <div class="absolute -left-10 xl:-left-14 bottom-1/4 vertical-text text-accent font-bold text-[10px] tracking-[0.3em] hidden lg:block">
               ELITE DEVELOPER
             </div>
           </div>
         </div>
-      </Container>
+      </div>
+
+      <!-- CTA buttons (above portrait z-index) -->
+      <div class="relative z-30">
+        <Container>
+          <div ref="ctaRef" class="hero-animate mt-8 flex flex-wrap gap-4">
+            <Button :to="{ name: 'projects' }" size="lg">View My Work</Button>
+            <Button :to="{ name: 'contact' }" variant="secondary" size="lg">Get in Touch</Button>
+          </div>
+        </Container>
+      </div>
 
       <!-- Scroll indicator -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
+      <div
+        ref="scrollRef"
+        class="hero-animate absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
+      >
         <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll to explore</span>
-        <svg class="w-4 h-4 text-ink-500 scroll-indicator" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7" />
-        </svg>
+        <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
       </div>
     </section>
 
     <!-- ======================== WHAT I DO ======================== -->
-    <section class="bg-surface py-24 sm:py-32">
+    <section class="bg-surface-sunken py-24 sm:py-32">
       <Container>
         <!-- Editorial section header -->
-        <div class="mb-4">
+        <div class="scroll-reveal mb-4">
           <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">What I Do</p>
           <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
             Focused on craft, speed, and<br class="hidden sm:block" /> meaningful technology.
           </h2>
         </div>
 
-        <div class="editorial-divider mt-8 mb-0"></div>
+        <div class="editorial-divider scroll-reveal mt-8 mb-0"></div>
 
         <!-- Editorial feature grid -->
         <div class="grid sm:grid-cols-3">
           <div
             v-for="(feat, i) in features"
             :key="feat.title"
-            class="px-0 sm:px-8 py-10 opacity-0 animate-fade-up"
+            class="group scroll-reveal px-0 sm:px-8 py-10 rounded-xl transition-all duration-300 hover:bg-surface-raised hover:shadow-md"
             :class="[
-              `stagger-${i + 1}`,
-              i === 0 ? 'sm:pl-0' : '',
-              i === features.length - 1 ? 'sm:pr-0' : '',
+              i === 0 ? 'sm:pl-4' : '',
+              i === features.length - 1 ? 'sm:pr-4' : '',
               i < features.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-ink-200/60' : ''
             ]"
+            :style="`transition-delay: ${i * 100}ms`"
           >
-            <span class="font-display text-6xl sm:text-7xl text-ink-200/80 leading-none">
+            <span class="font-display text-6xl sm:text-7xl text-accent/30 leading-none transition-colors duration-300 group-hover:text-accent/60">
               {{ feat.number }}
             </span>
-            <h3 class="mt-4 font-display text-xl text-ink-950">{{ feat.title }}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink-500">{{ feat.description }}</p>
+            <h3 class="mt-4 font-display text-xl text-ink-950 transition-colors duration-300 group-hover:text-accent-dark">
+              {{ feat.title }}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-500 transition-colors duration-300 group-hover:text-ink-700">
+              {{ feat.description }}
+            </p>
           </div>
         </div>
       </Container>
@@ -151,17 +229,17 @@ const portraitUrl = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2
     <section class="py-24 sm:py-32 border-t border-ink-200/60">
       <Container>
         <!-- Editorial section header -->
-        <div class="mb-4">
+        <div class="scroll-reveal mb-4">
           <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">Selected Work</p>
           <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
             Featured Projects
           </h2>
         </div>
-        <div class="editorial-divider mt-6 mb-12"></div>
+        <div class="editorial-divider scroll-reveal mt-6 mb-12"></div>
 
         <ProjectGrid :projects="featured" />
 
-        <div class="mt-12">
+        <div class="scroll-reveal mt-12">
           <Button :to="{ name: 'projects' }" variant="secondary">
             See All Projects
           </Button>
@@ -173,15 +251,17 @@ const portraitUrl = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2
     <section class="bg-ink-950 py-28 sm:py-36">
       <Container>
         <div class="text-center">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">Get in Touch</p>
-          <h2 class="font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <p class="scroll-reveal font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">
+            Get in Touch
+          </p>
+          <h2 class="scroll-reveal font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
             Let's build something together
           </h2>
-          <p class="mx-auto mt-6 max-w-2xl text-lg text-ink-400 sm:text-xl">
+          <p class="scroll-reveal mx-auto mt-6 max-w-2xl text-lg text-ink-400 sm:text-xl" style="transition-delay: 100ms">
             I'm currently available for freelance work and full-time roles.
             If you have a project in mind, let's talk.
           </p>
-          <div class="mt-10">
+          <div class="scroll-reveal mt-10" style="transition-delay: 200ms">
             <Button :to="{ name: 'contact' }" size="lg">Start a Conversation</Button>
           </div>
         </div>
