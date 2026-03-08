@@ -17,28 +17,14 @@ export const projects: Project[] = [
     id: 'ok-ice-cream',
     title: 'OK Ice Cream Shop',
     description:
-        'A production-ready marketing website for a local ice cream shop, focused on brand presentation, clear navigation, and mobile-first user experience. Designed to showcase products, location details, and drive in-store traffic through clean layout and optimized performance.',
+      'A production-ready marketing website for a local ice cream shop, focused on brand presentation, clear navigation, and mobile-first user experience. Designed to showcase products, location details, and drive in-store traffic through clean layout and optimized performance.',
     tags: ['HTML', 'CSS', 'Bootstrap', 'Responsive Design'],
     category: 'web',
     links: {
       github: 'https://github.com/Ax3lJD/OKIcecreamshop',
       demo: 'https://okicecreamshop.com/',
     },
-    image: '/OKIceCream.svg',
-    featured: true,
-  },
-  {
-    id: 'ai-task-planner',
-    title: 'AI Task Planner',
-    description:
-      'An intelligent task management app powered by LLM agents that automatically breaks down goals into actionable steps, prioritizes work, and adapts to your workflow.',
-    tags: ['Vue.js', 'TypeScript', 'OpenAI', 'Tailwind CSS'],
-    category: 'ai',
-    links: {
-      github: '#',
-      demo: '#',
-    },
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=1000&fit=crop',
+    image: '/OKIceCream.jpg',
     featured: true,
   },
   {
@@ -51,21 +37,33 @@ export const projects: Project[] = [
     links: {
       demo: 'https://yamihibachipoboys.com/home',
     },
-    image: '/YamiHibachi.svg',
+    image: '/YamiHibachi.jpg',
     featured: true,
   },
   {
-    id: 'portfolio-v2',
-    title: 'Portfolio Website',
+    id: 'daris',
+    title: 'Daris',
     description:
-      'This very portfolio — an editorial-style personal site built with Vue, Tailwind, and TypeScript. Designed for speed, clarity, and visual impact.',
-    tags: ['Vue.js', 'Tailwind CSS', 'TypeScript', 'Vite'],
+      'An online education platform dedicated to teaching Islamic studies and Quran. Features structured coursework, interactive lessons, and progress tracking to support students in their learning journey.',
+    tags: ['Vue.js', 'Bootstrap', 'JavaScript', 'Responsive Design'],
     category: 'web',
     links: {
-      github: '#',
       demo: '#',
     },
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=1000&fit=crop',
+    image: '/Daris.jpg',
+    featured: true,
+  },
+  {
+    id: 'campos-munos-law',
+    title: 'Campos Munos Law',
+    description:
+      'A bilingual website for an immigration law firm in the Greater New Orleans area. Designed to build client trust with a professional, approachable layout, clear service descriptions, and easy contact access in both English and Spanish.',
+    tags: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+    category: 'web',
+    links: {
+      demo: '#',
+    },
+    image: '/CamposMunos.jpg',
     featured: true,
   },
 ]
