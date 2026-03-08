@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import SectionHeader from '@/components/ui/SectionHeader.vue'
 import ProjectGrid from '@/components/projects/ProjectGrid.vue'
@@ -14,6 +14,21 @@ const filters = [
 const filtered = computed(() => {
   if (activeFilter.value === 'all') return projects
   return projects.filter((p) => p.category === activeFilter.value)
+})
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.1 }
+  )
+  document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el))
 })
 </script>
 
