@@ -27,6 +27,47 @@ export const projects: Project[] = [
     image: '/OKIceCream.png',
     featured: true,
   },
+  {
+    id: 'ai-task-planner',
+    title: 'AI Task Planner',
+    description:
+      'An intelligent task management app powered by LLM agents that automatically breaks down goals into actionable steps, prioritizes work, and adapts to your workflow.',
+    tags: ['Vue.js', 'TypeScript', 'OpenAI', 'Tailwind CSS'],
+    category: 'ai',
+    links: {
+      github: '#',
+      demo: '#',
+    },
+    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=1000&fit=crop',
+    featured: true,
+  },
+  {
+    id: 'design-system-kit',
+    title: 'Design System Kit',
+    description:
+      'A comprehensive component library with design tokens, accessible primitives, and Storybook documentation for consistent UI across products.',
+    tags: ['React', 'Storybook', 'Figma', 'CSS Variables'],
+    category: 'web',
+    links: {
+      github: '#',
+    },
+    image: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&h=1000&fit=crop',
+    featured: true,
+  },
+  {
+    id: 'portfolio-v2',
+    title: 'Portfolio Website',
+    description:
+      'This very portfolio — an editorial-style personal site built with Vue, Tailwind, and TypeScript. Designed for speed, clarity, and visual impact.',
+    tags: ['Vue.js', 'Tailwind CSS', 'TypeScript', 'Vite'],
+    category: 'web',
+    links: {
+      github: '#',
+      demo: '#',
+    },
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=1000&fit=crop',
+    featured: true,
+  },
 ]
 
 export function getFeaturedProjects(): Project[] {

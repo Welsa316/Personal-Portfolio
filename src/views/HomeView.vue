@@ -2,10 +2,30 @@
 import { ref, onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
-import ProjectGrid from '@/components/projects/ProjectGrid.vue'
 import { getFeaturedProjects } from '@/data/projects'
 
 const featured = getFeaturedProjects()
+
+// Project carousel state
+const activeProject = ref(0)
+
+function setActive(index: number) {
+  activeProject.value = index
+}
+
+function nextProject() {
+  activeProject.value = (activeProject.value + 1) % featured.length
+}
+
+function prevProject() {
+  activeProject.value = (activeProject.value - 1 + featured.length) % featured.length
+}
+
+const categoryLabels: Record<string, string> = {
+  web: 'Web Development',
+  ai: 'AI / Machine Learning',
+  other: 'Other',
+}
 
 const features = [
   {
@@ -173,7 +193,7 @@ onMounted(() => {
 
     <!-- ======================== FEATURED PROJECTS ======================== -->
     <section class="py-24 sm:py-32 border-t border-ink-200/60">
-      <Container>
+      <div class="px-6 md:px-10 lg:px-16 max-w-[1400px] mx-auto">
         <!-- Editorial section header -->
         <div class="scroll-reveal mb-4">
           <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">Selected Work</p>
@@ -183,14 +203,157 @@ onMounted(() => {
         </div>
         <div class="editorial-divider scroll-reveal mt-6 mb-12"></div>
 
-        <ProjectGrid :projects="featured" />
+        <!-- Interactive carousel: desktop -->
+        <div class="hidden lg:flex items-end gap-6 scroll-reveal" style="min-height: 520px">
+          <div
+            v-for="(project, i) in featured"
+            :key="project.id"
+            class="transition-all duration-500 ease-in-out cursor-pointer"
+            :class="activeProject === i ? 'flex-[2.5]' : 'flex-[1]'"
+            @click="setActive(i)"
+          >
+            <!-- Active: expanded card with image -->
+            <div v-if="activeProject === i" class="group h-full">
+              <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-sunken">
+                <img
+                  :src="project.image"
+                  :alt="project.title"
+                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <a
+                    v-if="project.links.demo && project.links.demo !== '#'"
+                    :href="project.links.demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white font-semibold text-sm flex items-center gap-2"
+                  >
+                    View Project
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </a>
+                  <span v-else class="text-white font-semibold text-sm flex items-center gap-2">
+                    View Project
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">
+                  {{ categoryLabels[project.category] }}
+                </span>
+                <h3 class="mt-1 font-display text-xl text-ink-950 group-hover:underline underline-offset-4 decoration-1 transition-all">
+                  {{ project.title }}
+                </h3>
+              </div>
+            </div>
 
-        <div class="scroll-reveal mt-12">
+            <!-- Inactive: large number + title -->
+            <div v-else class="flex flex-col justify-end h-full pb-0 group">
+              <span class="font-display text-8xl xl:text-9xl text-ink-200 leading-none transition-colors duration-300 group-hover:text-ink-400 select-none">
+                {{ i + 1 }}
+              </span>
+              <div class="mt-3 border-t border-ink-200/60 pt-3">
+                <span class="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">
+                  {{ categoryLabels[project.category] }}
+                </span>
+                <h3 class="mt-1 text-base font-semibold text-ink-700 group-hover:text-ink-950 transition-colors">
+                  {{ project.title }}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile/tablet carousel -->
+        <div class="lg:hidden scroll-reveal">
+          <div class="group">
+            <div class="relative aspect-[3/4] overflow-hidden rounded-lg bg-surface-sunken">
+              <img
+                :src="featured[activeProject].image"
+                :alt="featured[activeProject].title"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <span class="text-white font-semibold text-sm flex items-center gap-2">
+                  View Project
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </span>
+              </div>
+              <!-- Large number overlay -->
+              <div class="absolute bottom-4 right-4 font-display text-7xl text-white/20 leading-none select-none">
+                {{ activeProject + 1 }}
+              </div>
+            </div>
+            <div class="mt-4">
+              <span class="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">
+                {{ categoryLabels[featured[activeProject].category] }}
+              </span>
+              <h3 class="mt-1 font-display text-xl text-ink-950 group-hover:underline underline-offset-4 decoration-1">
+                {{ featured[activeProject].title }}
+              </h3>
+              <p class="mt-2 text-sm text-ink-500 leading-relaxed">
+                {{ featured[activeProject].description }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Mobile navigation -->
+          <div class="flex items-center justify-between mt-8">
+            <div class="flex gap-2">
+              <button
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+                @click="prevProject"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
+                </svg>
+              </button>
+              <button
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+                @click="nextProject"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M19 12l-5-5M19 12l-5 5" />
+                </svg>
+              </button>
+            </div>
+            <span class="font-mono text-xs text-ink-400">
+              {{ String(activeProject + 1).padStart(2, '0') }} / {{ String(featured.length).padStart(2, '0') }}
+            </span>
+          </div>
+        </div>
+
+        <!-- View all + nav arrows -->
+        <div class="scroll-reveal mt-12 flex items-center justify-between" style="transition-delay: 100ms">
           <Button :to="{ name: 'projects' }" variant="secondary">
             See All Projects
           </Button>
+          <div class="hidden lg:flex gap-2">
+            <button
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+              @click="prevProject"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
+              </svg>
+            </button>
+            <button
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+              @click="nextProject"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M19 12l-5-5M19 12l-5 5" />
+              </svg>
+            </button>
+          </div>
         </div>
-      </Container>
+      </div>
     </section>
 
     <!-- ======================== CTA ======================== -->
