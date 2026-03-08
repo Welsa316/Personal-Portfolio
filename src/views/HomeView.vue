@@ -33,21 +33,19 @@ const portraitUrl =
 
 // Template refs for staggered hero animations
 const sideTextRef = ref<HTMLElement | null>(null)
-const roleRef = ref<HTMLElement | null>(null)
 const nameRef = ref<HTMLElement | null>(null)
+const subtitleRef = ref<HTMLElement | null>(null)
 const portraitRef = ref<HTMLElement | null>(null)
-const ctaRef = ref<HTMLElement | null>(null)
 const scrollRef = ref<HTMLElement | null>(null)
 
 onMounted(() => {
   // Staggered hero reveal with editorial timing
   const reveals = [
-    { el: roleRef, delay: 100 },
-    { el: nameRef, delay: 250 },
-    { el: portraitRef, delay: 400 },
-    { el: ctaRef, delay: 550 },
+    { el: nameRef, delay: 150 },
+    { el: portraitRef, delay: 300 },
+    { el: subtitleRef, delay: 450 },
     { el: sideTextRef, delay: 350 },
-    { el: scrollRef, delay: 700 },
+    { el: scrollRef, delay: 600 },
   ]
 
   reveals.forEach(({ el, delay }) => {
@@ -78,7 +76,7 @@ onMounted(() => {
 <template>
   <div>
     <!-- ======================== HERO ======================== -->
-    <section class="relative min-h-screen overflow-hidden bg-surface flex flex-col justify-center">
+    <section class="relative min-h-screen overflow-hidden bg-surface">
 
       <!-- Vertical side text -->
       <div
@@ -91,54 +89,36 @@ onMounted(() => {
         <div class="w-px h-24 bg-ink-300/50"></div>
       </div>
 
-      <!-- Role description -->
-      <div class="relative z-20">
-        <Container>
-          <p
-            ref="roleRef"
-            class="hero-animate pt-32 lg:pt-40 font-display text-lg md:text-xl italic text-ink-500"
-          >
-            Crafting high-end digital experiences for the modern web.
+      <!-- Portrait: fills right side, seamlessly blended -->
+      <div
+        ref="portraitRef"
+        class="hero-animate absolute right-0 top-0 h-full w-[75vw] sm:w-[60vw] md:w-[50vw] lg:w-[45vw] z-10 flex items-end justify-center"
+      >
+        <img
+          :src="portraitUrl"
+          alt="Walid Elsayed Portrait"
+          class="portrait-hover portrait-seamless h-[85%] w-auto max-w-none object-cover object-top"
+        />
+      </div>
+
+      <!-- Name + subtitle at bottom-left -->
+      <div class="absolute bottom-20 sm:bottom-24 left-0 z-20 px-6 md:px-10">
+        <h1
+          ref="nameRef"
+          class="hero-animate massive-text font-display select-none leading-[0.85]"
+        >
+          <span class="block text-ink-950">WALID</span>
+          <span class="block text-accent">ELSAYED</span>
+        </h1>
+        <div
+          ref="subtitleRef"
+          class="hero-animate mt-6 flex flex-col sm:flex-row sm:items-center gap-4"
+        >
+          <p class="text-sm md:text-base text-ink-500 font-light">
+            — Web developer &amp; designer
           </p>
-        </Container>
-      </div>
-
-      <!-- Massive name + portrait overlap -->
-      <div class="relative z-10 mt-4">
-        <div class="relative">
-          <!-- Massive stacked name -->
-          <div class="px-6 md:px-10">
-            <h1
-              ref="nameRef"
-              class="hero-animate massive-text font-display select-none leading-[0.85]"
-            >
-              <span class="block text-ink-950">WALID</span>
-              <span class="block text-accent">ELSAYED</span>
-            </h1>
-          </div>
-
-          <!-- Portrait seamlessly integrated into background -->
-          <div
-            ref="portraitRef"
-            class="hero-animate absolute right-[3%] md:right-[5%] xl:right-[10%] bottom-0 translate-y-[10%] w-[65vw] sm:w-[50vw] md:w-[42vw] lg:w-[38vw] max-w-[580px] z-20"
-          >
-            <img
-              :src="portraitUrl"
-              alt="Walid Elsayed Portrait"
-              class="portrait-hover w-full h-auto mix-blend-multiply"
-            />
-          </div>
+          <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
         </div>
-      </div>
-
-      <!-- CTA buttons (above portrait z-index) -->
-      <div class="relative z-30">
-        <Container>
-          <div ref="ctaRef" class="hero-animate mt-8 flex flex-wrap gap-4">
-            <Button :to="{ name: 'projects' }" size="lg">View My Work</Button>
-            <Button :to="{ name: 'contact' }" variant="secondary" size="lg">Get in Touch</Button>
-          </div>
-        </Container>
       </div>
 
       <!-- Scroll indicator -->
@@ -146,7 +126,7 @@ onMounted(() => {
         ref="scrollRef"
         class="hero-animate absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
       >
-        <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll to explore</span>
+        <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
         <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
       </div>
     </section>
