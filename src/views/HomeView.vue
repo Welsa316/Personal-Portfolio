@@ -118,7 +118,6 @@ onMounted(() => {
           :src="portraitUrl"
           alt="Walid Elsayed Portrait"
           class="h-[85%] w-auto max-w-none object-cover object-top"
-          style="mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);"
         />
       </div>
 
