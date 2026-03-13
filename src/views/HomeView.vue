@@ -52,7 +52,6 @@ const features = [
 const portraitUrl = '/Headshot.png'
 
 // Template refs for staggered hero animations
-const sideTextRef = ref<HTMLElement | null>(null)
 const nameRef = ref<HTMLElement | null>(null)
 const subtitleRef = ref<HTMLElement | null>(null)
 const portraitRef = ref<HTMLElement | null>(null)
@@ -64,7 +63,6 @@ onMounted(() => {
     { el: nameRef, delay: 150 },
     { el: portraitRef, delay: 300 },
     { el: subtitleRef, delay: 450 },
-    { el: sideTextRef, delay: 350 },
     { el: scrollRef, delay: 600 },
   ]
 
@@ -97,17 +95,6 @@ onMounted(() => {
   <div>
     <!-- ======================== HERO ======================== -->
     <section class="relative min-h-screen overflow-hidden bg-surface">
-
-      <!-- Vertical side text -->
-      <div
-        ref="sideTextRef"
-        class="hero-animate absolute left-6 md:left-10 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-6 z-10"
-      >
-        <span class="vertical-text text-ink-400 font-mono text-[10px] tracking-[0.3em]">
-          Portfolio 2024
-        </span>
-        <div class="w-px h-24 bg-ink-300/50"></div>
-      </div>
 
       <!-- Portrait: fills right side, no mask (transparent bg image) -->
       <div
