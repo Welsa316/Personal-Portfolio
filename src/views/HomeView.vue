@@ -118,6 +118,7 @@ onMounted(() => {
           :src="portraitUrl"
           alt="Walid Elsayed Portrait"
           class="h-[85%] w-auto max-w-none object-cover object-top"
+          style="mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 50%, transparent 100%); -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 50%, transparent 100%);"
         />
       </div>
 
