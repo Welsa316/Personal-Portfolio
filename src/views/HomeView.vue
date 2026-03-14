@@ -51,25 +51,13 @@ const features = [
 
 const portraitUrl = '/Headshot.png'
 
-// Template refs for staggered hero animations
-const nameRef = ref<HTMLElement | null>(null)
-const subtitleRef = ref<HTMLElement | null>(null)
-const portraitRef = ref<HTMLElement | null>(null)
-const scrollRef = ref<HTMLElement | null>(null)
-
 onMounted(() => {
-  // Staggered hero reveal with editorial timing
-  const reveals = [
-    { el: nameRef, delay: 150 },
-    { el: portraitRef, delay: 300 },
-    { el: subtitleRef, delay: 450 },
-    { el: scrollRef, delay: 600 },
-  ]
-
-  reveals.forEach(({ el, delay }) => {
+  // Staggered hero reveal — animate all hero elements in order
+  const heroEls = document.querySelectorAll('.hero-animate')
+  heroEls.forEach((el, i) => {
     setTimeout(() => {
-      if (el.value) el.value.classList.add('revealed')
-    }, delay)
+      el.classList.add('revealed')
+    }, 150 + i * 150)
   })
 
   // IntersectionObserver for below-fold scroll animations
@@ -94,51 +82,92 @@ onMounted(() => {
 <template>
   <div>
     <!-- ======================== HERO ======================== -->
+    <!-- Mobile: stacked layout (portrait + text). md+: overlapping absolute layout -->
     <section class="relative min-h-screen overflow-hidden bg-surface">
 
-      <!-- Portrait: fills right side, no mask (transparent bg image) -->
-      <div
-        ref="portraitRef"
-        class="hero-animate absolute right-0 top-0 h-full w-[50vw] sm:w-[55vw] md:w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center"
-      >
-        <img
-          :src="portraitUrl"
-          alt="Walid Elsayed Portrait"
-          class="h-[85%] w-auto max-w-none object-cover object-top"
-        />
-      </div>
-
-      <!-- Name + subtitle at bottom-left -->
-      <div class="absolute bottom-20 sm:bottom-24 left-0 z-20 px-4 sm:px-6 md:px-10 max-w-[60%] sm:max-w-none">
-        <h1
-          ref="nameRef"
-          class="hero-animate massive-text font-hero select-none leading-[0.85]"
-        >
-          <span class="block text-ink-950">
-            <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
-          </span>
-          <span class="block text-accent">
-            <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
-          </span>
-        </h1>
+      <!-- Mobile hero (stacked) -->
+      <div class="flex flex-col justify-end min-h-screen md:hidden">
+        <!-- Portrait top area -->
         <div
-          ref="subtitleRef"
-          class="hero-animate mt-6 flex flex-col sm:flex-row sm:items-center gap-4"
+          class="hero-animate flex-1 flex items-center justify-center pt-20 px-4"
         >
-          <p class="text-sm md:text-base text-ink-500 font-light">
-            — Web developer &amp; designer
-          </p>
-          <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
+          <img
+            :src="portraitUrl"
+            alt="Walid Elsayed Portrait"
+            class="h-full max-h-[55vh] w-auto object-contain object-top"
+          />
+        </div>
+
+        <!-- Name + subtitle below portrait -->
+        <div class="px-4 pb-20">
+          <h1
+            class="hero-animate massive-text font-hero select-none leading-[0.85]"
+          >
+            <span class="block text-ink-950">
+              <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
+            </span>
+            <span class="block text-accent">
+              <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
+            </span>
+          </h1>
+          <div
+            class="hero-animate mt-4 flex flex-col gap-3"
+          >
+            <p class="text-sm text-ink-500 font-light">
+              — Web developer &amp; designer
+            </p>
+            <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
+          </div>
+        </div>
+
+        <!-- Scroll indicator (mobile) -->
+        <div
+          class="hero-animate absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
+        >
+          <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
+          <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
         </div>
       </div>
 
-      <!-- Scroll indicator -->
-      <div
-        ref="scrollRef"
-        class="hero-animate absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
-      >
-        <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
-        <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
+      <!-- Desktop hero (overlapping absolute layout) -->
+      <div class="hidden md:block">
+        <div
+          class="hero-animate absolute right-0 top-0 h-full w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center"
+        >
+          <img
+            :src="portraitUrl"
+            alt="Walid Elsayed Portrait"
+            class="h-[85%] w-auto max-w-none object-cover object-top"
+          />
+        </div>
+
+        <div class="absolute bottom-24 left-0 z-20 px-10">
+          <h1
+            class="hero-animate massive-text font-hero select-none leading-[0.85]"
+          >
+            <span class="block text-ink-950">
+              <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
+            </span>
+            <span class="block text-accent">
+              <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
+            </span>
+          </h1>
+          <div
+            class="hero-animate mt-6 flex flex-row items-center gap-4"
+          >
+            <p class="text-base text-ink-500 font-light">
+              — Web developer &amp; designer
+            </p>
+            <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
+          </div>
+        </div>
+
+        <div
+          class="hero-animate absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
+        >
+          <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
+          <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
+        </div>
       </div>
     </section>
 
