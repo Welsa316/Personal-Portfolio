@@ -87,12 +87,12 @@ onMounted(() => {
 
       <!-- Mobile hero (portrait as background, text overlay) -->
       <div class="relative min-h-screen md:hidden flex flex-col justify-end">
-        <!-- Portrait filling the background -->
-        <div class="hero-animate absolute inset-0 flex items-center justify-center">
+        <!-- Portrait filling the background, bottom-aligned -->
+        <div class="hero-animate absolute inset-0 flex items-end justify-center">
           <img
             :src="portraitUrl"
             alt="Walid Elsayed Portrait"
-            class="h-[80%] w-auto max-w-none object-cover object-top mt-8"
+            class="h-[85%] w-auto max-w-none object-cover object-top"
           />
         </div>
 
