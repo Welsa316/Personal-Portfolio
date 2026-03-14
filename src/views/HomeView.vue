@@ -49,7 +49,7 @@ const features = [
   },
 ]
 
-const portraitUrl = '/Headshot.png'
+const portraitUrl = '/OvalHeadshot.png'
 
 onMounted(() => {
   // Staggered hero reveal — animate all hero elements in order
