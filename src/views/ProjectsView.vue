@@ -23,12 +23,12 @@ const categoryLabels: Record<string, string> = {
 
 // Repeating asymmetric grid pattern for visual variety
 const gridClasses = [
-  'md:col-span-8 aspect-[16/10]',   // large featured
-  'md:col-span-4 aspect-[3/4]',     // tall vertical
-  'md:col-span-5 aspect-[4/5]',     // medium vertical
-  'md:col-span-7 aspect-square',    // large square
-  'md:col-span-6 aspect-[3/4]',     // medium vertical
-  'md:col-span-6 aspect-video',     // wide horizontal
+  'md:col-span-8 aspect-[4/3] md:aspect-[16/10]',   // large featured
+  'md:col-span-4 aspect-[4/3] md:aspect-[3/4]',     // tall vertical
+  'md:col-span-5 aspect-[4/3] md:aspect-[4/5]',     // medium vertical
+  'md:col-span-7 aspect-[4/3] md:aspect-square',    // large square
+  'md:col-span-6 aspect-[4/3] md:aspect-[3/4]',     // medium vertical
+  'md:col-span-6 aspect-[4/3] md:aspect-video',     // wide horizontal
 ]
 
 // Alternating text sizes for visual hierarchy
