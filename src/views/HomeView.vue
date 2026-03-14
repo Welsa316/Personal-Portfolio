@@ -85,21 +85,22 @@ onMounted(() => {
     <!-- Mobile: stacked layout (portrait + text). md+: overlapping absolute layout -->
     <section class="relative min-h-screen overflow-hidden bg-surface">
 
-      <!-- Mobile hero (stacked) -->
-      <div class="flex flex-col justify-end min-h-screen md:hidden">
-        <!-- Portrait top area -->
-        <div
-          class="hero-animate flex-1 flex items-center justify-center pt-20 px-4"
-        >
+      <!-- Mobile hero (portrait as background, text overlay) -->
+      <div class="relative min-h-screen md:hidden flex flex-col justify-end">
+        <!-- Portrait filling the background -->
+        <div class="hero-animate absolute inset-0 flex items-center justify-center">
           <img
             :src="portraitUrl"
             alt="Walid Elsayed Portrait"
-            class="h-full max-h-[55vh] w-auto object-contain object-top"
+            class="h-[80%] w-auto max-w-none object-cover object-top mt-8"
           />
         </div>
 
-        <!-- Name + subtitle below portrait -->
-        <div class="px-4 pb-20">
+        <!-- Bottom gradient so text is readable -->
+        <div class="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-surface via-surface/90 to-transparent"></div>
+
+        <!-- Text overlay at bottom -->
+        <div class="relative z-20 px-5 pb-20">
           <h1
             class="hero-animate massive-text font-hero select-none leading-[0.85]"
           >
@@ -110,9 +111,7 @@ onMounted(() => {
               <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
             </span>
           </h1>
-          <div
-            class="hero-animate mt-4 flex flex-col gap-3"
-          >
+          <div class="hero-animate mt-4 flex flex-col gap-3">
             <p class="text-sm text-ink-500 font-light">
               — Web developer &amp; designer
             </p>
@@ -120,10 +119,8 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- Scroll indicator (mobile) -->
-        <div
-          class="hero-animate absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
-        >
+        <!-- Scroll indicator -->
+        <div class="hero-animate absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
           <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
           <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
         </div>
