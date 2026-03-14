@@ -66,7 +66,7 @@ onMounted(() => {
         </div>
 
         <!-- Floating badges -->
-        <div class="absolute z-20 top-[15%] left-2 sm:left-0 md:-left-16 animate-float scroll-reveal" style="transition-delay: 200ms">
+        <div class="absolute z-20 top-[55%] sm:top-[40%] md:top-[15%] left-2 sm:left-0 md:-left-16 animate-float scroll-reveal" style="transition-delay: 200ms">
           <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
             <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
               Projects Delivered <span class="font-bold text-sm sm:text-base text-ink-950 ml-1">4+</span>
@@ -74,7 +74,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="absolute z-20 top-[25%] right-2 sm:right-0 md:-right-16 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
+        <div class="absolute z-20 top-[45%] sm:top-[30%] md:top-[25%] right-2 sm:right-0 md:-right-16 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
           <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
             <span class="text-sm sm:text-base">📍</span>
             <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
@@ -83,7 +83,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[30%] left-2 sm:left-0 md:-left-20 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
+        <div class="absolute z-20 bottom-[10%] sm:bottom-[20%] md:bottom-[30%] left-2 sm:left-0 md:-left-20 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
           <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
             <span class="text-sm sm:text-base">🎓</span>
             <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
@@ -92,7 +92,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[22%] right-2 sm:right-0 md:-right-20 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
+        <div class="absolute z-20 bottom-[2%] sm:bottom-[12%] md:bottom-[22%] right-2 sm:right-0 md:-right-20 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
           <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
             <span class="text-sm sm:text-base">⚡</span>
             <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
