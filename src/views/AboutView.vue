@@ -38,7 +38,7 @@ onMounted(() => {
 <template>
   <div>
     <!-- ======================== HERO ======================== -->
-    <section class="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 bg-surface overflow-hidden">
+    <section class="relative min-h-[80vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24 bg-surface overflow-hidden">
       <!-- Header -->
       <div class="text-center mb-12 z-10 scroll-reveal">
         <span class="inline-block px-4 py-1.5 mb-6 font-mono text-xs tracking-[0.2em] text-accent uppercase border border-accent/30 rounded-full bg-accent/5">
@@ -61,12 +61,12 @@ onMounted(() => {
           <img
             src="/AboutPortrait.jpg"
             alt="Walid Elsayed"
-            class="w-[500px] md:w-[720px] lg:w-[860px] max-h-[400px] md:max-h-[550px] lg:max-h-[650px] object-contain drop-shadow-2xl"
+            class="w-full max-w-[500px] md:max-w-none md:w-[720px] lg:w-[860px] max-h-[400px] md:max-h-[550px] lg:max-h-[650px] object-contain drop-shadow-2xl"
           />
         </div>
 
         <!-- Floating badges -->
-        <div class="absolute z-20 top-[15%] -left-4 md:-left-16 animate-float scroll-reveal" style="transition-delay: 200ms">
+        <div class="absolute z-20 top-[15%] left-0 md:-left-16 animate-float scroll-reveal hidden sm:block" style="transition-delay: 200ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <div class="text-xs md:text-sm font-medium text-ink-700">
               Projects Delivered <span class="font-bold text-base text-ink-950 ml-1">4+</span>
@@ -74,7 +74,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="absolute z-20 top-[25%] -right-4 md:-right-16 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
+        <div class="absolute z-20 top-[25%] right-0 md:-right-16 animate-float-d1 scroll-reveal hidden sm:block" style="transition-delay: 350ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <span class="text-base">📍</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
@@ -83,7 +83,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[30%] -left-8 md:-left-20 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
+        <div class="absolute z-20 bottom-[30%] left-0 md:-left-20 animate-float-d2 scroll-reveal hidden sm:block" style="transition-delay: 500ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <span class="text-base">🎓</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
@@ -92,7 +92,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[22%] -right-8 md:-right-20 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
+        <div class="absolute z-20 bottom-[22%] right-0 md:-right-20 animate-float-d3 scroll-reveal hidden sm:block" style="transition-delay: 650ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <span class="text-base">⚡</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">

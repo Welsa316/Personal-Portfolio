@@ -99,7 +99,7 @@ onMounted(() => {
       <!-- Portrait: fills right side, no mask (transparent bg image) -->
       <div
         ref="portraitRef"
-        class="hero-animate absolute right-0 top-0 h-full w-[75vw] sm:w-[60vw] md:w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center"
+        class="hero-animate absolute right-0 top-0 h-full w-[50vw] sm:w-[55vw] md:w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center"
       >
         <img
           :src="portraitUrl"
@@ -109,7 +109,7 @@ onMounted(() => {
       </div>
 
       <!-- Name + subtitle at bottom-left -->
-      <div class="absolute bottom-20 sm:bottom-24 left-0 z-20 px-6 md:px-10">
+      <div class="absolute bottom-20 sm:bottom-24 left-0 z-20 px-4 sm:px-6 md:px-10 max-w-[60%] sm:max-w-none">
         <h1
           ref="nameRef"
           class="hero-animate massive-text font-hero select-none leading-[0.85]"
@@ -183,7 +183,7 @@ onMounted(() => {
     </section>
 
     <!-- ======================== FEATURED PROJECTS ======================== -->
-    <section class="py-32 sm:py-40 border-t border-ink-200/60">
+    <section class="py-20 sm:py-32 lg:py-40 border-t border-ink-200/60">
       <div class="px-6 md:px-10 lg:px-16 max-w-[1400px] mx-auto">
         <!-- Section header — significantly bigger -->
         <div class="scroll-reveal mb-6">
@@ -280,7 +280,7 @@ onMounted(() => {
         <!-- Mobile/tablet carousel -->
         <div class="lg:hidden scroll-reveal">
           <div class="group">
-            <div class="relative aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken">
+            <div class="relative aspect-[3/4] sm:aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken">
               <img
                 :src="featured[activeProject].image"
                 :alt="featured[activeProject].title"
