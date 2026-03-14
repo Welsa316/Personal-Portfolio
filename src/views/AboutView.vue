@@ -66,36 +66,36 @@ onMounted(() => {
         </div>
 
         <!-- Floating badges -->
-        <div class="absolute z-20 top-[15%] left-0 md:-left-16 animate-float scroll-reveal hidden sm:block" style="transition-delay: 200ms">
-          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
-            <div class="text-xs md:text-sm font-medium text-ink-700">
-              Projects Delivered <span class="font-bold text-base text-ink-950 ml-1">4+</span>
+        <div class="absolute z-20 top-[15%] left-2 sm:left-0 md:-left-16 animate-float scroll-reveal" style="transition-delay: 200ms">
+          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
+            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
+              Projects Delivered <span class="font-bold text-sm sm:text-base text-ink-950 ml-1">4+</span>
             </div>
           </div>
         </div>
 
-        <div class="absolute z-20 top-[25%] right-0 md:-right-16 animate-float-d1 scroll-reveal hidden sm:block" style="transition-delay: 350ms">
-          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-base">📍</span>
-            <div class="text-xs md:text-sm font-medium text-ink-700">
+        <div class="absolute z-20 top-[25%] right-2 sm:right-0 md:-right-16 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
+          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-sm sm:text-base">📍</span>
+            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
               Based in <span class="font-bold text-ink-950">New Orleans</span>
             </div>
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[30%] left-0 md:-left-20 animate-float-d2 scroll-reveal hidden sm:block" style="transition-delay: 500ms">
-          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-base">🎓</span>
-            <div class="text-xs md:text-sm font-medium text-ink-700">
+        <div class="absolute z-20 bottom-[30%] left-2 sm:left-0 md:-left-20 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
+          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-sm sm:text-base">🎓</span>
+            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
               <span class="font-bold text-ink-950">CS Student</span>
             </div>
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[22%] right-0 md:-right-20 animate-float-d3 scroll-reveal hidden sm:block" style="transition-delay: 650ms">
-          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-base">⚡</span>
-            <div class="text-xs md:text-sm font-medium text-ink-700">
+        <div class="absolute z-20 bottom-[22%] right-2 sm:right-0 md:-right-20 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
+          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-sm sm:text-base">⚡</span>
+            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
               <span class="font-bold text-ink-950">Full-Stack</span> Focus
             </div>
           </div>
