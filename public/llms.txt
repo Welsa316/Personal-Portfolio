@@ -1,0 +1,54 @@
+# Walid Elsayed — Web Developer & Designer
+
+> Walid Elsayed is a full-stack web developer and designer based in New Orleans, Louisiana. He builds production-grade websites and web applications using Vue 3, React, TypeScript, Tailwind CSS, and Node.js. He works with local businesses and organizations to deliver fast, accessible, brand-aligned digital experiences.
+
+## About
+
+- **Name**: Walid Elsayed
+- **Role**: Full-stack web developer and designer
+- **Location**: New Orleans, Louisiana, USA
+- **Email**: walidelsayed316@gmail.com
+- **GitHub**: https://github.com/Welsa316
+- **Specialties**: Vue 3, React, TypeScript, Tailwind CSS, responsive design, performance optimization, AI-assisted development, design systems
+
+## Services
+
+- Custom website design and development for small businesses
+- Vue.js and React single-page applications
+- Restaurant and hospitality websites with online ordering integration
+- Educational and nonprofit platforms
+- Bilingual websites (English/Spanish, English/Arabic)
+- Performance optimization and Core Web Vitals improvements
+- Migration from legacy stacks (HTML/Bootstrap → modern frameworks)
+
+## Featured Projects
+
+### OK Ice Cream Shop
+- **URL**: https://okicecreamshop.com/
+- **Type**: Marketing website for a local ice cream shop in the French Quarter, New Orleans
+- **Stack**: HTML, CSS, Bootstrap, responsive design
+- **Source**: https://github.com/Ax3lJD/OKIcecreamshop
+
+### Yami Hibachi & Poboy
+- **URL**: https://yamihibachipoboys.com/home
+- **Type**: Restaurant website with online ordering for a Japanese-Cajun fusion eatery in Metairie, LA
+- **Stack**: HTML, CSS, Bootstrap, JavaScript
+
+### Daris
+- **URL**: https://daris.education
+- **Type**: Online education platform for Islamic studies and Quran instruction
+- **Stack**: Vue.js, Bootstrap, JavaScript
+
+### SAHA Institute for Learning
+- **URL**: https://sahainstituteforlearning.com
+- **Type**: Educational platform for tutoring services and structured learning programs
+- **Stack**: Vue.js, Tailwind CSS, TypeScript, Vite
+
+### Campos Munos Law
+- **Type**: Bilingual website (English/Spanish) for an immigration law firm in the Greater New Orleans area
+- **Status**: Currently being updated
+- **Stack**: HTML, CSS, Bootstrap, JavaScript
+
+## Contact
+
+For project inquiries, freelance work, or full-time opportunities, contact Walid at walidelsayed316@gmail.com or via the contact form at https://walidelsayed.com/contact.

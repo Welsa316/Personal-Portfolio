@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
+import { useScrollReveal } from '@/composables/useScrollReveal'
+
+useScrollReveal()
 
 const skillGroups = [
   {
@@ -19,20 +21,6 @@ const skillGroups = [
 ]
 
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed')
-          observer.unobserve(entry.target)
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-  document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el))
-})
 </script>
 
 <template>
@@ -58,11 +46,17 @@ onMounted(() => {
 
         <!-- Portrait -->
         <div class="relative z-10 scroll-reveal">
-          <img
-            src="/AboutPortrait.png"
-            alt="Walid Elsayed"
-            class="w-full max-w-[500px] md:max-w-none md:w-[720px] lg:w-[860px] max-h-[400px] md:max-h-[550px] lg:max-h-[650px] object-contain drop-shadow-2xl"
-          />
+          <picture>
+            <source srcset="/AboutPortrait.webp" type="image/webp" />
+            <img
+              src="/AboutPortrait.png"
+              alt="Walid Elsayed, web developer in New Orleans, smiling for portrait"
+              loading="lazy"
+              width="860"
+              height="650"
+              class="w-full max-w-[500px] md:max-w-none md:w-[720px] lg:w-[860px] max-h-[400px] md:max-h-[550px] lg:max-h-[650px] object-contain drop-shadow-2xl"
+            />
+          </picture>
         </div>
 
         <!-- Floating badges -->
@@ -168,9 +162,7 @@ onMounted(() => {
 
 <style scoped>
 .glass-badge {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
 }

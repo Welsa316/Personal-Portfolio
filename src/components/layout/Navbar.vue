@@ -78,9 +78,9 @@ onUnmounted(() => {
       <button
         class="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
         aria-label="Toggle menu"
+        :aria-expanded="mobileOpen"
         @click="mobileOpen = !mobileOpen"
       >
-        <span class="sr-only">Menu</span>
         <div class="flex flex-col gap-1.5">
           <span
             class="block h-0.5 w-6 bg-ink-950 transition-all duration-300"

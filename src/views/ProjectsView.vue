@@ -1,25 +1,19 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import SectionHeader from '@/components/ui/SectionHeader.vue'
-import { projects } from '@/data/projects'
+import { getProjectsByCategory, categoryLabels } from '@/data/projects'
+import { useScrollReveal } from '@/composables/useScrollReveal'
 
-const activeFilter = ref('all')
+useScrollReveal()
+
+const activeFilter = ref<'all' | 'web' | 'ai' | 'other'>('all')
 
 const filters = [
-  { label: 'All', value: 'all' }
+  { label: 'All', value: 'all' as const }
 ]
 
-const filtered = computed(() => {
-  if (activeFilter.value === 'all') return projects
-  return projects.filter((p) => p.category === activeFilter.value)
-})
-
-const categoryLabels: Record<string, string> = {
-  web: 'Web Development',
-  ai: 'AI / Machine Learning',
-  other: 'Other',
-}
+const filtered = computed(() => getProjectsByCategory(activeFilter.value))
 
 // Repeating asymmetric grid pattern for visual variety
 const gridClasses = [
@@ -41,20 +35,6 @@ const titleSizes = [
   'text-xl',
 ]
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed')
-          observer.unobserve(entry.target)
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-  document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el))
-})
 </script>
 
 <template>
@@ -76,6 +56,7 @@ onMounted(() => {
               ? 'bg-ink-950 text-white shadow-sm'
               : 'bg-surface-sunken text-ink-600 hover:text-ink-950'
           "
+          :aria-pressed="activeFilter === f.value"
           @click="activeFilter = f.value"
         >
           {{ f.label }}
@@ -91,16 +72,15 @@ onMounted(() => {
           :class="gridClasses[i % gridClasses.length]"
           :style="`transition-delay: ${i * 100}ms`"
         >
-          <a
-            :href="project.links.demo && project.links.demo !== '#' ? project.links.demo : project.links.github"
-            target="_blank"
-            rel="noopener noreferrer"
+          <router-link
+            :to="{ name: 'project-detail', params: { id: project.id } }"
             class="block relative h-full w-full"
           >
             <img
               :src="project.image"
               :alt="project.title"
-              class="h-full w-full object-contain p-8 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+              class="h-full w-full object-contain p-8 mix-blend-multiply will-change-transform transition-transform duration-700 group-hover:scale-105"
             />
             <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 md:p-8">
               <h3
@@ -122,7 +102,7 @@ onMounted(() => {
                 </span>
               </div>
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
 

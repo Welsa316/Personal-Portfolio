@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -59,7 +59,9 @@ function tick() {
   }
 }
 
-timeout = setTimeout(tick, props.initialDelay)
+onMounted(() => {
+  timeout = setTimeout(tick, props.initialDelay)
+})
 
 onUnmounted(() => {
   if (timeout) clearTimeout(timeout)

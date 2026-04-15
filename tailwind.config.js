@@ -40,6 +40,7 @@ export default {
         'slide-in': 'slideIn 0.5s ease-out forwards',
         'scroll-hint': 'scrollHint 2s ease-in-out infinite',
         'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+        'mockup-scroll': 'mockupScroll 20s ease-in-out infinite',
       },
       keyframes: {
         fadeUp: {
@@ -61,6 +62,11 @@ export default {
         glowPulse: {
           '0%, 100%': { opacity: '0.4' },
           '50%': { opacity: '0.7' },
+        },
+        mockupScroll: {
+          '0%, 5%': { transform: 'translateY(0)' },
+          '45%, 55%': { transform: 'translateY(var(--scroll-distance, -60%))' },
+          '95%, 100%': { transform: 'translateY(0)' },
         },
       },
     },

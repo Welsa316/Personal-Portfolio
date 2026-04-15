@@ -8,14 +8,15 @@ defineProps<{
 
 <template>
   <article
-    class="group overflow-hidden rounded-2xl border border-ink-200/80 bg-surface-raised shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+    class="group overflow-hidden rounded-2xl border border-ink-200/80 bg-surface-raised shadow-sm transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg"
   >
     <!-- Image -->
     <div class="relative aspect-[3/2] overflow-hidden bg-surface-sunken">
       <img
         :src="project.image"
         :alt="project.title"
-        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+        class="h-full w-full object-cover will-change-transform transition-transform duration-500 group-hover:scale-105"
       />
       <div
         class="absolute inset-0 bg-gradient-to-t from-ink-950/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -57,7 +58,7 @@ defineProps<{
           Code
         </a>
         <a
-          v-if="project.links.demo"
+          v-if="project.links.demo && project.links.demo !== '#'"
           :href="project.links.demo"
           target="_blank"
           rel="noopener noreferrer"

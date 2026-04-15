@@ -23,7 +23,7 @@ import ContactForm from '@/components/contact/ContactForm.vue'
               </svg>
               <div>
                 <p class="text-sm font-medium text-ink-700">Email</p>
-                <a href="walidelsayed316@gmail.com" class="text-sm text-ink-500 hover:text-accent">walidelsayed316@gmail.com</a>
+                <a href="mailto:walidelsayed316@gmail.com" class="text-sm text-ink-500 hover:text-accent">walidelsayed316@gmail.com</a>
               </div>
             </div>
             <div class="flex items-start gap-3">

@@ -104,10 +104,12 @@ async function handleSubmit() {
           v-model="form.name"
           type="text"
           placeholder="Jane Doe"
+          :aria-invalid="!!errors.name"
+          :aria-describedby="errors.name ? 'name-error' : undefined"
           class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
           :class="errors.name ? 'border-red-400' : ''"
         />
-        <p v-if="errors.name" class="mt-1 text-xs text-red-500">{{ errors.name }}</p>
+        <p v-if="errors.name" id="name-error" class="mt-1 text-xs text-red-500">{{ errors.name }}</p>
       </div>
 
       <!-- Email -->
@@ -118,10 +120,12 @@ async function handleSubmit() {
           v-model="form.email"
           type="email"
           placeholder="jane@example.com"
+          :aria-invalid="!!errors.email"
+          :aria-describedby="errors.email ? 'email-error' : undefined"
           class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
           :class="errors.email ? 'border-red-400' : ''"
         />
-        <p v-if="errors.email" class="mt-1 text-xs text-red-500">{{ errors.email }}</p>
+        <p v-if="errors.email" id="email-error" class="mt-1 text-xs text-red-500">{{ errors.email }}</p>
       </div>
     </div>
 
@@ -133,10 +137,12 @@ async function handleSubmit() {
         v-model="form.subject"
         type="text"
         placeholder="Project inquiry"
+        :aria-invalid="!!errors.subject"
+        :aria-describedby="errors.subject ? 'subject-error' : undefined"
         class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
         :class="errors.subject ? 'border-red-400' : ''"
       />
-      <p v-if="errors.subject" class="mt-1 text-xs text-red-500">{{ errors.subject }}</p>
+      <p v-if="errors.subject" id="subject-error" class="mt-1 text-xs text-red-500">{{ errors.subject }}</p>
     </div>
 
     <!-- Message -->
@@ -147,10 +153,12 @@ async function handleSubmit() {
         v-model="form.message"
         rows="5"
         placeholder="Tell me about your project…"
+        :aria-invalid="!!errors.message"
+        :aria-describedby="errors.message ? 'message-error' : undefined"
         class="w-full resize-none rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
         :class="errors.message ? 'border-red-400' : ''"
       />
-      <p v-if="errors.message" class="mt-1 text-xs text-red-500">{{ errors.message }}</p>
+      <p v-if="errors.message" id="message-error" class="mt-1 text-xs text-red-500">{{ errors.message }}</p>
     </div>
 
     <p v-if="submitError" class="text-sm text-red-500">{{ submitError }}</p>

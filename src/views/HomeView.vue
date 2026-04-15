@@ -3,7 +3,8 @@ import { ref, onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
 import Typewriter from '@/components/ui/Typewriter.vue'
-import { getFeaturedProjects } from '@/data/projects'
+import { getFeaturedProjects, categoryLabels } from '@/data/projects'
+import { useScrollReveal } from '@/composables/useScrollReveal'
 
 const featured = getFeaturedProjects()
 
@@ -22,11 +23,7 @@ function prevProject() {
   activeProject.value = (activeProject.value - 1 + featured.length) % featured.length
 }
 
-const categoryLabels: Record<string, string> = {
-  web: 'Web Development',
-  ai: 'AI / Machine Learning',
-  other: 'Other',
-}
+useScrollReveal()
 
 const features = [
   {
@@ -60,22 +57,6 @@ onMounted(() => {
     }, 150 + i * 150)
   })
 
-  // IntersectionObserver for below-fold scroll animations
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed')
-          observer.unobserve(entry.target)
-        }
-      })
-    },
-    { threshold: 0.1 }
-  )
-
-  document.querySelectorAll('.scroll-reveal').forEach((el) => {
-    observer.observe(el)
-  })
 })
 </script>
 
@@ -89,11 +70,17 @@ onMounted(() => {
       <div class="relative min-h-screen md:hidden flex flex-col justify-end">
         <!-- Portrait filling the background, bottom-aligned -->
         <div class="hero-animate absolute inset-0 flex items-end justify-center">
-          <img
-            :src="portraitUrl"
-            alt="Walid Elsayed Portrait"
-            class="h-[85%] w-auto max-w-none object-cover object-top"
-          />
+          <picture>
+            <source srcset="/OvalHeadshot.webp" type="image/webp" />
+            <img
+              :src="portraitUrl"
+              alt="Walid Elsayed, web developer in New Orleans"
+              width="800"
+              height="792"
+              fetchpriority="high"
+              class="h-[85%] w-auto max-w-none object-cover object-top"
+            />
+          </picture>
         </div>
 
         <!-- Bottom gradient so text is readable -->
@@ -131,11 +118,17 @@ onMounted(() => {
         <div
           class="hero-animate absolute right-0 top-0 h-full w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center"
         >
-          <img
-            :src="portraitUrl"
-            alt="Walid Elsayed Portrait"
-            class="h-[85%] w-auto max-w-none object-cover object-top"
-          />
+          <picture>
+            <source srcset="/OvalHeadshot.webp" type="image/webp" />
+            <img
+              :src="portraitUrl"
+              alt="Walid Elsayed, web developer in New Orleans"
+              width="800"
+              height="792"
+              fetchpriority="high"
+              class="h-[85%] w-auto max-w-none object-cover object-top"
+            />
+          </picture>
         </div>
 
         <div class="absolute bottom-24 left-0 z-20 px-10">
@@ -234,7 +227,8 @@ onMounted(() => {
               <div v-if="activeProject === i" class="group relative h-full overflow-hidden rounded-lg bg-surface-sunken">
                 <img
                   :src="project.image"
-                  :alt="project.title"
+                  :alt="`${project.title} — ${categoryLabels[project.category]} project by Walid Elsayed`"
+                  loading="lazy"
                   class="h-full w-full object-contain p-12 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -309,7 +303,8 @@ onMounted(() => {
             <div class="relative aspect-[3/4] sm:aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken">
               <img
                 :src="featured[activeProject].image"
-                :alt="featured[activeProject].title"
+                :alt="`${featured[activeProject].title} project preview`"
+                loading="lazy"
                 class="h-full w-full object-contain p-10 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -353,7 +348,8 @@ onMounted(() => {
           <div class="flex items-center justify-between mt-8">
             <div class="flex gap-2">
               <button
-                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+                aria-label="Previous project"
                 @click="prevProject"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -361,7 +357,8 @@ onMounted(() => {
                 </svg>
               </button>
               <button
-                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+                aria-label="Next project"
                 @click="nextProject"
               >
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -382,7 +379,8 @@ onMounted(() => {
           </Button>
           <div class="hidden lg:flex gap-2">
             <button
-              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+              aria-label="Previous project"
               @click="prevProject"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -390,7 +388,8 @@ onMounted(() => {
               </svg>
             </button>
             <button
-              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-all"
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+              aria-label="Next project"
               @click="nextProject"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">

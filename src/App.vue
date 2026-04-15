@@ -19,13 +19,13 @@ import Footer from '@/components/layout/Footer.vue'
 
 <style>
 .page-enter-active {
-  animation: fadeUp 0.4s ease-out;
+  animation: pageEnter 0.4s ease-out;
 }
 .page-leave-active {
-  animation: fadeIn 0.2s ease-in reverse;
+  animation: pageFade 0.2s ease-in reverse;
 }
 
-@keyframes fadeUp {
+@keyframes pageEnter {
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -36,7 +36,7 @@ import Footer from '@/components/layout/Footer.vue'
   }
 }
 
-@keyframes fadeIn {
+@keyframes pageFade {
   from {
     opacity: 0;
   }
