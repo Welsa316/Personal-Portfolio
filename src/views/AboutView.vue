@@ -27,77 +27,99 @@ const skillGroups = [
   <div>
     <!-- ======================== HERO ======================== -->
     <section class="relative min-h-[80vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24 bg-surface overflow-hidden">
-      <!-- Header -->
-      <div class="text-center mb-12 z-10 scroll-reveal">
-        <span class="inline-block px-4 py-1.5 mb-6 font-mono text-xs tracking-[0.2em] text-accent uppercase border border-accent/30 rounded-full bg-accent/5">
+      <!-- Eyebrow -->
+      <div class="text-center mb-10 sm:mb-14 z-10 scroll-reveal">
+        <span class="inline-block px-4 py-1.5 font-mono text-xs tracking-[0.2em] text-accent uppercase border border-accent/30 rounded-full bg-accent/5">
           About the Developer
         </span>
-        <h1 class="font-display text-2xl md:text-3xl lg:text-4xl font-normal leading-[1.2] max-w-2xl mx-auto text-ink-950">
-          Meet the Mind Behind the <span class="text-accent">Digital Experience</span>
-        </h1>
       </div>
 
-      <!-- Central composition: portrait + floating badges -->
-      <div class="relative w-full max-w-5xl mx-auto flex flex-col items-center z-10">
+      <!-- Central composition: manifesto hero + floating badges -->
+      <div class="relative w-full max-w-6xl mx-auto flex flex-col items-center z-10">
         <!-- Accent glow -->
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div class="w-[600px] h-[600px] md:w-[900px] md:h-[900px] bg-accent/15 rounded-full blur-[120px]"></div>
         </div>
 
-        <!-- Portrait -->
-        <div class="relative z-10 scroll-reveal">
-          <picture>
-            <source srcset="/AboutPortrait.webp" type="image/webp" />
-            <img
-              src="/AboutPortrait.png"
-              alt="Walid Elsayed, web developer in New Orleans, smiling for portrait"
-              loading="lazy"
-              width="860"
-              height="650"
-              class="w-full max-w-[500px] md:max-w-none md:w-[720px] lg:w-[860px] max-h-[400px] md:max-h-[550px] lg:max-h-[650px] object-contain drop-shadow-2xl"
-            />
-          </picture>
-        </div>
+        <!-- Manifesto -->
+        <h1 class="relative z-10 scroll-reveal font-display font-normal text-center leading-[0.95] tracking-tight text-ink-950 px-4">
+          <span class="block text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-9xl">
+            Small businesses
+          </span>
+          <span class="block italic text-ink-500 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl my-2 sm:my-3 md:my-4">
+            deserve
+          </span>
+          <span class="block text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-9xl">
+            <span class="text-accent">world-class</span> websites.
+          </span>
+        </h1>
 
-        <!-- Floating badges -->
-        <div class="absolute z-20 top-[55%] sm:top-[40%] md:top-[15%] left-2 sm:left-0 md:-left-16 animate-float scroll-reveal" style="transition-delay: 200ms">
-          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
-            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
-              Projects Delivered <span class="font-bold text-sm sm:text-base text-ink-950 ml-1">4+</span>
+        <!-- Floating badges (sm+: absolute around manifesto) -->
+        <div class="hidden sm:block absolute z-20 top-[12%] md:top-[12%] left-0 md:-left-10 lg:-left-16 animate-float scroll-reveal" style="transition-delay: 200ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <div class="text-xs md:text-sm font-medium text-ink-700">
+              Projects Delivered <span class="font-bold text-base text-ink-950 ml-1">5+</span>
             </div>
           </div>
         </div>
 
-        <div class="absolute z-20 top-[45%] sm:top-[30%] md:top-[25%] right-2 sm:right-0 md:-right-16 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
-          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-sm sm:text-base">📍</span>
-            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
+        <div class="hidden sm:block absolute z-20 top-[12%] md:top-[18%] right-0 md:-right-10 lg:-right-16 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-base">📍</span>
+            <div class="text-xs md:text-sm font-medium text-ink-700">
               Based in <span class="font-bold text-ink-950">New Orleans</span>
             </div>
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[10%] sm:bottom-[20%] md:bottom-[30%] left-2 sm:left-0 md:-left-20 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
-          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-sm sm:text-base">🎓</span>
-            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
+        <div class="hidden sm:block absolute z-20 bottom-[12%] md:bottom-[18%] left-0 md:-left-12 lg:-left-20 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-base">🎓</span>
+            <div class="text-xs md:text-sm font-medium text-ink-700">
               <span class="font-bold text-ink-950">CS Student</span>
             </div>
           </div>
         </div>
 
-        <div class="absolute z-20 bottom-[2%] sm:bottom-[12%] md:bottom-[22%] right-2 sm:right-0 md:-right-20 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
-          <div class="glass-badge px-3 py-2 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-sm sm:text-base">⚡</span>
-            <div class="text-[10px] sm:text-xs md:text-sm font-medium text-ink-700">
+        <div class="hidden sm:block absolute z-20 bottom-[12%] md:bottom-[12%] right-0 md:-right-12 lg:-right-20 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
+          <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
+            <span class="text-base">⚡</span>
+            <div class="text-xs md:text-sm font-medium text-ink-700">
               <span class="font-bold text-ink-950">Full-Stack</span> Focus
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Mobile badges (flow below manifesto, not overlapping) -->
+      <div class="sm:hidden mt-10 grid grid-cols-2 gap-2 w-full max-w-sm z-10 scroll-reveal" style="transition-delay: 200ms">
+        <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
+          <div class="text-[11px] font-medium text-ink-700 text-center">
+            Projects <span class="font-bold text-ink-950">5+</span>
+          </div>
+        </div>
+        <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
+          <span class="text-sm">📍</span>
+          <div class="text-[11px] font-medium text-ink-700">
+            <span class="font-bold text-ink-950">New Orleans</span>
+          </div>
+        </div>
+        <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
+          <span class="text-sm">🎓</span>
+          <div class="text-[11px] font-medium text-ink-700">
+            <span class="font-bold text-ink-950">CS Student</span>
+          </div>
+        </div>
+        <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
+          <span class="text-sm">⚡</span>
+          <div class="text-[11px] font-medium text-ink-700">
+            <span class="font-bold text-ink-950">Full-Stack</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Bio text -->
-      <div class="mt-16 text-center max-w-2xl px-6 z-10 scroll-reveal">
+      <div class="mt-20 sm:mt-24 text-center max-w-2xl px-6 z-10 scroll-reveal">
         <p class="text-lg md:text-xl text-ink-600 leading-relaxed">
           I'm <span class="font-bold text-ink-950 underline decoration-accent decoration-2 underline-offset-4">Walid Elsayed</span>,
           a computer science student focused on building structured, scalable web systems.
