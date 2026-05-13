@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button.vue'
 import DeviceMockup from '@/components/mockups/DeviceMockup.vue'
 import { getProjectById, getAdjacentProjects, categoryLabels } from '@/data/projects'
 import { useScrollReveal } from '@/composables/useScrollReveal'
+import { SITE_URL } from '@/config/constants'
 
 useScrollReveal()
 
@@ -29,12 +30,12 @@ watchEffect(() => {
     '@type': 'CreativeWork',
     name: p.title,
     description: p.description,
-    url: `https://walidelsayed.com/projects/${p.id}`,
-    image: `https://walidelsayed.com${p.image}`,
+    url: `${SITE_URL}/projects/${p.id}`,
+    image: `${SITE_URL}${p.image}`,
     creator: {
       '@type': 'Person',
       name: 'Walid Elsayed',
-      url: 'https://walidelsayed.com/',
+      url: `${SITE_URL}/`,
     },
     keywords: p.tags.join(', '),
     ...(p.links.demo && p.links.demo !== '#' && { sameAs: p.links.demo }),

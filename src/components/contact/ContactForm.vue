@@ -16,6 +16,9 @@ const form = reactive<FormData>({
   message: '',
 })
 
+// Bot honeypot — real users never fill this. If populated, abort.
+const honeypot = ref('')
+
 const errors = reactive<Partial<Record<keyof FormData, string>>>({})
 const submitted = ref(false)
 const loading = ref(false)
@@ -42,6 +45,11 @@ function validate(): boolean {
 }
 
 async function handleSubmit() {
+  // Honeypot — silently drop if filled
+  if (honeypot.value) {
+    submitted.value = true
+    return
+  }
   if (!validate()) return
 
   loading.value = true
@@ -75,6 +83,9 @@ async function handleSubmit() {
   <div
     v-if="submitted"
     class="rounded-2xl border border-green-200 bg-green-50 p-8 text-center animate-fade-up"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
   >
     <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
       <svg class="h-7 w-7 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -95,6 +106,18 @@ async function handleSubmit() {
 
   <!-- Form -->
   <form v-else class="space-y-6" @submit.prevent="handleSubmit" novalidate>
+    <!-- Honeypot — hidden from real users, bots will fill it -->
+    <div class="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
+      <label for="_gotcha">Leave this empty</label>
+      <input
+        id="_gotcha"
+        v-model="honeypot"
+        type="text"
+        name="_gotcha"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
     <div class="grid gap-6 sm:grid-cols-2">
       <!-- Name -->
       <div>
@@ -161,9 +184,9 @@ async function handleSubmit() {
       <p v-if="errors.message" id="message-error" class="mt-1 text-xs text-red-500">{{ errors.message }}</p>
     </div>
 
-    <p v-if="submitError" class="text-sm text-red-500">{{ submitError }}</p>
+    <p v-if="submitError" class="text-sm text-red-500" role="alert" aria-live="polite">{{ submitError }}</p>
 
-    <Button size="lg" :disabled="loading">
+    <Button size="lg" :disabled="loading" type="submit">
       <svg
         v-if="loading"
         class="mr-2 h-4 w-4 animate-spin"

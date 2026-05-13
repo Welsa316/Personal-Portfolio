@@ -1,5 +1,11 @@
 node_modules
 dist
 *.local
+.env
+.env.*.local
 .DS_Store
 .claude/
+.vercel/
+.vscode/
+.idea/
+*.log

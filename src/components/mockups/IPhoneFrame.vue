@@ -5,6 +5,7 @@ const props = defineProps<{
   demoUrl?: string
   screenshot?: string
   iframeAllowed: boolean
+  title?: string
 }>()
 
 const screenRef = ref<HTMLElement | null>(null)
@@ -80,8 +81,10 @@ onUnmounted(() => {
               transformOrigin: 'top left',
             }"
             class="absolute top-0 left-0 animate-mockup-scroll"
-            sandbox="allow-scripts allow-same-origin"
+            :title="`Live mobile demo: ${title}`"
+            sandbox="allow-scripts"
             loading="lazy"
+            referrerpolicy="no-referrer"
             @load="iframeLoaded = true"
           />
         </div>
@@ -92,7 +95,7 @@ onUnmounted(() => {
         <div class="absolute inset-0 overflow-hidden">
           <img
             :src="screenshot"
-            alt="Mobile preview"
+            :alt="`${title ?? 'Project'} — mobile preview`"
             class="absolute top-0 left-0 w-full animate-mockup-scroll"
             :class="{ 'pause-animation': !isVisible }"
           />

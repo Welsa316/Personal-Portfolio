@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 import { getProjectById } from '@/data/projects'
-
-const SITE_URL = 'https://walidelsayed.com'
+import { SITE_URL, BASE_TITLE, DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE } from '@/config/constants'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -67,10 +66,6 @@ const router = createRouter({
   },
 })
 
-const BASE_TITLE = 'Walid Elsayed — Portfolio'
-const DEFAULT_DESCRIPTION =
-  'Walid Elsayed is a full-stack web developer and designer in New Orleans, building production-grade websites with Vue, React, and modern web technologies.'
-
 function setMeta(name: string, content: string, attr: 'name' | 'property' = 'name') {
   let el = document.querySelector(`meta[${attr}="${name}"]`)
   if (!el) {
@@ -94,7 +89,7 @@ function setCanonical(url: string) {
 router.beforeEach((to) => {
   let pageTitle = to.meta.title as string | undefined
   let description = (to.meta.description as string | undefined) ?? DEFAULT_DESCRIPTION
-  let ogImage = `${SITE_URL}/og-image.jpg`
+  let ogImage = DEFAULT_OG_IMAGE
 
   if (to.name === 'project-detail' && to.params.id) {
     const project = getProjectById(to.params.id as string)
@@ -106,6 +101,7 @@ router.beforeEach((to) => {
   }
 
   const fullTitle = pageTitle ? `${pageTitle} | ${BASE_TITLE}` : BASE_TITLE
+  // Strip query strings + hashes from canonical URL — keep one canonical per route
   const canonicalUrl = `${SITE_URL}${to.path}`
 
   document.title = fullTitle

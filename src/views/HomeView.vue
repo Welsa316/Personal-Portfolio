@@ -225,28 +225,28 @@ onMounted(() => {
             >
               <!-- Active: big prominent image -->
               <div v-if="activeProject === i" class="group relative h-full overflow-hidden rounded-lg bg-surface-sunken">
-                <img
-                  :src="project.image"
-                  :alt="`${project.title} — ${categoryLabels[project.category]} project by Walid Elsayed`"
-                  loading="lazy"
-                  class="h-full w-full object-contain p-12 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <a
-                    v-if="project.links.demo && project.links.demo !== '#'"
-                    :href="project.links.demo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-white font-semibold text-sm flex items-center gap-2"
-                  >
-                    View Project
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                  </a>
-                </div>
+                <router-link
+                  :to="{ name: 'project-detail', params: { id: project.id } }"
+                  class="block h-full w-full"
+                  :aria-label="`View ${project.title} project details`"
+                >
+                  <img
+                    :src="project.image"
+                    :alt="`${project.title} — ${categoryLabels[project.category]} project by Walid Elsayed`"
+                    loading="lazy"
+                    class="h-full w-full object-contain p-12 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <span class="text-white font-semibold text-sm flex items-center gap-2">
+                      View Project
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+                      </svg>
+                    </span>
+                  </div>
+                </router-link>
                 <!-- Number overlay on active image -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
                   <span class="font-hero text-[12rem] text-white/25 leading-none select-none">
                     {{ i + 1 }}
                   </span>
@@ -254,7 +254,7 @@ onMounted(() => {
               </div>
 
               <!-- Inactive: large number -->
-              <div v-else class="group flex items-center justify-center h-full">
+              <div v-else class="group flex items-center justify-center h-full" aria-hidden="true">
                 <span class="font-hero text-[12rem] xl:text-[14rem] text-ink-200 group-hover:text-ink-400 transition-colors duration-300 leading-none select-none">
                   {{ i + 1 }}
                 </span>
@@ -300,7 +300,11 @@ onMounted(() => {
         <!-- Mobile/tablet carousel -->
         <div class="lg:hidden scroll-reveal">
           <div class="group">
-            <div class="relative aspect-[3/4] sm:aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken">
+            <router-link
+              :to="{ name: 'project-detail', params: { id: featured[activeProject].id } }"
+              class="block relative aspect-[3/4] sm:aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken"
+              :aria-label="`View ${featured[activeProject].title} project details`"
+            >
               <img
                 :src="featured[activeProject].image"
                 :alt="`${featured[activeProject].title} project preview`"
@@ -316,12 +320,12 @@ onMounted(() => {
                 </span>
               </div>
               <!-- Number overlay on mobile -->
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
                 <span class="font-hero text-8xl text-white/15 leading-none select-none">
                   {{ activeProject + 1 }}
                 </span>
               </div>
-            </div>
+            </router-link>
             <div class="mt-4">
               <span class="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">
                 {{ categoryLabels[featured[activeProject].category] }}

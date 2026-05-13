@@ -18,6 +18,7 @@ defineProps<{
           :demo-url="project.links.demo"
           :screenshot="project.desktopScreenshot"
           :iframe-allowed="project.iframeAllowed"
+          :title="project.title"
         />
       </div>
 
@@ -27,6 +28,7 @@ defineProps<{
           :demo-url="project.links.demo"
           :screenshot="project.mobileScreenshot"
           :iframe-allowed="project.iframeAllowed"
+          :title="project.title"
         />
       </div>
     </div>
@@ -39,6 +41,7 @@ defineProps<{
         :demo-url="project.links.demo"
         :screenshot="project.desktopScreenshot"
         :iframe-allowed="project.iframeAllowed"
+        :title="project.title"
       />
     </div>
     <div class="w-[60%] min-w-0 mx-auto">
@@ -46,6 +49,7 @@ defineProps<{
         :demo-url="project.links.demo"
         :screenshot="project.mobileScreenshot"
         :iframe-allowed="project.iframeAllowed"
+        :title="project.title"
       />
     </div>
   </div>

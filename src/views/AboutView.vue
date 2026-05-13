@@ -65,7 +65,7 @@ const skillGroups = [
 
         <div class="hidden md:block absolute z-20 top-[18%] -right-10 lg:-right-16 scroll-reveal" style="transition-delay: 350ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-base">📍</span>
+            <span class="text-base" aria-hidden="true">📍</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
               Based in <span class="font-bold text-ink-950">New Orleans</span>
             </div>
@@ -74,7 +74,7 @@ const skillGroups = [
 
         <div class="hidden md:block absolute z-20 bottom-[18%] -left-12 lg:-left-20 scroll-reveal" style="transition-delay: 500ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-base">🎓</span>
+            <span class="text-base" aria-hidden="true">🎓</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
               <span class="font-bold text-ink-950">CS Graduate</span>
             </div>
@@ -83,7 +83,7 @@ const skillGroups = [
 
         <div class="hidden md:block absolute z-20 bottom-[12%] -right-12 lg:-right-20 scroll-reveal" style="transition-delay: 650ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
-            <span class="text-base">⚡</span>
+            <span class="text-base" aria-hidden="true">⚡</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
               <span class="font-bold text-ink-950">Full-Stack</span> Focus
             </div>
@@ -99,19 +99,19 @@ const skillGroups = [
           </div>
         </div>
         <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
-          <span class="text-sm">📍</span>
+          <span class="text-sm" aria-hidden="true">📍</span>
           <div class="text-[11px] font-medium text-ink-700">
             <span class="font-bold text-ink-950">New Orleans</span>
           </div>
         </div>
         <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
-          <span class="text-sm">🎓</span>
+          <span class="text-sm" aria-hidden="true">🎓</span>
           <div class="text-[11px] font-medium text-ink-700">
             <span class="font-bold text-ink-950">CS Graduate</span>
           </div>
         </div>
         <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
-          <span class="text-sm">⚡</span>
+          <span class="text-sm" aria-hidden="true">⚡</span>
           <div class="text-[11px] font-medium text-ink-700">
             <span class="font-bold text-ink-950">Full-Stack</span>
           </div>
