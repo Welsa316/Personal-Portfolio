@@ -4,8 +4,14 @@ import Container from '@/components/layout/Container.vue'
 import SectionHeader from '@/components/ui/SectionHeader.vue'
 import { getProjectsByCategory, categoryLabels } from '@/data/projects'
 import { useScrollReveal } from '@/composables/useScrollReveal'
+import { useSiteHead } from '@/composables/useSiteHead'
 
 useScrollReveal()
+useSiteHead({
+  title: 'Projects',
+  description:
+    'Featured projects by Walid Elsayed including restaurant websites, educational platforms, and bilingual law firm sites built with Vue, React, and Tailwind CSS.',
+})
 
 const activeFilter = ref<'all' | 'web' | 'ai' | 'other'>('all')
 

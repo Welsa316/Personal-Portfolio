@@ -2,8 +2,14 @@
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
+import { useSiteHead } from '@/composables/useSiteHead'
 
 useScrollReveal()
+useSiteHead({
+  title: 'About',
+  description:
+    'About Walid Elsayed — full-stack web developer and designer based in New Orleans, building custom sites for small businesses without templates or page builders.',
+})
 
 const skillGroups = [
   {

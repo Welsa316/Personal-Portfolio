@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { computed, watchEffect, onUnmounted } from 'vue'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
 import DeviceMockup from '@/components/mockups/DeviceMockup.vue'
 import { getProjectById, getAdjacentProjects, categoryLabels } from '@/data/projects'
 import { useScrollReveal } from '@/composables/useScrollReveal'
+import { useSiteHead } from '@/composables/useSiteHead'
 import { SITE_URL } from '@/config/constants'
 
 useScrollReveal()
@@ -16,42 +17,38 @@ const router = useRouter()
 const project = computed(() => getProjectById(route.params.id as string))
 const adjacent = computed(() => getAdjacentProjects(route.params.id as string))
 
-if (!project.value) {
+if (!project.value && typeof window !== 'undefined') {
   router.replace({ name: 'not-found' })
 }
 
-// Inject JSON-LD CreativeWork schema for the current project
-const SCHEMA_ID = 'project-schema'
-watchEffect(() => {
-  if (!project.value) return
-  const p = project.value
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
-    name: p.title,
-    description: p.description,
-    url: `${SITE_URL}/projects/${p.id}`,
-    image: `${SITE_URL}${p.image}`,
-    creator: {
-      '@type': 'Person',
-      name: 'Walid Elsayed',
-      url: `${SITE_URL}/`,
-    },
-    keywords: p.tags.join(', '),
-    ...(p.links.demo && p.links.demo !== '#' && { sameAs: p.links.demo }),
-  }
-  let el = document.getElementById(SCHEMA_ID) as HTMLScriptElement | null
-  if (!el) {
-    el = document.createElement('script')
-    el.id = SCHEMA_ID
-    el.type = 'application/ld+json'
-    document.head.appendChild(el)
-  }
-  el.textContent = JSON.stringify(schema)
-})
-
-onUnmounted(() => {
-  document.getElementById(SCHEMA_ID)?.remove()
+// Per-page meta + JSON-LD CreativeWork schema, set via @unhead/vue
+useSiteHead({
+  title: () => project.value?.title,
+  description: () => {
+    const p = project.value
+    return p ? `${p.title} — ${p.description.slice(0, 140)}` : undefined
+  },
+  image: () => (project.value ? `${SITE_URL}${project.value.image}` : undefined),
+  type: 'article',
+  schema: () => {
+    const p = project.value
+    if (!p) return undefined
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      name: p.title,
+      description: p.description,
+      url: `${SITE_URL}/projects/${p.id}`,
+      image: `${SITE_URL}${p.image}`,
+      creator: {
+        '@type': 'Person',
+        name: 'Walid Elsayed',
+        url: `${SITE_URL}/`,
+      },
+      keywords: p.tags.join(', '),
+      ...(p.links.demo && p.links.demo !== '#' && { sameAs: p.links.demo }),
+    }
+  },
 })
 </script>
 

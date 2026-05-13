@@ -2,6 +2,13 @@
 import Container from '@/components/layout/Container.vue'
 import SectionHeader from '@/components/ui/SectionHeader.vue'
 import ContactForm from '@/components/contact/ContactForm.vue'
+import { useSiteHead } from '@/composables/useSiteHead'
+
+useSiteHead({
+  title: 'Contact',
+  description:
+    'Get in touch with Walid Elsayed for web development projects, freelance work, or full-time opportunities. Based in New Orleans, available remote.',
+})
 </script>
 
 <template>

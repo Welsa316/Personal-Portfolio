@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
+import { useSiteHead } from '@/composables/useSiteHead'
+
+useSiteHead({ title: '404', description: 'Page not found.' })
 </script>
 
 <template>

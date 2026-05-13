@@ -5,6 +5,13 @@ import Button from '@/components/ui/Button.vue'
 import Typewriter from '@/components/ui/Typewriter.vue'
 import { getFeaturedProjects, categoryLabels } from '@/data/projects'
 import { useScrollReveal } from '@/composables/useScrollReveal'
+import { useSiteHead } from '@/composables/useSiteHead'
+
+useSiteHead({
+  title: 'Home',
+  description:
+    'Walid Elsayed is a full-stack web developer and designer in New Orleans, building production-grade websites with Vue, React, and modern web technologies.',
+})
 
 const featured = getFeaturedProjects()
 

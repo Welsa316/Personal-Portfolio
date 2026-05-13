@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite-ssg build",
+    "build:spa": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5",
     "vite": "^5.2.8",
+    "vite-ssg": "^28.3.0",
     "vue-tsc": "^2.0.11"
   }
 }
