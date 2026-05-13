@@ -241,6 +241,8 @@ onMounted(() => {
                     :src="project.image"
                     :alt="`${project.title} — ${categoryLabels[project.category]} project by Walid Elsayed`"
                     loading="lazy"
+                    width="800"
+                    height="600"
                     class="h-full w-full object-contain p-12 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
                   />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
@@ -316,6 +318,8 @@ onMounted(() => {
                 :src="featured[activeProject].image"
                 :alt="`${featured[activeProject].title} project preview`"
                 loading="lazy"
+                width="600"
+                height="800"
                 class="h-full w-full object-contain p-10 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">

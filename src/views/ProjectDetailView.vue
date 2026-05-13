@@ -28,7 +28,7 @@ useSiteHead({
     const p = project.value
     return p ? `${p.title} — ${p.description.slice(0, 140)}` : undefined
   },
-  image: () => (project.value ? `${SITE_URL}${project.value.image}` : undefined),
+  image: () => (project.value ? `${SITE_URL}/og/${project.value.id}.jpg` : undefined),
   type: 'article',
   schema: () => {
     const p = project.value
@@ -39,7 +39,7 @@ useSiteHead({
       name: p.title,
       description: p.description,
       url: `${SITE_URL}/projects/${p.id}`,
-      image: `${SITE_URL}${p.image}`,
+      image: `${SITE_URL}/og/${p.id}.jpg`,
       creator: {
         '@type': 'Person',
         name: 'Walid Elsayed',

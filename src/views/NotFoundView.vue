@@ -7,16 +7,23 @@ useSiteHead({ title: '404', description: 'Page not found.' })
 </script>
 
 <template>
-  <section class="flex min-h-[60vh] items-center py-20">
+  <section class="flex min-h-[70vh] items-center py-20 bg-surface">
     <Container narrow>
       <div class="text-center">
-        <p class="font-mono text-6xl font-bold text-accent">404</p>
-        <h1 class="mt-4 font-display text-3xl text-ink-950">Page Not Found</h1>
-        <p class="mt-3 text-ink-500">
-          The page you're looking for doesn't exist or has been moved.
+        <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">
+          Error 404
         </p>
-        <div class="mt-8">
+        <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl tracking-tight text-ink-950 leading-[0.95]">
+          Page <span class="text-accent italic">not found.</span>
+        </h1>
+        <div class="editorial-divider mx-auto mt-10 max-w-xs"></div>
+        <p class="mt-8 mx-auto max-w-md text-base sm:text-lg text-ink-500 leading-relaxed">
+          The page you're looking for doesn't exist, or it moved. Check the URL,
+          or head back to the homepage to start over.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
           <Button :to="{ name: 'home' }" size="lg">Back to Home</Button>
+          <Button :to="{ name: 'projects' }" variant="secondary" size="lg">See Projects</Button>
         </div>
       </div>
     </Container>

@@ -84,8 +84,10 @@ const titleSizes = [
           >
             <img
               :src="project.image"
-              :alt="project.title"
+              :alt="`${project.title} — ${categoryLabels[project.category]} project by Walid Elsayed`"
               loading="lazy"
+              width="800"
+              height="600"
               class="h-full w-full object-contain p-8 mix-blend-multiply will-change-transform transition-transform duration-700 group-hover:scale-105"
             />
             <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 md:p-8">
