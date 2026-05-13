@@ -431,7 +431,7 @@ onMounted(() => {
             If you have a project in mind, let's talk.
           </p>
           <div class="scroll-reveal mt-10" style="transition-delay: 200ms">
-            <Button :to="{ name: 'contact' }" size="lg">Start a Conversation</Button>
+            <Button :to="{ name: 'contact' }" size="lg">Get in Touch</Button>
           </div>
         </div>
       </Container>
