@@ -83,8 +83,8 @@ onMounted(() => {
           </picture>
         </div>
 
-        <!-- Bottom gradient so text is readable -->
-        <div class="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-surface via-surface/90 to-transparent"></div>
+        <!-- Bottom gradient so text is readable — confined to lower portion -->
+        <div class="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-surface via-surface/85 to-transparent pointer-events-none"></div>
 
         <!-- Text overlay at bottom -->
         <div class="relative z-20 px-5 pb-20">

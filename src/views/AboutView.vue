@@ -12,7 +12,7 @@ const skillGroups = [
   },
   {
     label: 'Backend',
-    skills: ['Node.js', 'Python', 'PostgreSQL', 'REST APIs', 'GraphQL'],
+    skills: ['Node.js', 'Python', 'PostgreSQL', 'REST APIs'],
   },
   {
     label: 'Tools & Infra',
@@ -54,8 +54,8 @@ const skillGroups = [
           </span>
         </h1>
 
-        <!-- Floating badges (sm+: absolute around manifesto) -->
-        <div class="hidden sm:block absolute z-20 top-[12%] md:top-[12%] left-0 md:-left-10 lg:-left-16 animate-float scroll-reveal" style="transition-delay: 200ms">
+        <!-- Static floating badges (md+: absolute around manifesto, no animation) -->
+        <div class="hidden md:block absolute z-20 top-[12%] -left-10 lg:-left-16 scroll-reveal" style="transition-delay: 200ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <div class="text-xs md:text-sm font-medium text-ink-700">
               Projects Delivered <span class="font-bold text-base text-ink-950 ml-1">5+</span>
@@ -63,7 +63,7 @@ const skillGroups = [
           </div>
         </div>
 
-        <div class="hidden sm:block absolute z-20 top-[12%] md:top-[18%] right-0 md:-right-10 lg:-right-16 animate-float-d1 scroll-reveal" style="transition-delay: 350ms">
+        <div class="hidden md:block absolute z-20 top-[18%] -right-10 lg:-right-16 scroll-reveal" style="transition-delay: 350ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <span class="text-base">📍</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
@@ -72,16 +72,16 @@ const skillGroups = [
           </div>
         </div>
 
-        <div class="hidden sm:block absolute z-20 bottom-[12%] md:bottom-[18%] left-0 md:-left-12 lg:-left-20 animate-float-d2 scroll-reveal" style="transition-delay: 500ms">
+        <div class="hidden md:block absolute z-20 bottom-[18%] -left-12 lg:-left-20 scroll-reveal" style="transition-delay: 500ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <span class="text-base">🎓</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
-              <span class="font-bold text-ink-950">CS Student</span>
+              <span class="font-bold text-ink-950">CS Graduate</span>
             </div>
           </div>
         </div>
 
-        <div class="hidden sm:block absolute z-20 bottom-[12%] md:bottom-[12%] right-0 md:-right-12 lg:-right-20 animate-float-d3 scroll-reveal" style="transition-delay: 650ms">
+        <div class="hidden md:block absolute z-20 bottom-[12%] -right-12 lg:-right-20 scroll-reveal" style="transition-delay: 650ms">
           <div class="glass-badge px-4 py-3 rounded-2xl flex items-center gap-3">
             <span class="text-base">⚡</span>
             <div class="text-xs md:text-sm font-medium text-ink-700">
@@ -91,8 +91,8 @@ const skillGroups = [
         </div>
       </div>
 
-      <!-- Mobile badges (flow below manifesto, not overlapping) -->
-      <div class="sm:hidden mt-10 grid grid-cols-2 gap-2 w-full max-w-sm z-10 scroll-reveal" style="transition-delay: 200ms">
+      <!-- Mobile/tablet badges (flow below manifesto, not overlapping) -->
+      <div class="md:hidden mt-10 grid grid-cols-2 gap-2 w-full max-w-md z-10 scroll-reveal" style="transition-delay: 200ms">
         <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
           <div class="text-[11px] font-medium text-ink-700 text-center">
             Projects <span class="font-bold text-ink-950">5+</span>
@@ -107,7 +107,7 @@ const skillGroups = [
         <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
           <span class="text-sm">🎓</span>
           <div class="text-[11px] font-medium text-ink-700">
-            <span class="font-bold text-ink-950">CS Student</span>
+            <span class="font-bold text-ink-950">CS Graduate</span>
           </div>
         </div>
         <div class="glass-badge px-3 py-2 rounded-2xl flex items-center justify-center gap-2">
@@ -119,12 +119,19 @@ const skillGroups = [
       </div>
 
       <!-- Bio text -->
-      <div class="mt-20 sm:mt-24 text-center max-w-2xl px-6 z-10 scroll-reveal">
-        <p class="text-lg md:text-xl text-ink-600 leading-relaxed">
-          I'm <span class="font-bold text-ink-950 underline decoration-accent decoration-2 underline-offset-4">Walid Elsayed</span>,
-          a computer science student focused on building structured, scalable web systems.
-          I design and develop modern websites and digital platforms with an emphasis on
-          clean architecture, performance, and long-term maintainability.
+      <div class="mt-20 sm:mt-24 text-left max-w-2xl px-6 z-10 scroll-reveal space-y-5">
+        <p class="text-lg md:text-xl text-ink-700 leading-relaxed">
+          I'm <span class="font-bold text-ink-950 underline decoration-accent decoration-2 underline-offset-4">Walid Elsayed</span>. Web developer &amp; designer in New Orleans, bilingual in English and Arabic, fresh out of UNO with a CS degree (2026).
+        </p>
+        <p class="text-base md:text-lg text-ink-600 leading-relaxed">
+          I started building websites because I kept running into the same problem on the client side: small businesses stuck on monthly Wix subscriptions, paying every month for a site they don't own — and waiting a week just to update a phone number. Most agencies overcharge them, ship templates, and lock them into subscriptions they don't understand. They deserve better.
+        </p>
+        <p class="text-base md:text-lg text-ink-600 leading-relaxed">
+          So I build custom — hand-coded, fast, accessible, fully owned by the client. <span class="font-semibold text-ink-950">Five live projects</span> so far across restaurants, education, and law. Each one shipped without a page builder, a template, or a monthly fee.
+        </p>
+        <p class="text-base md:text-lg text-ink-700 leading-relaxed italic">
+          If your business deserves a website that doesn't break in six months,
+          <router-link :to="{ name: 'contact' }" class="not-italic text-accent font-semibold underline decoration-accent/40 hover:decoration-accent transition-colors">let's talk</router-link>.
         </p>
       </div>
     </section>
@@ -187,26 +194,5 @@ const skillGroups = [
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-.animate-float-d1 {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: 1.5s;
-}
-.animate-float-d2 {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: 3s;
-}
-.animate-float-d3 {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: 4.5s;
 }
 </style>
