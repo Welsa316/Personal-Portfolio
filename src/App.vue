@@ -7,9 +7,9 @@ import Footer from '@/components/layout/Footer.vue'
   <div class="flex min-h-screen flex-col">
     <Navbar />
     <main class="flex-1">
-      <router-view v-slot="{ Component }">
+      <router-view v-slot="{ Component, route }">
         <transition name="page" mode="out-in">
-          <component :is="Component" />
+          <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
     </main>
