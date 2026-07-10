@@ -17,7 +17,7 @@
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/OvalHeadshot.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -93,16 +93,20 @@
       ]
     }
     </script>
+    <!-- Without JS the scroll-reveal entrance states never flip to .revealed —
+         force the pre-rendered SSG content visible so the site works JS-free. -->
+    <noscript>
+      <style>
+        .scroll-reveal,
+        .hero-animate {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
   </head>
   <body class="bg-surface text-ink-950 font-body antialiased">
     <div id="app"></div>
-    <noscript>
-      <div style="padding:2rem;font-family:sans-serif;text-align:center;">
-        <h1>Walid Elsayed — Web Developer & Designer</h1>
-        <p>This portfolio requires JavaScript to view interactive project demos.</p>
-        <p>Contact: <a href="mailto:walidelsayed316@gmail.com">walidelsayed316@gmail.com</a></p>
-      </div>
-    </noscript>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

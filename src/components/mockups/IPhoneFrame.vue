@@ -85,6 +85,8 @@ onUnmounted(() => {
             sandbox="allow-scripts"
             loading="lazy"
             referrerpolicy="no-referrer"
+            tabindex="-1"
+            aria-hidden="true"
             @load="iframeLoaded = true"
           />
         </div>
@@ -96,6 +98,7 @@ onUnmounted(() => {
           <img
             :src="screenshot"
             :alt="`${title ?? 'Project'} — mobile preview`"
+            loading="lazy"
             class="absolute top-0 left-0 w-full animate-mockup-scroll"
             :class="{ 'pause-animation': !isVisible }"
           />

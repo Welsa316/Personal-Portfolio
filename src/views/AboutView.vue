@@ -129,10 +129,10 @@ const skillGroups = [
         <p class="text-lg md:text-xl text-ink-700 leading-relaxed">
           I'm <span class="font-bold text-ink-950 underline decoration-accent decoration-2 underline-offset-4">Walid Elsayed</span>. Web developer &amp; designer in New Orleans, bilingual in English and Arabic, fresh out of UNO with a CS degree (2026).
         </p>
-        <p class="text-base md:text-lg text-ink-600 leading-relaxed">
+        <p class="text-base md:text-lg text-ink-700 leading-relaxed">
           I started building websites because I kept running into the same problem on the client side: small businesses stuck on monthly Wix subscriptions, paying every month for a site they don't own — and waiting a week just to update a phone number. Most agencies overcharge them, ship templates, and lock them into subscriptions they don't understand. They deserve better.
         </p>
-        <p class="text-base md:text-lg text-ink-600 leading-relaxed">
+        <p class="text-base md:text-lg text-ink-700 leading-relaxed">
           So I build custom — hand-coded, fast, accessible, fully owned by the client. <span class="font-semibold text-ink-950">Five live projects</span> so far across restaurants, education, and law. Each one shipped without a page builder, a template, or a monthly fee.
         </p>
         <p class="text-base md:text-lg text-ink-700 leading-relaxed italic">

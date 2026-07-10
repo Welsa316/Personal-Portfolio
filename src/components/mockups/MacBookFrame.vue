@@ -83,6 +83,8 @@ onUnmounted(() => {
               sandbox="allow-scripts"
               loading="lazy"
               referrerpolicy="no-referrer"
+              tabindex="-1"
+              aria-hidden="true"
               @load="iframeLoaded = true"
             />
           </div>

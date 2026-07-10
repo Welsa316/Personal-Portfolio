@@ -234,7 +234,7 @@ onMounted(() => {
               <div v-if="activeProject === i" class="group relative h-full overflow-hidden rounded-lg bg-surface-sunken">
                 <router-link
                   :to="{ name: 'project-detail', params: { id: project.id } }"
-                  class="block h-full w-full"
+                  class="block h-full w-full outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset rounded-lg"
                   :aria-label="`View ${project.title} project details`"
                 >
                   <img
@@ -311,7 +311,7 @@ onMounted(() => {
           <div class="group">
             <router-link
               :to="{ name: 'project-detail', params: { id: featured[activeProject].id } }"
-              class="block relative aspect-[3/4] sm:aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken"
+              class="block relative aspect-[3/4] sm:aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
               :aria-label="`View ${featured[activeProject].title} project details`"
             >
               <img

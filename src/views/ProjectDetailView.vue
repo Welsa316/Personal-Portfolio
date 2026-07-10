@@ -21,12 +21,20 @@ if (!project.value && typeof window !== 'undefined') {
   router.replace({ name: 'not-found' })
 }
 
+// Trim to the last whole word within `max` chars and add an ellipsis.
+function truncateAtWord(text: string, max = 155): string {
+  if (text.length <= max) return text
+  const cut = text.slice(0, max)
+  const lastSpace = cut.lastIndexOf(' ')
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max).trimEnd()}…`
+}
+
 // Per-page meta + JSON-LD CreativeWork schema, set via @unhead/vue
 useSiteHead({
   title: () => project.value?.title,
   description: () => {
     const p = project.value
-    return p ? `${p.title} — ${p.description.slice(0, 140)}` : undefined
+    return p ? truncateAtWord(`${p.title} — ${p.description}`) : undefined
   },
   image: () => (project.value ? `${SITE_URL}/og/${project.value.id}.jpg` : undefined),
   type: 'article',
@@ -91,8 +99,8 @@ useSiteHead({
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
           </div>
-          <h3 class="font-display text-2xl text-ink-950">Demo Coming Soon</h3>
-          <p class="mt-2 text-ink-500 max-w-md">
+          <p class="font-display text-2xl text-ink-950">Demo Coming Soon</p>
+          <p class="mt-2 text-ink-600 max-w-md">
             This project is currently being updated. Check back soon for a live demo.
           </p>
         </div>
@@ -142,12 +150,12 @@ useSiteHead({
     <!-- Description -->
     <section class="pb-12">
       <Container>
-        <p class="scroll-reveal max-w-3xl text-lg text-ink-500 leading-relaxed">
+        <p class="scroll-reveal max-w-3xl text-lg text-ink-700 leading-relaxed">
           {{ project.description }}
         </p>
         <p
           v-if="project.longDescription"
-          class="scroll-reveal mt-4 max-w-3xl text-base text-ink-600 leading-relaxed"
+          class="scroll-reveal mt-4 max-w-3xl text-base text-ink-700 leading-relaxed"
           style="transition-delay: 100ms"
         >
           {{ project.longDescription }}
@@ -162,19 +170,19 @@ useSiteHead({
           <!-- Details -->
           <div class="space-y-6">
             <div v-if="project.role">
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-400 mb-1">Role</p>
+              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-1">Role</p>
               <p class="text-ink-800 font-medium">{{ project.role }}</p>
             </div>
             <div v-if="project.client">
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-400 mb-1">Client</p>
+              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-1">Client</p>
               <p class="text-ink-800 font-medium">{{ project.client }}</p>
             </div>
             <div v-if="project.year">
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-400 mb-1">Year</p>
+              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-1">Year</p>
               <p class="text-ink-800 font-medium">{{ project.year }}</p>
             </div>
             <div>
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-400 mb-2">Tech Stack</p>
+              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-2">Tech Stack</p>
               <div class="flex flex-wrap gap-2">
                 <span
                   v-for="tag in project.tags"
@@ -228,7 +236,7 @@ useSiteHead({
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
             </svg>
             <div class="text-left">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-ink-400">Previous</p>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-ink-600">Previous</p>
               <p class="font-medium text-sm">{{ adjacent.prev.title }}</p>
             </div>
           </router-link>
@@ -240,7 +248,7 @@ useSiteHead({
             class="group flex items-center gap-3 text-ink-500 hover:text-ink-950 transition-colors"
           >
             <div class="text-right">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-ink-400">Next</p>
+              <p class="font-mono text-[10px] uppercase tracking-widest text-ink-600">Next</p>
               <p class="font-medium text-sm">{{ adjacent.next.title }}</p>
             </div>
             <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">

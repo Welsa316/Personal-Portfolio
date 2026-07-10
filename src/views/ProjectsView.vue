@@ -80,7 +80,7 @@ const titleSizes = [
         >
           <router-link
             :to="{ name: 'project-detail', params: { id: project.id } }"
-            class="block relative h-full w-full"
+            class="block relative h-full w-full outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset rounded-xl"
           >
             <img
               :src="project.image"
@@ -97,7 +97,7 @@ const titleSizes = [
               >
                 {{ project.title }}
               </h3>
-              <p class="mt-1 text-xs font-medium uppercase tracking-widest text-white/60">
+              <p class="mt-1 text-xs font-medium uppercase tracking-widest text-white/80">
                 {{ categoryLabels[project.category] }}
               </p>
               <div class="flex flex-wrap gap-1.5 mt-3">

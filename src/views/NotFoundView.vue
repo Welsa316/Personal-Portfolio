@@ -17,7 +17,7 @@ useSiteHead({ title: '404', description: 'Page not found.' })
           Page <span class="text-accent italic">not found.</span>
         </h1>
         <div class="editorial-divider mx-auto mt-10 max-w-xs"></div>
-        <p class="mt-8 mx-auto max-w-md text-base sm:text-lg text-ink-500 leading-relaxed">
+        <p class="mt-8 mx-auto max-w-md text-base sm:text-lg text-ink-700 leading-relaxed">
           The page you're looking for doesn't exist, or it moved. Check the URL,
           or head back to the homepage to start over.
         </p>

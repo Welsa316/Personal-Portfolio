@@ -15,7 +15,7 @@ const currentYear = new Date().getFullYear()
             href="https://github.com/Welsa316"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-ink-500 transition-colors hover:text-ink-950"
+            class="p-2 -m-2 text-ink-600 transition-colors hover:text-ink-950"
             aria-label="GitHub"
           >
             <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -26,7 +26,7 @@ const currentYear = new Date().getFullYear()
           </a>
           <a
             href="mailto:walidelsayed316@gmail.com"
-            class="text-ink-500 transition-colors hover:text-ink-950"
+            class="p-2 -m-2 text-ink-600 transition-colors hover:text-ink-950"
             aria-label="Email"
           >
             <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@ const currentYear = new Date().getFullYear()
         </div>
       </div>
 
-      <p class="mt-8 text-center text-sm text-ink-400">
+      <p class="mt-8 text-center text-sm text-ink-600">
         &copy; {{ currentYear }} Walid Elsayed. Built with Vue&nbsp;3 + Tailwind&nbsp;CSS.
       </p>
     </div>

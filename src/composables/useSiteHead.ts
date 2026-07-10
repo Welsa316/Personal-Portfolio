@@ -1,7 +1,7 @@
 import { computed, type MaybeRefOrGetter, toValue } from 'vue'
 import { useHead } from '@unhead/vue'
 import { useRoute } from 'vue-router'
-import { SITE_URL, BASE_TITLE, DEFAULT_OG_IMAGE } from '@/config/constants'
+import { SITE_URL, BASE_TITLE, DEFAULT_OG_IMAGE, DEFAULT_DESCRIPTION } from '@/config/constants'
 
 interface HeadOptions {
   title?: MaybeRefOrGetter<string | undefined>
@@ -23,11 +23,7 @@ export function useSiteHead(options: HeadOptions = {}) {
     return t ? `${t} | ${BASE_TITLE}` : BASE_TITLE
   })
 
-  const description = computed(
-    () =>
-      toValue(options.description) ||
-      'Walid Elsayed is a full-stack web developer and designer in New Orleans, building production-grade websites with Vue, React, and modern web technologies.',
-  )
+  const description = computed(() => toValue(options.description) || DEFAULT_DESCRIPTION)
 
   const image = computed(() => toValue(options.image) || DEFAULT_OG_IMAGE)
   const canonicalUrl = computed(() => `${SITE_URL}${route.path}`)
@@ -45,6 +41,7 @@ export function useSiteHead(options: HeadOptions = {}) {
       { name: 'twitter:title', content: fullTitle },
       { name: 'twitter:description', content: description },
       { name: 'twitter:image', content: image },
+      { name: 'twitter:url', content: canonicalUrl },
     ],
     link: [{ rel: 'canonical', href: canonicalUrl }],
     script: computed(() => {

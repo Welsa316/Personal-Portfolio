@@ -44,9 +44,9 @@
 - **Type**: Educational platform for tutoring services and structured learning programs
 - **Stack**: Vue.js, Tailwind CSS, TypeScript, Vite
 
-### Campos Munos Law
-- **Type**: Bilingual website (English/Spanish) for an immigration law firm in the Greater New Orleans area
-- **Status**: Currently being updated
+### Campos Muños Law
+- **URL**: https://camulaw.com
+- **Type**: Bilingual website (English/Spanish) for an immigration law firm based in New Orleans, serving clients across all 50 states
 - **Stack**: HTML, CSS, Bootstrap, JavaScript
 
 ## Contact
