@@ -92,16 +92,20 @@ export const projects: Project[] = [
   },
   {
     id: 'campos-munos-law',
-    title: 'Campos Munos Law',
+    title: 'Campos Muños Law',
     description:
-      'A bilingual website for an immigration law firm in the Greater New Orleans area. Designed to build client trust with a professional, approachable layout, clear service descriptions, and easy contact access in both English and Spanish.',
+      'A bilingual (English/Spanish) website for an immigration law firm serving clients across all 50 states from New Orleans. Built to establish trust with a professional layout, clear service breakdowns, integrated reviews, and easy bilingual contact access.',
     tags: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     category: 'web',
-    links: {},
+    links: {
+      demo: 'https://camulaw.com',
+    },
     image: '/CamposMunos.jpg',
     featured: true,
-    status: 'pending',
+    status: 'live',
     iframeAllowed: false,
+    desktopScreenshot: '/screenshots/camulaw-desktop.jpg',
+    mobileScreenshot: '/screenshots/camulaw-mobile.jpg',
   },
 ]
 
