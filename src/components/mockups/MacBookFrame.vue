@@ -104,8 +104,8 @@ onUnmounted(() => {
 
         <!-- Fallback placeholder -->
         <template v-else>
-          <div class="flex h-full items-center justify-center bg-surface-sunken">
-            <p class="text-ink-400 text-sm">Preview unavailable</p>
+          <div class="flex h-full items-center justify-center bg-[#f0ece5]">
+            <p class="text-sm text-[#8d7b60]">Preview unavailable</p>
           </div>
         </template>
       </div>
