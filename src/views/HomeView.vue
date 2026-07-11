@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
 import Typewriter from '@/components/ui/Typewriter.vue'
@@ -13,22 +13,8 @@ useSiteHead({
     'Walid Elsayed is a full-stack web developer and designer in New Orleans, building production-grade websites with Vue, React, and modern web technologies.',
 })
 
-const featured = getFeaturedProjects()
-
-// Project carousel state
-const activeProject = ref(0)
-
-function setActive(index: number) {
-  activeProject.value = index
-}
-
-function nextProject() {
-  activeProject.value = (activeProject.value + 1) % featured.length
-}
-
-function prevProject() {
-  activeProject.value = (activeProject.value - 1 + featured.length) % featured.length
-}
+// Home teases three; the /projects accordion is the full index.
+const teaser = getFeaturedProjects().slice(0, 3)
 
 useScrollReveal()
 
@@ -63,7 +49,6 @@ onMounted(() => {
       el.classList.add('revealed')
     }, 150 + i * 150)
   })
-
 })
 </script>
 
@@ -72,10 +57,8 @@ onMounted(() => {
     <!-- ======================== HERO ======================== -->
     <!-- Mobile: stacked layout (portrait + text). md+: overlapping absolute layout -->
     <section class="relative min-h-screen overflow-hidden bg-surface">
-
       <!-- Mobile hero (portrait as background, text overlay) -->
       <div class="relative min-h-screen md:hidden flex flex-col justify-end">
-        <!-- Portrait filling the background, bottom-aligned -->
         <div class="hero-animate absolute inset-0 flex items-end justify-center">
           <picture>
             <source srcset="/OvalHeadshot.webp" type="image/webp" />
@@ -91,13 +74,10 @@ onMounted(() => {
         </div>
 
         <!-- Bottom gradient so text is readable — confined to lower portion -->
-        <div class="absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-surface via-surface/85 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-surface via-surface/90 to-transparent pointer-events-none"></div>
 
-        <!-- Text overlay at bottom -->
         <div class="relative z-20 px-5 pb-20">
-          <h1
-            class="hero-animate massive-text font-hero select-none leading-[0.85]"
-          >
+          <h1 class="hero-animate massive-text font-hero select-none leading-[0.85]">
             <span class="block text-ink-950">
               <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
             </span>
@@ -106,14 +86,11 @@ onMounted(() => {
             </span>
           </h1>
           <div class="hero-animate mt-4 flex flex-col gap-3">
-            <p class="text-sm text-ink-500 font-light">
-              — Web developer &amp; designer
-            </p>
+            <p class="text-sm text-ink-500 font-light">— Web developer &amp; designer</p>
             <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
           </div>
         </div>
 
-        <!-- Scroll indicator -->
         <div class="hero-animate absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
           <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
           <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
@@ -122,9 +99,7 @@ onMounted(() => {
 
       <!-- Desktop hero (overlapping absolute layout) -->
       <div class="hidden md:block">
-        <div
-          class="hero-animate absolute right-0 top-0 h-full w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center"
-        >
+        <div class="hero-animate absolute right-0 top-0 h-full w-[50vw] lg:w-[45vw] z-10 flex items-center justify-center">
           <picture>
             <source srcset="/OvalHeadshot.webp" type="image/webp" />
             <img
@@ -139,9 +114,7 @@ onMounted(() => {
         </div>
 
         <div class="absolute bottom-24 left-0 z-20 px-10">
-          <h1
-            class="hero-animate massive-text font-hero select-none leading-[0.85]"
-          >
+          <h1 class="hero-animate massive-text font-hero select-none leading-[0.85]">
             <span class="block text-ink-950">
               <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
             </span>
@@ -149,19 +122,13 @@ onMounted(() => {
               <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
             </span>
           </h1>
-          <div
-            class="hero-animate mt-6 flex flex-row items-center gap-4"
-          >
-            <p class="text-base text-ink-500 font-light">
-              — Web developer &amp; designer
-            </p>
+          <div class="hero-animate mt-6 flex flex-row items-center gap-4">
+            <p class="text-base text-ink-500 font-light">— Web developer &amp; designer</p>
             <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
           </div>
         </div>
 
-        <div
-          class="hero-animate absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20"
-        >
+        <div class="hero-animate absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
           <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
           <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
         </div>
@@ -171,7 +138,6 @@ onMounted(() => {
     <!-- ======================== WHAT I DO ======================== -->
     <section class="bg-surface-sunken py-24 sm:py-32">
       <Container>
-        <!-- Editorial section header -->
         <div class="scroll-reveal mb-4">
           <p class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-3">What I Do</p>
           <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
@@ -181,7 +147,6 @@ onMounted(() => {
 
         <div class="editorial-divider scroll-reveal mt-8 mb-0"></div>
 
-        <!-- Editorial feature grid -->
         <div class="grid sm:grid-cols-3">
           <div
             v-for="(feat, i) in features"
@@ -190,7 +155,7 @@ onMounted(() => {
             :class="[
               i === 0 ? 'sm:pl-4' : '',
               i === features.length - 1 ? 'sm:pr-4' : '',
-              i < features.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-ink-200/60' : ''
+              i < features.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-ink-200/60' : '',
             ]"
             :style="`transition-delay: ${i * 100}ms`"
           >
@@ -208,242 +173,54 @@ onMounted(() => {
       </Container>
     </section>
 
-    <!-- ======================== FEATURED PROJECTS ======================== -->
-    <section class="py-20 sm:py-32 lg:py-40 border-t border-ink-200/60">
-      <div class="px-6 md:px-10 lg:px-16 max-w-[1400px] mx-auto">
-        <!-- Section header — significantly bigger -->
-        <div class="scroll-reveal mb-6">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-4">Selected Work</p>
-          <h2 class="font-display text-5xl sm:text-7xl lg:text-8xl tracking-tight text-ink-950 leading-[0.9]">
-            Featured<br /><span class="text-accent-light">Projects</span>
-          </h2>
+    <!-- ======================== FEATURED WORK (teaser) ======================== -->
+    <section class="border-t border-ink-200/60 py-20 sm:py-28 lg:py-32">
+      <Container>
+        <div class="scroll-reveal mb-12 flex flex-wrap items-end justify-between gap-6 sm:mb-16">
+          <div>
+            <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">Featured</p>
+            <h2 class="font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
+              Recent work, up close.
+            </h2>
+          </div>
+          <Button :to="{ name: 'projects' }" variant="secondary">See All Work</Button>
         </div>
-        <div class="editorial-divider scroll-reveal mt-8 mb-20"></div>
 
-        <!-- Desktop: ARCHITECH-style interactive carousel -->
-        <div class="hidden lg:block scroll-reveal">
-          <div class="flex items-end gap-4" style="height: 75vh; min-height: 500px">
-            <div
-              v-for="(project, i) in featured"
-              :key="project.id"
-              class="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] h-full"
-              :class="activeProject === i ? 'flex-[3]' : 'flex-[1]'"
-            >
-              <!-- Active: big prominent image, links to detail -->
-              <router-link
-                v-if="activeProject === i"
-                :to="{ name: 'project-detail', params: { id: project.id } }"
-                class="group relative block h-full overflow-hidden rounded-lg bg-surface-sunken outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
-                :aria-label="`View ${project.title} project details`"
-              >
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <router-link
+            v-for="(project, i) in teaser"
+            :key="project.id"
+            :to="{ name: 'project-detail', params: { id: project.id } }"
+            class="group scroll-reveal block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+            :style="`transition-delay: ${i * 100}ms`"
+            :aria-label="`View ${project.title} project details`"
+          >
+            <!-- screenshot as a light print on the dark wall -->
+            <div class="print-tile">
+              <div class="flex items-center gap-1.5 px-3 py-2" style="background: #e7e2d8">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+              <div class="relative aspect-[16/11] overflow-hidden bg-[#f4f1eb]">
                 <img
-                  :src="project.image"
-                  :alt="`${project.title} — ${categoryLabels[project.category]} project by Walid Elsayed`"
+                  v-if="project.desktopScreenshot"
+                  :src="project.desktopScreenshot"
+                  :alt="`${project.title} — website preview`"
                   loading="lazy"
-                  width="800"
-                  height="600"
-                  class="h-full w-full object-contain p-12 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
+                  class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <span class="text-white font-semibold text-sm flex items-center gap-2">
-                    View Project
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                    </svg>
-                  </span>
-                </div>
-                <!-- Number overlay on active image -->
-                <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-                  <span class="font-hero text-[12rem] text-white/25 leading-none select-none">
-                    {{ i + 1 }}
-                  </span>
-                </div>
-              </router-link>
-
-              <!-- Inactive: large number, selects this project -->
-              <button
-                v-else
-                type="button"
-                class="group flex h-full w-full cursor-pointer items-center justify-center rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
-                :aria-label="`Show ${project.title}`"
-                @click="setActive(i)"
-              >
-                <span aria-hidden="true" class="font-hero text-[12rem] xl:text-[14rem] text-ink-200 group-hover:text-ink-400 transition-colors duration-300 leading-none select-none">
-                  {{ i + 1 }}
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Bottom row: titles + arrows for all items -->
-          <div class="flex gap-4 mt-8">
-            <div
-              v-for="(project, i) in featured"
-              :key="'info-' + project.id"
-              class="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-              :class="activeProject === i ? 'flex-[3]' : 'flex-[1]'"
-            >
-              <!-- Active: full info, links to detail -->
-              <router-link
-                v-if="activeProject === i"
-                :to="{ name: 'project-detail', params: { id: project.id } }"
-                class="group block rounded-b border-t border-ink-200/60 pt-4 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                :aria-label="`View ${project.title} project details`"
-              >
-                <div class="flex items-start justify-between">
-                  <div>
-                    <h3 class="font-semibold text-ink-950 text-xl">{{ project.title }}</h3>
-                    <span class="text-[10px] uppercase tracking-[0.15em] text-accent-light font-bold mt-1 block">
-                      {{ categoryLabels[project.category] }}
-                    </span>
-                    <div class="flex flex-wrap gap-1.5 mt-2">
-                      <span
-                        v-for="tag in project.tags"
-                        :key="tag"
-                        class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-ink-100 text-ink-600 border border-ink-200/60"
-                      >
-                        {{ tag }}
-                      </span>
-                    </div>
-                  </div>
-                  <svg class="w-5 h-5 text-ink-400 flex-shrink-0 mt-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </div>
-              </router-link>
-
-              <!-- Inactive: title only, selects this project -->
-              <button
-                v-else
-                type="button"
-                class="block w-full cursor-pointer rounded-b border-t border-ink-200/60 pt-4 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                :aria-label="`Show ${project.title}`"
-                @click="setActive(i)"
-              >
-                <div class="flex items-start justify-between">
-                  <div>
-                    <h3 class="font-semibold text-ink-950 text-base">{{ project.title }}</h3>
-                    <span class="text-[10px] uppercase tracking-[0.15em] text-accent-light font-bold mt-1 block">
-                      {{ categoryLabels[project.category] }}
-                    </span>
-                  </div>
-                  <svg class="w-5 h-5 text-ink-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mobile/tablet carousel -->
-        <div class="lg:hidden scroll-reveal">
-          <div class="group">
-            <router-link
-              :to="{ name: 'project-detail', params: { id: featured[activeProject].id } }"
-              class="block relative aspect-[3/4] sm:aspect-[2/3] overflow-hidden rounded-lg bg-surface-sunken outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset"
-              :aria-label="`View ${featured[activeProject].title} project details`"
-            >
-              <img
-                :src="featured[activeProject].image"
-                :alt="`${featured[activeProject].title} project preview`"
-                loading="lazy"
-                width="600"
-                height="800"
-                class="h-full w-full object-contain p-10 mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <span class="text-white font-semibold text-sm flex items-center gap-2">
-                  View Project
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
-                  </svg>
-                </span>
               </div>
-              <!-- Number overlay on mobile -->
-              <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-                <span class="font-hero text-8xl text-white/15 leading-none select-none">
-                  {{ activeProject + 1 }}
-                </span>
-              </div>
-            </router-link>
+            </div>
             <div class="mt-4">
-              <span class="text-[10px] uppercase tracking-[0.2em] text-accent-light font-bold">
-                {{ categoryLabels[featured[activeProject].category] }}
-              </span>
-              <h3 class="mt-1 font-semibold text-xl text-ink-950">
-                {{ featured[activeProject].title }}
-              </h3>
-              <p class="mt-2 text-sm text-ink-500 leading-relaxed">
-                {{ featured[activeProject].description }}
+              <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-accent-light">
+                {{ categoryLabels[project.category] }}
               </p>
-              <div class="flex flex-wrap gap-1.5 mt-3">
-                <span
-                  v-for="tag in featured[activeProject].tags"
-                  :key="tag"
-                  class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-ink-100 text-ink-600 border border-ink-200/60"
-                >
-                  {{ tag }}
-                </span>
-              </div>
+              <h3 class="mt-1.5 font-display text-2xl text-ink-950 transition-colors duration-300 group-hover:text-accent-light">
+                {{ project.title }}
+              </h3>
             </div>
-          </div>
-
-          <!-- Mobile navigation -->
-          <div class="flex items-center justify-between mt-8">
-            <div class="flex gap-2">
-              <button
-                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
-                aria-label="Previous project"
-                @click="prevProject"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
-                </svg>
-              </button>
-              <button
-                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
-                aria-label="Next project"
-                @click="nextProject"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M19 12l-5-5M19 12l-5 5" />
-                </svg>
-              </button>
-            </div>
-            <span class="font-mono text-xs text-ink-400">
-              {{ String(activeProject + 1).padStart(2, '0') }} / {{ String(featured.length).padStart(2, '0') }}
-            </span>
-          </div>
+          </router-link>
         </div>
-
-        <!-- View all + nav arrows -->
-        <div class="scroll-reveal mt-16 flex items-center justify-between" style="transition-delay: 100ms">
-          <Button :to="{ name: 'projects' }" variant="secondary">
-            See All Projects
-          </Button>
-          <div class="hidden lg:flex gap-2">
-            <button
-              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
-              aria-label="Previous project"
-              @click="prevProject"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
-              </svg>
-            </button>
-            <button
-              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
-              aria-label="Next project"
-              @click="nextProject"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M19 12l-5-5M19 12l-5 5" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
+      </Container>
     </section>
 
     <!-- ======================== CTA ======================== -->
@@ -468,3 +245,22 @@ onMounted(() => {
     </section>
   </div>
 </template>
+
+<style scoped>
+.print-tile {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 22px 46px -24px rgba(0, 0, 0, 0.7);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+.group:hover .print-tile {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.8);
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c3bcac;
+}
+</style>
