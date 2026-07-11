@@ -35,7 +35,7 @@ const skillGroups = [
     <section class="relative min-h-[80vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24 bg-surface overflow-hidden">
       <!-- Eyebrow -->
       <div class="text-center mb-10 sm:mb-14 z-10 scroll-reveal">
-        <span class="inline-block px-4 py-1.5 font-mono text-xs tracking-[0.2em] text-accent uppercase border border-accent/30 rounded-full bg-accent/5">
+        <span class="inline-block px-4 py-1.5 font-mono text-xs tracking-[0.2em] text-accent-light uppercase border border-accent/30 rounded-full bg-accent/5">
           About the Developer
         </span>
       </div>
@@ -56,7 +56,7 @@ const skillGroups = [
             deserve
           </span>
           <span class="block text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[7.5rem] xl:text-9xl">
-            <span class="text-accent">world-class</span> websites.
+            <span class="text-accent-light">world-class</span> websites.
           </span>
         </h1>
 
@@ -137,7 +137,7 @@ const skillGroups = [
         </p>
         <p class="text-base md:text-lg text-ink-700 leading-relaxed italic">
           If your business deserves a website that doesn't break in six months,
-          <router-link :to="{ name: 'contact' }" class="not-italic text-accent font-semibold underline decoration-accent/40 hover:decoration-accent transition-colors">let's talk</router-link>.
+          <router-link :to="{ name: 'contact' }" class="not-italic text-accent-light font-semibold underline decoration-accent/40 hover:decoration-accent transition-colors">let's talk</router-link>.
         </p>
       </div>
     </section>
@@ -146,7 +146,7 @@ const skillGroups = [
     <section class="border-t border-ink-200/60 py-20 sm:py-24">
       <Container>
         <div class="scroll-reveal mb-10">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">Toolkit</p>
+          <p class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-3">Toolkit</p>
           <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
             Technologies I work with.
           </h2>
@@ -159,7 +159,7 @@ const skillGroups = [
             class="scroll-reveal rounded-2xl border border-ink-200/60 bg-surface-raised p-6"
             :style="`transition-delay: ${i * 100}ms`"
           >
-            <h3 class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent">
+            <h3 class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-accent-light">
               {{ group.label }}
             </h3>
             <div class="flex flex-wrap gap-2">
@@ -177,13 +177,13 @@ const skillGroups = [
     </section>
 
     <!-- ======================== CTA ======================== -->
-    <section class="bg-ink-950 py-24 sm:py-32">
+    <section class="bg-surface-sunken border-y border-ink-200/60 py-24 sm:py-32">
       <Container>
         <div class="text-center scroll-reveal">
-          <h2 class="font-display text-3xl tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl lg:text-5xl">
             Let's build something together
           </h2>
-          <p class="mx-auto mt-6 max-w-xl text-lg text-ink-400">
+          <p class="mx-auto mt-6 max-w-xl text-lg text-ink-500">
             Currently open to freelance work and full-time opportunities.
           </p>
           <div class="mt-10">
@@ -197,8 +197,8 @@ const skillGroups = [
 
 <style scoped>
 .glass-badge {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06);
+  background: rgba(46, 39, 28, 0.9);
+  border: 1px solid rgba(242, 237, 227, 0.12);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
 }
 </style>

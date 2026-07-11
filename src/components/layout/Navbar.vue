@@ -50,7 +50,7 @@ onUnmounted(() => {
         class="font-display text-2xl tracking-tight text-ink-950"
         @click="closeMobile"
       >
-        Walid<span class="text-accent">Elsayed</span>
+        Walid<span class="text-accent-light">Elsayed</span>
       </RouterLink>
 
       <!-- Desktop nav -->
@@ -59,7 +59,7 @@ onUnmounted(() => {
           <RouterLink
             :to="link.to"
             class="link-underline text-sm font-medium tracking-wide text-ink-700 transition-colors hover:text-ink-950"
-            active-class="!text-accent after:!w-full"
+            active-class="!text-accent-light after:!w-full"
           >
             {{ link.name }}
           </RouterLink>
@@ -67,7 +67,7 @@ onUnmounted(() => {
         <li>
           <RouterLink
             :to="{ name: 'contact' }"
-            class="inline-flex items-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent-dark hover:shadow-md"
+            class="inline-flex items-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent-light hover:shadow-md"
           >
             Hire Me
           </RouterLink>
@@ -110,7 +110,7 @@ onUnmounted(() => {
             <RouterLink
               :to="link.to"
               class="block rounded-lg px-4 py-3 text-base font-medium text-ink-700 transition-colors hover:bg-ink-100 hover:text-ink-950"
-              active-class="!text-accent !bg-accent/5"
+              active-class="!text-accent-light !bg-accent/5"
               @click="closeMobile"
             >
               {{ link.name }}

@@ -97,7 +97,7 @@ async function handleSubmit() {
       Thanks for reaching out. I'll get back to you as soon as possible.
     </p>
     <button
-      class="mt-4 inline-flex min-h-[44px] items-center px-2 py-2 text-sm font-medium text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 rounded"
+      class="mt-4 inline-flex min-h-[44px] items-center px-2 py-2 text-sm font-medium text-accent-light hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 rounded"
       @click="submitted = false; form.name = ''; form.email = ''; form.subject = ''; form.message = ''"
     >
       Send another message

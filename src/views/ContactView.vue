@@ -25,16 +25,16 @@ useSiteHead({
 
           <div class="mt-8 space-y-4">
             <div class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg class="mt-0.5 h-5 w-5 text-accent-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
               </svg>
               <div>
                 <p class="text-sm font-medium text-ink-700">Email</p>
-                <a href="mailto:walidelsayed316@gmail.com" class="text-sm text-ink-500 hover:text-accent">walidelsayed316@gmail.com</a>
+                <a href="mailto:walidelsayed316@gmail.com" class="text-sm text-ink-500 hover:text-accent-light">walidelsayed316@gmail.com</a>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <svg class="mt-0.5 h-5 w-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg class="mt-0.5 h-5 w-5 text-accent-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
               </svg>

@@ -7,7 +7,7 @@ const currentYear = new Date().getFullYear()
     <div class="mx-auto max-w-6xl px-6 py-12">
       <div class="flex flex-col items-center gap-6 md:flex-row md:justify-between">
         <p class="font-display text-2xl tracking-tight text-ink-700">
-          Walid<span class="text-accent">Elsayed</span>
+          Walid<span class="text-accent-light">Elsayed</span>
         </p>
 
         <div class="flex items-center gap-6">

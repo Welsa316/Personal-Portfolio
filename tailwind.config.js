@@ -10,28 +10,31 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       colors: {
+        // Warm Charcoal dark theme. The `ink` scale is lightness-inverted from the
+        // old light palette so every existing utility keeps its relative meaning:
+        // high numbers = brighter (prominent text), low numbers = darker (borders/wells).
         ink: {
-          50: '#f7f6f3',
-          100: '#edeae4',
-          200: '#ddd8cd',
-          300: '#c5bda9',
-          400: '#ab9f84',
-          500: '#9a8b6c',
-          600: '#8d7b60',
-          700: '#756551',
-          800: '#615446',
-          900: '#50463b',
-          950: '#1a1611',
+          50: '#201b14',   // deep surface
+          100: '#2a2419',  // chip / raised fill (bg-ink-100)
+          200: '#322a20',  // hairline (border-ink-200)
+          300: '#4a3f30',  // stronger border (border-ink-300)
+          400: '#94886f',  // dim / decorative text (~5:1, AA)
+          500: '#a99e8a',  // muted text (6.8:1)
+          600: '#b3a892',  // secondary meta / footer (~7:1)
+          700: '#cec4b3',  // body text (10:1)
+          800: '#ddd3c1',  // strong body / detail values
+          900: '#ece4d6',
+          950: '#f2ede3',  // primary text / headings (15:1, AAA)
         },
         accent: {
-          DEFAULT: '#c45d3e',
-          light: '#e07a5f',
+          DEFAULT: '#c45d3e', // fills, rings, underlines, glows (unchanged from brand)
+          light: '#e07a5f',   // accent AS TEXT on dark (6.1:1, AA) + hover/brighten state
           dark: '#9b3a1e',
         },
         surface: {
-          DEFAULT: '#faf8f5',
-          raised: '#ffffff',
-          sunken: '#f0ece5',
+          DEFAULT: '#1a1611', // page background (the brand's own heading ink)
+          raised: '#2e271c',  // cards, inputs, raised plates
+          sunken: '#14100b',  // wells, footer, device shelf, recessed CTA bands
         },
       },
       animation: {

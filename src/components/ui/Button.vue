@@ -35,7 +35,7 @@ const classes = computed(() => {
   }
 
   const variants: Record<string, string> = {
-    primary: 'bg-accent text-white shadow-sm hover:bg-accent-dark hover:shadow-md',
+    primary: 'bg-accent text-white shadow-sm hover:bg-accent-light hover:shadow-md',
     secondary:
       'border-2 border-ink-300 text-ink-800 hover:border-ink-950 hover:text-ink-950',
     ghost: 'text-ink-700 hover:text-ink-950 hover:bg-ink-100',

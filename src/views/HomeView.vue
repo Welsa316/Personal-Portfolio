@@ -101,7 +101,7 @@ onMounted(() => {
             <span class="block text-ink-950">
               <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
             </span>
-            <span class="block text-accent">
+            <span class="block text-accent-light">
               <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
             </span>
           </h1>
@@ -145,7 +145,7 @@ onMounted(() => {
             <span class="block text-ink-950">
               <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
             </span>
-            <span class="block text-accent">
+            <span class="block text-accent-light">
               <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
             </span>
           </h1>
@@ -173,7 +173,7 @@ onMounted(() => {
       <Container>
         <!-- Editorial section header -->
         <div class="scroll-reveal mb-4">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-3">What I Do</p>
+          <p class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-3">What I Do</p>
           <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
             Focused on craft, speed, and<br class="hidden sm:block" /> meaningful technology.
           </h2>
@@ -194,10 +194,10 @@ onMounted(() => {
             ]"
             :style="`transition-delay: ${i * 100}ms`"
           >
-            <span class="font-display text-6xl sm:text-7xl text-accent/30 leading-none transition-colors duration-300 group-hover:text-accent/60">
+            <span class="font-display text-6xl sm:text-7xl text-accent-light/30 leading-none transition-colors duration-300 group-hover:text-accent-light/60">
               {{ feat.number }}
             </span>
-            <h3 class="mt-4 font-display text-xl text-ink-950 transition-colors duration-300 group-hover:text-accent-dark">
+            <h3 class="mt-4 font-display text-xl text-ink-950 transition-colors duration-300 group-hover:text-accent-light">
               {{ feat.title }}
             </h3>
             <p class="mt-3 text-sm leading-relaxed text-ink-500 transition-colors duration-300 group-hover:text-ink-700">
@@ -213,9 +213,9 @@ onMounted(() => {
       <div class="px-6 md:px-10 lg:px-16 max-w-[1400px] mx-auto">
         <!-- Section header — significantly bigger -->
         <div class="scroll-reveal mb-6">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">Selected Work</p>
+          <p class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-4">Selected Work</p>
           <h2 class="font-display text-5xl sm:text-7xl lg:text-8xl tracking-tight text-ink-950 leading-[0.9]">
-            Featured<br /><span class="text-accent">Projects</span>
+            Featured<br /><span class="text-accent-light">Projects</span>
           </h2>
         </div>
         <div class="editorial-divider scroll-reveal mt-8 mb-20"></div>
@@ -293,7 +293,7 @@ onMounted(() => {
                 <div class="flex items-start justify-between">
                   <div>
                     <h3 class="font-semibold text-ink-950 text-xl">{{ project.title }}</h3>
-                    <span class="text-[10px] uppercase tracking-[0.15em] text-accent font-bold mt-1 block">
+                    <span class="text-[10px] uppercase tracking-[0.15em] text-accent-light font-bold mt-1 block">
                       {{ categoryLabels[project.category] }}
                     </span>
                     <div class="flex flex-wrap gap-1.5 mt-2">
@@ -323,7 +323,7 @@ onMounted(() => {
                 <div class="flex items-start justify-between">
                   <div>
                     <h3 class="font-semibold text-ink-950 text-base">{{ project.title }}</h3>
-                    <span class="text-[10px] uppercase tracking-[0.15em] text-accent font-bold mt-1 block">
+                    <span class="text-[10px] uppercase tracking-[0.15em] text-accent-light font-bold mt-1 block">
                       {{ categoryLabels[project.category] }}
                     </span>
                   </div>
@@ -368,7 +368,7 @@ onMounted(() => {
               </div>
             </router-link>
             <div class="mt-4">
-              <span class="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">
+              <span class="text-[10px] uppercase tracking-[0.2em] text-accent-light font-bold">
                 {{ categoryLabels[featured[activeProject].category] }}
               </span>
               <h3 class="mt-1 font-semibold text-xl text-ink-950">
@@ -393,7 +393,7 @@ onMounted(() => {
           <div class="flex items-center justify-between mt-8">
             <div class="flex gap-2">
               <button
-                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
                 aria-label="Previous project"
                 @click="prevProject"
               >
@@ -402,7 +402,7 @@ onMounted(() => {
                 </svg>
               </button>
               <button
-                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+                class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
                 aria-label="Next project"
                 @click="nextProject"
               >
@@ -424,7 +424,7 @@ onMounted(() => {
           </Button>
           <div class="hidden lg:flex gap-2">
             <button
-              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
               aria-label="Previous project"
               @click="prevProject"
             >
@@ -433,7 +433,7 @@ onMounted(() => {
               </svg>
             </button>
             <button
-              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent transition-colors"
+              class="p-2 rounded-full border border-ink-200 text-ink-500 hover:border-accent hover:text-accent-light transition-colors"
               aria-label="Next project"
               @click="nextProject"
             >
@@ -447,16 +447,16 @@ onMounted(() => {
     </section>
 
     <!-- ======================== CTA ======================== -->
-    <section class="bg-ink-950 py-28 sm:py-36">
+    <section class="bg-surface-sunken border-y border-ink-200/60 py-28 sm:py-36">
       <Container>
         <div class="text-center">
-          <p class="scroll-reveal font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">
+          <p class="scroll-reveal font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-4">
             Get in Touch
           </p>
-          <h2 class="scroll-reveal font-display text-4xl tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h2 class="scroll-reveal font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
             Let's build something together
           </h2>
-          <p class="scroll-reveal mx-auto mt-6 max-w-2xl text-lg text-ink-400 sm:text-xl" style="transition-delay: 100ms">
+          <p class="scroll-reveal mx-auto mt-6 max-w-2xl text-lg text-ink-500 sm:text-xl" style="transition-delay: 100ms">
             I'm currently available for freelance work and full-time roles.
             If you have a project in mind, let's talk.
           </p>

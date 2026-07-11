@@ -112,7 +112,7 @@ useSiteHead({
       <Container>
         <!-- Category + Title -->
         <div class="scroll-reveal">
-          <span class="font-mono text-xs tracking-[0.25em] text-accent uppercase">
+          <span class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase">
             {{ categoryLabels[project.category] }}
           </span>
           <h1 class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight text-ink-950 leading-[0.95]">

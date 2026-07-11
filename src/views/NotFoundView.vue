@@ -10,11 +10,11 @@ useSiteHead({ title: '404', description: 'Page not found.' })
   <section class="flex min-h-[70vh] items-center py-20 bg-surface">
     <Container narrow>
       <div class="text-center">
-        <p class="font-mono text-xs tracking-[0.25em] text-accent uppercase mb-4">
+        <p class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-4">
           Error 404
         </p>
         <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl tracking-tight text-ink-950 leading-[0.95]">
-          Page <span class="text-accent italic">not found.</span>
+          Page <span class="text-accent-light italic">not found.</span>
         </h1>
         <div class="editorial-divider mx-auto mt-10 max-w-xs"></div>
         <p class="mt-8 mx-auto max-w-md text-base sm:text-lg text-ink-700 leading-relaxed">
