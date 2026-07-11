@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import Container from '@/components/layout/Container.vue'
 import Button from '@/components/ui/Button.vue'
 import Typewriter from '@/components/ui/Typewriter.vue'
-import { getFeaturedProjects, categoryLabels } from '@/data/projects'
+import SelectedWorksAccordion from '@/components/projects/SelectedWorksAccordion.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import { useSiteHead } from '@/composables/useSiteHead'
 
@@ -12,9 +12,6 @@ useSiteHead({
   description:
     'Walid Elsayed is a full-stack web developer and designer in New Orleans, building production-grade websites with Vue, React, and modern web technologies.',
 })
-
-// Home teases three; the /projects accordion is the full index.
-const teaser = getFeaturedProjects().slice(0, 3)
 
 useScrollReveal()
 
@@ -173,52 +170,21 @@ onMounted(() => {
       </Container>
     </section>
 
-    <!-- ======================== FEATURED WORK (teaser) ======================== -->
+    <!-- ======================== SELECTED WORKS (accordion teaser) ======================== -->
     <section class="border-t border-ink-200/60 py-20 sm:py-28 lg:py-32">
       <Container>
-        <div class="scroll-reveal mb-12 flex flex-wrap items-end justify-between gap-6 sm:mb-16">
+        <div class="scroll-reveal mb-10 flex flex-wrap items-end justify-between gap-6 sm:mb-14">
           <div>
-            <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">Featured</p>
+            <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">Selected Works</p>
             <h2 class="font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
-              Recent work, up close.
+              A few favorites.
             </h2>
           </div>
           <Button :to="{ name: 'projects' }" variant="secondary">See All Work</Button>
         </div>
 
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          <router-link
-            v-for="(project, i) in teaser"
-            :key="project.id"
-            :to="{ name: 'project-detail', params: { id: project.id } }"
-            class="group scroll-reveal block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-            :style="`transition-delay: ${i * 100}ms`"
-            :aria-label="`View ${project.title} project details`"
-          >
-            <!-- screenshot as a light print on the dark wall -->
-            <div class="print-tile">
-              <div class="flex items-center gap-1.5 px-3 py-2" style="background: #e7e2d8">
-                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-              </div>
-              <div class="relative aspect-[16/11] overflow-hidden bg-[#f4f1eb]">
-                <img
-                  v-if="project.desktopScreenshot"
-                  :src="project.desktopScreenshot"
-                  :alt="`${project.title} — website preview`"
-                  loading="lazy"
-                  class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-            </div>
-            <div class="mt-4">
-              <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-accent-light">
-                {{ categoryLabels[project.category] }}
-              </p>
-              <h3 class="mt-1.5 font-display text-2xl text-ink-950 transition-colors duration-300 group-hover:text-accent-light">
-                {{ project.title }}
-              </h3>
-            </div>
-          </router-link>
+        <div class="scroll-reveal">
+          <SelectedWorksAccordion :limit="3" />
         </div>
       </Container>
     </section>
@@ -245,22 +211,3 @@ onMounted(() => {
     </section>
   </div>
 </template>
-
-<style scoped>
-.print-tile {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 22px 46px -24px rgba(0, 0, 0, 0.7);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-}
-.group:hover .print-tile {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.8);
-}
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #c3bcac;
-}
-</style>

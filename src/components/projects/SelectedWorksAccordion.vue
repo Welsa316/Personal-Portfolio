@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { projects, categoryLabels } from '@/data/projects'
 
-// Single-open disclosure. Default-open the first project so the pre-rendered
-// (SSG) HTML ships a visible, crawlable panel and no-JS visitors see content.
-const openId = ref(projects[0]?.id ?? '')
+const props = withDefaults(defineProps<{ limit?: number }>(), { limit: 0 })
 
+const items = computed(() => (props.limit > 0 ? projects.slice(0, props.limit) : projects))
+
+// Single-open disclosure. Default-open the first so SSG/no-JS ships a visible panel.
+const openId = ref(items.value[0]?.id ?? '')
 function toggle(id: string) {
   openId.value = openId.value === id ? '' : id
 }
@@ -13,7 +15,7 @@ function isOpen(id: string) {
   return openId.value === id
 }
 
-// Roving arrow-key navigation between the accordion headers (WAI-ARIA pattern).
+// Roving arrow-key navigation between headers (WAI-ARIA accordion pattern).
 function onKeydown(e: KeyboardEvent) {
   if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return
   const headers = Array.from(
@@ -29,27 +31,33 @@ function onKeydown(e: KeyboardEvent) {
   else if (e.key === 'End') next = headers.length - 1
   headers[next]?.focus()
 }
+
+const pad = (n: number) => String(n + 1).padStart(2, '0')
 </script>
 
 <template>
   <div @keydown="onKeydown">
     <div
-      v-for="(p, i) in projects"
+      v-for="(p, i) in items"
       :key="p.id"
       class="acc-row border-t border-ink-200/60"
-      :class="{ 'is-open': isOpen(p.id), 'border-b': i === projects.length - 1 }"
+      :class="{ 'is-open': isOpen(p.id), 'border-b': i === items.length - 1 }"
     >
-      <h2 class="m-0">
+      <h3 class="m-0">
         <button
           data-acc-head
           type="button"
-          class="group flex w-full items-center justify-between gap-5 py-6 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset sm:py-8"
+          class="group flex w-full items-center gap-4 py-6 text-left outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-inset sm:gap-8 sm:py-8 lg:py-10"
           :aria-expanded="isOpen(p.id)"
           :aria-controls="`acc-panel-${p.id}`"
           @click="toggle(p.id)"
         >
           <span
-            class="font-hero text-3xl font-bold leading-[1.02] tracking-tight transition-colors duration-300 sm:text-5xl lg:text-[3.75rem]"
+            class="hidden shrink-0 font-mono text-xs tabular-nums transition-colors duration-300 sm:block"
+            :class="isOpen(p.id) ? 'text-accent-light' : 'text-ink-400'"
+          >{{ pad(i) }}</span>
+          <span
+            class="acc-title flex-1 font-hero text-[2rem] font-bold uppercase leading-[0.98] tracking-tight transition-colors duration-300 sm:text-5xl lg:text-[4.25rem]"
             :class="isOpen(p.id) ? 'text-accent-light' : 'text-ink-950 group-hover:text-ink-700'"
           >{{ p.title }}</span>
           <span
@@ -58,7 +66,7 @@ function onKeydown(e: KeyboardEvent) {
             aria-hidden="true"
           ></span>
         </button>
-      </h2>
+      </h3>
 
       <div class="acc-panel">
         <div class="acc-panel-inner">
@@ -66,10 +74,10 @@ function onKeydown(e: KeyboardEvent) {
             :id="`acc-panel-${p.id}`"
             role="region"
             :aria-label="`${p.title} — details`"
-            class="grid gap-6 pb-9 md:grid-cols-[1.6fr_1fr] md:gap-10 md:pb-11"
+            class="grid gap-6 pb-10 md:grid-cols-2 md:items-center md:gap-12 md:pb-14"
           >
-            <!-- Screenshot framed as a light editorial print on the dark wall -->
-            <div class="media-tile self-start">
+            <!-- Screenshot as a light editorial print on the dark wall -->
+            <div class="media-tile">
               <div class="flex items-center gap-1.5 px-3 py-2.5" style="background: #e7e2d8">
                 <span class="dot"></span><span class="dot"></span><span class="dot"></span>
               </div>
@@ -81,18 +89,15 @@ function onKeydown(e: KeyboardEvent) {
                   loading="lazy"
                   class="absolute inset-0 h-full w-full object-cover object-top"
                 />
-                <div v-else class="flex h-full items-center justify-center text-sm text-ink-400">
-                  Preview coming soon
-                </div>
               </div>
             </div>
 
             <!-- Meta -->
-            <div class="flex flex-col justify-center gap-5">
+            <div class="flex flex-col gap-5">
               <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-accent-light">
                 {{ categoryLabels[p.category] }}
               </p>
-              <p class="text-ink-700 leading-relaxed">{{ p.description }}</p>
+              <p class="max-w-md text-lg leading-relaxed text-ink-700">{{ p.description }}</p>
               <div class="flex flex-wrap gap-2">
                 <span
                   v-for="t in p.tags"
@@ -102,7 +107,7 @@ function onKeydown(e: KeyboardEvent) {
               </div>
               <router-link
                 :to="{ name: 'project-detail', params: { id: p.id } }"
-                class="group/cta inline-flex w-max items-center gap-2 rounded font-semibold text-accent-light outline-none transition-colors hover:text-ink-950 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                class="group/cta mt-1 inline-flex w-max items-center gap-2 rounded font-semibold text-accent-light outline-none transition-colors hover:text-ink-950 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
                 :tabindex="isOpen(p.id) ? 0 : -1"
                 :aria-hidden="!isOpen(p.id)"
               >
@@ -118,7 +123,6 @@ function onKeydown(e: KeyboardEvent) {
 </template>
 
 <style scoped>
-/* SSG-safe collapse — pure CSS, no JS height measurement */
 .acc-panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -137,9 +141,9 @@ function onKeydown(e: KeyboardEvent) {
 }
 
 .media-tile {
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 28px 56px -26px rgba(0, 0, 0, 0.8);
 }
 .dot {
   width: 7px;
@@ -148,11 +152,10 @@ function onKeydown(e: KeyboardEvent) {
   background: #c3bcac;
 }
 
-/* + that rotates to × on open */
 .acc-plus {
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 .acc-row.is-open .acc-plus {
@@ -169,14 +172,14 @@ function onKeydown(e: KeyboardEvent) {
   left: 50%;
   top: 2px;
   width: 2px;
-  height: 20px;
+  height: 22px;
   transform: translateX(-50%);
 }
 .acc-plus::after {
   top: 50%;
   left: 2px;
   height: 2px;
-  width: 20px;
+  width: 22px;
   transform: translateY(-50%);
 }
 </style>
