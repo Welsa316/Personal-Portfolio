@@ -96,23 +96,19 @@ const competencies = [
       </Container>
     </section>
 
-    <!-- ======================== BREAKOUT IMAGE ======================== -->
+    <!-- ======================== STATEMENT BAND ======================== -->
     <section class="scroll-reveal bg-surface-sunken py-16 sm:py-20">
       <Container>
-        <figure class="m-0">
-          <div class="group relative aspect-[16/8] w-full overflow-hidden rounded-xl border border-ink-200 bg-accent">
-            <img
-              src="/screenshots/daris-desktop.jpg"
-              alt="Warm, editorial detail from recent client work"
-              loading="lazy"
-              class="h-full w-full object-cover object-top opacity-90 mix-blend-luminosity transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-surface/70 via-transparent to-transparent"></div>
-          </div>
-          <figcaption class="mt-4 text-right font-mono text-[11px] uppercase tracking-[0.2em] text-ink-500">
-            Fig 01 — Recent work, New Orleans
-          </figcaption>
-        </figure>
+        <div class="relative overflow-hidden rounded-xl border border-ink-200 bg-surface-raised px-8 py-16 sm:px-14 sm:py-24">
+          <div class="grain absolute inset-0"></div>
+          <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/15 blur-[110px]"></div>
+          <p class="relative max-w-4xl font-display text-3xl leading-[1.08] tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
+            Small businesses deserve <span class="text-accent-light">world-class</span> websites.
+          </p>
+          <p class="relative mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-ink-500">
+            The whole reason I do this
+          </p>
+        </div>
       </Container>
     </section>
 
@@ -169,15 +165,17 @@ const competencies = [
             </div>
           </div>
 
-          <!-- atmospheric image card (not a face, not OK Ice Cream) -->
-          <div class="relative overflow-hidden rounded-xl border border-ink-200 md:col-span-4">
-            <img
-              src="/screenshots/camulaw-desktop.jpg"
-              alt="Detail from a recent bilingual client site"
-              loading="lazy"
-              class="h-full w-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-surface/85 via-surface/25 to-transparent"></div>
+          <!-- identity / facts card (textured graphic, no photo) -->
+          <div class="relative flex flex-col justify-between overflow-hidden rounded-xl border border-ink-200 bg-surface-raised p-8 md:col-span-4">
+            <div class="grain absolute inset-0"></div>
+            <div class="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-accent/15 blur-[70px]"></div>
+            <span class="relative font-mono text-[11px] uppercase tracking-[0.2em] text-accent-light">Based in</span>
+            <div class="relative">
+              <h3 class="font-display text-3xl text-ink-950">New Orleans</h3>
+              <p class="mt-2 font-mono text-[11px] uppercase tracking-[0.15em] text-ink-500">
+                English · Arabic · Remote-friendly
+              </p>
+            </div>
           </div>
 
           <!-- 02 medium -->
@@ -224,3 +222,12 @@ const competencies = [
     </section>
   </main>
 </template>
+
+<style scoped>
+/* Subtle film grain so the graphic panels have texture instead of a photo */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  pointer-events: none;
+}
+</style>
