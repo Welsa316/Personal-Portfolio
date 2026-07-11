@@ -8,25 +8,25 @@ useScrollReveal()
 useSiteHead({
   title: 'About',
   description:
-    'Walid Elsayed — a New Orleans web developer who hand-builds fast, accessible, fully-owned websites for small businesses. Bilingual in English and Arabic.',
+    'Walid Elsayed — a New Orleans web developer who hand-builds fast, fully-owned websites for small businesses. No templates, no monthly rent. Bilingual in English and Arabic.',
 })
 
 const competencies = [
   {
-    title: 'Interface Engineering',
-    body: 'Pixel-accurate, accessible interfaces built with modern frameworks — from marketing sites to full single-page apps.',
+    title: 'The Front End',
+    body: 'The part people see and use. Fast, accessible interfaces that work on every screen — from a one-page site to a full web app.',
     tags: ['Vue 3', 'React', 'TypeScript', 'Tailwind CSS'],
     icon: 'M2.25 3h19.5M3 3v16.5A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5V3M8.25 21v-4.5h7.5V21',
   },
   {
-    title: 'Systems & Data',
-    body: 'APIs, databases, and server logic that stay reliable and clear as a business grows.',
+    title: 'The Back End',
+    body: 'The engine behind it. APIs, databases, and server logic that stay reliable as a business grows.',
     tags: ['Node.js', 'Python', 'PostgreSQL', 'REST APIs'],
     icon: 'M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75',
   },
   {
-    title: 'Ship & Maintain',
-    body: 'Clean deploys, sane tooling, and an obsession with long-term maintainability over quick hacks.',
+    title: 'Shipping & Upkeep',
+    body: 'Getting it live and keeping it that way. Clean deploys, sane tooling, and no shortcuts that break six months later.',
     tags: ['Git', 'Vite', 'Vercel', 'AWS'],
     icon: 'M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z',
   },
@@ -37,19 +37,18 @@ const competencies = [
   <main class="pt-8">
     <!-- ======================== HERO ======================== -->
     <section class="relative overflow-hidden py-20 sm:py-28 lg:py-32">
-      <!-- ambient terracotta glow -->
       <div class="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-[120px]"></div>
       <Container>
         <div class="scroll-reveal max-w-4xl">
-          <p class="mb-6 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">The Approach</p>
+          <p class="mb-6 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">How I Work</p>
           <h1 class="font-display text-4xl leading-[1.05] tracking-tight text-ink-950 sm:text-6xl lg:text-7xl">
-            Craft, clarity, and code you actually own.
+            I build websites you actually own.
           </h1>
           <div class="my-8 h-px w-24 bg-ink-300"></div>
           <p class="max-w-2xl text-lg leading-relaxed text-ink-700 sm:text-xl">
-            I'm Walid Elsayed, a web developer and designer in New Orleans. I build custom websites
-            for small businesses — hand-coded, fast, accessible, and fully yours. No page builders,
-            no templates, no monthly rent on software you'll never control.
+            I'm Walid — a web developer and designer in New Orleans. I build custom sites for small
+            businesses. No page builders, no templates, no monthly rent on software you'll never
+            own. Just fast, clean, hand-coded work that's actually yours.
           </p>
         </div>
       </Container>
@@ -61,33 +60,36 @@ const competencies = [
         <div class="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div class="md:col-span-4">
             <h2 class="font-display text-2xl leading-snug text-ink-950 sm:text-3xl md:sticky md:top-28">
-              From frustrated client to hands-on builder.
+              Why I build this way.
             </h2>
           </div>
           <div class="space-y-6 md:col-span-7 md:col-start-6">
             <p class="text-xl leading-relaxed text-ink-800">
-              The principles of good building don't change when you move from a storefront to a
-              screen — structure, clarity, speed. I kept meeting small businesses stuck on monthly
-              Wix plans, paying every month for a site they didn't own, waiting a week just to change
-              a phone number.
+              Honestly? I started doing this because the alternative bugged me. I kept running into
+              small businesses paying Wix every month for a site they didn't even own — then waiting
+              a week just to change a phone number. Every tiny edit was a fight, and they were paying
+              for the privilege.
             </p>
             <p class="leading-relaxed text-ink-700">
-              Most agencies overcharge them, ship a template, and lock them into subscriptions they
-              don't understand. I reject that premise. A local business deserves the same craft as a
-              company with a full design team — fast load times, clean typography, and a site that
-              still feels current three years from now.
+              Agencies aren't much better. They overcharge, hand over a template, and lock you into a
+              subscription you don't fully understand. A local shop deserves the same quality as a
+              company with a whole design team — a site that loads fast, looks sharp, and still holds
+              up a few years from now.
             </p>
             <blockquote class="my-8 border-l-2 border-accent bg-surface-raised/40 p-6">
               <p class="m-0 font-display text-2xl italic leading-snug text-ink-950">
-                “Clarity is the ultimate sophistication. A fast site you own beats a bloated one you rent.”
+                “Perfection is achieved not when there is nothing more to add, but when there is
+                nothing left to take away.”
               </p>
+              <footer class="mt-3 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-500">
+                — Antoine de Saint-Exupéry
+              </footer>
             </blockquote>
             <p class="leading-relaxed text-ink-700">
-              So I build custom. Every project starts by stripping away the superfluous until only
-              the essential remains — not as an aesthetic pose, but as a performance strategy. Less
-              code means faster pages, easier maintenance, and a clearer path for the person on the
-              other side of the screen. Bilingual in English and Arabic, I also build for the clients
-              other developers can't reach.
+              So I build everything custom, by hand. I cut anything that isn't pulling its weight —
+              not to look minimal, but because less code means a faster site that's easier to keep
+              running. And since I'm bilingual in English and Arabic, I can build for clients a lot
+              of developers can't reach.
             </p>
           </div>
         </div>
@@ -100,8 +102,8 @@ const competencies = [
         <figure class="m-0">
           <div class="group relative aspect-[16/8] w-full overflow-hidden rounded-xl border border-ink-200 bg-accent">
             <img
-              src="/screenshots/ok-desktop.jpg"
-              alt="Recent work — OK Ice Cream Shop website"
+              src="/screenshots/daris-desktop.jpg"
+              alt="Warm, editorial detail from recent client work"
               loading="lazy"
               class="h-full w-full object-cover object-top opacity-90 mix-blend-luminosity transition-transform duration-[1200ms] ease-out group-hover:scale-105"
             />
@@ -119,11 +121,11 @@ const competencies = [
       <Container>
         <div class="mb-12 flex flex-col justify-between gap-6 border-b border-ink-200/60 pb-8 md:flex-row md:items-end">
           <div>
-            <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">Competencies</p>
-            <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">Technical depth</h2>
+            <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">What I Do</p>
+            <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">The whole stack</h2>
           </div>
           <p class="max-w-sm text-ink-500">
-            Capabilities forged where rigorous engineering meets a designer's eye for detail.
+            I handle the whole build — design, front end, back end, and getting it shipped.
           </p>
         </div>
 
@@ -157,30 +159,25 @@ const competencies = [
         <div class="grid auto-rows-[240px] grid-cols-1 gap-4 md:grid-cols-12">
           <!-- 01 large -->
           <div class="group flex flex-col justify-between rounded-xl border border-ink-200 bg-surface-raised p-8 transition-colors duration-300 hover:border-accent md:col-span-8">
-            <div class="flex items-start justify-between">
-              <span class="font-mono text-xs text-accent-light">01</span>
-            </div>
+            <span class="font-mono text-xs text-accent-light">01</span>
             <div>
               <h3 class="mb-2 font-display text-2xl text-ink-950">Own it, don't rent it.</h3>
               <p class="max-w-md leading-relaxed text-ink-700">
-                You get the code, the domain, and the keys — no subscriptions holding your business
-                hostage, no platform you can't leave.
+                You get the code, the domain, and the keys — no subscription holding your business
+                hostage, no platform you can't walk away from.
               </p>
             </div>
           </div>
 
-          <!-- portrait card -->
+          <!-- atmospheric image card (not a face, not OK Ice Cream) -->
           <div class="relative overflow-hidden rounded-xl border border-ink-200 md:col-span-4">
-            <picture>
-              <source srcset="/OvalHeadshot.webp" type="image/webp" />
-              <img
-                src="/OvalHeadshot.png"
-                alt="Walid Elsayed"
-                loading="lazy"
-                class="h-full w-full object-cover object-top"
-              />
-            </picture>
-            <div class="absolute inset-0 bg-gradient-to-t from-surface/60 to-transparent"></div>
+            <img
+              src="/screenshots/camulaw-desktop.jpg"
+              alt="Detail from a recent bilingual client site"
+              loading="lazy"
+              class="h-full w-full object-cover object-top transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-surface/85 via-surface/25 to-transparent"></div>
           </div>
 
           <!-- 02 medium -->
@@ -189,8 +186,8 @@ const competencies = [
             <div>
               <h3 class="mb-2 font-display text-2xl text-ink-950">Bilingual by default.</h3>
               <p class="leading-relaxed text-ink-700">
-                English and Arabic. I build for the clients other developers can't reach — and the
-                communities they serve.
+                English and Arabic. I build for the clients — and the communities — a lot of
+                developers can't reach.
               </p>
             </div>
           </div>
@@ -199,10 +196,10 @@ const competencies = [
           <div class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-accent p-8 md:col-span-6">
             <span class="font-mono text-xs text-white/70">03</span>
             <div>
-              <h3 class="mb-2 font-display text-2xl text-white">Performance is a feature.</h3>
+              <h3 class="mb-2 font-display text-2xl text-white">Fast on purpose.</h3>
               <p class="leading-relaxed text-white/85">
-                Fast, accessible, and engineered to still feel current years from now — not just on
-                launch day.
+                Every site is built to load quick and stay quick — not just look good the day it
+                launches.
               </p>
             </div>
           </div>
@@ -214,11 +211,11 @@ const competencies = [
     <section class="scroll-reveal border-t border-ink-200/60 bg-surface-sunken py-24 text-center sm:py-32">
       <Container>
         <h2 class="font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
-          Ready to build?
+          Got something to build?
         </h2>
         <p class="mx-auto mt-6 max-w-xl text-lg text-ink-500">
-          Currently available for freelance work and full-time roles. If you've got a project in
-          mind, let's talk.
+          I'm open to freelance work and full-time roles. If you've got a project in mind, let's
+          talk.
         </p>
         <div class="mt-10">
           <Button :to="{ name: 'contact' }" size="lg">Get in Touch</Button>
