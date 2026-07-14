@@ -10,6 +10,33 @@ const currentYear = new Date().getFullYear()
           Walid<span class="text-accent-light">Elsayed</span>
         </p>
 
+        <nav aria-label="Footer" class="flex items-center gap-6">
+          <router-link
+            :to="{ name: 'projects' }"
+            class="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
+          >
+            Projects
+          </router-link>
+          <router-link
+            :to="{ name: 'blog' }"
+            class="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
+          >
+            Blog
+          </router-link>
+          <router-link
+            :to="{ name: 'about' }"
+            class="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
+          >
+            About
+          </router-link>
+          <router-link
+            :to="{ name: 'contact' }"
+            class="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
+          >
+            Contact
+          </router-link>
+        </nav>
+
         <div class="flex items-center gap-6">
           <a
             href="https://github.com/Welsa316"

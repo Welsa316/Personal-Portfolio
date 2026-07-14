@@ -13,6 +13,7 @@ const blendActive = computed(() => isHome.value && !scrolled.value)
 const navLinks = [
   { name: 'Home', to: { name: 'home' } },
   { name: 'Projects', to: { name: 'projects' } },
+  { name: 'Blog', to: { name: 'blog' } },
   { name: 'About', to: { name: 'about' } }
 ]
 

@@ -5,6 +5,12 @@ import { SITE_URL, BASE_TITLE, DEFAULT_OG_IMAGE, DEFAULT_DESCRIPTION } from '@/c
 
 interface HeadOptions {
   title?: MaybeRefOrGetter<string | undefined>
+  /**
+   * Exact <title> tag, used verbatim without the "| BASE_TITLE" suffix.
+   * For pages (e.g. blog articles) that need a precise, length-tuned SEO title.
+   * Takes precedence over `title` when set.
+   */
+  rawTitle?: MaybeRefOrGetter<string | undefined>
   description?: MaybeRefOrGetter<string | undefined>
   image?: MaybeRefOrGetter<string | undefined>
   type?: 'website' | 'article'
@@ -19,6 +25,8 @@ export function useSiteHead(options: HeadOptions = {}) {
   const route = useRoute()
 
   const fullTitle = computed(() => {
+    const raw = toValue(options.rawTitle)
+    if (raw) return raw
     const t = toValue(options.title)
     return t ? `${t} | ${BASE_TITLE}` : BASE_TITLE
   })

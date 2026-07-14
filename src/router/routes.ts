@@ -28,6 +28,22 @@ export const routes: RouteRecordRaw[] = [
     meta: { title: 'Project' },
   },
   {
+    path: '/blog',
+    name: 'blog',
+    component: () => import('@/views/BlogView.vue'),
+    meta: {
+      title: 'Blog',
+      description:
+        'Plain-spoken guides on owning your website, website builder fees, site speed, and hiring a local New Orleans web developer.',
+    },
+  },
+  {
+    path: '/blog/:slug',
+    name: 'article',
+    component: () => import('@/views/ArticleView.vue'),
+    meta: { title: 'Article' },
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('@/views/AboutView.vue'),
