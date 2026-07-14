@@ -36,13 +36,26 @@ export default {
           raised: '#2e271c',  // cards, inputs, raised plates
           sunken: '#14100b',  // wells, footer, device shelf, recessed CTA bands
         },
+        // Semantic status colors, tuned for the dark Warm-Charcoal theme (never the
+        // raw light-mode Tailwind pastels). Used as text/icon on translucent fills.
+        success: '#8fce9e', // green, ~7:1 on dark fills
+        warning: '#f2c14e', // amber, warm sibling of the accent
+        danger: '#e6947b',  // desaturated warm red, ~6.5:1 on surface
+      },
+      borderRadius: {
+        // One card radius for the whole editorial system (retires 12/14/16px drift).
+        card: '12px',
+      },
+      boxShadow: {
+        // Warm, deep elevation tuned for #1a1611 — default Tailwind shadows are
+        // near-invisible on the dark surface.
+        card: '0 18px 40px -24px rgba(0, 0, 0, 0.75)',
+        raised: '0 24px 50px -26px rgba(0, 0, 0, 0.8)',
+        glow: '0 12px 40px -8px rgba(196, 93, 62, 0.35)',
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out forwards',
-        'fade-in': 'fadeIn 0.4s ease-out forwards',
-        'slide-in': 'slideIn 0.5s ease-out forwards',
         'scroll-hint': 'scrollHint 2s ease-in-out infinite',
-        'glow-pulse': 'glowPulse 3s ease-in-out infinite',
         'mockup-scroll': 'mockupScroll 20s ease-in-out infinite',
       },
       keyframes: {
@@ -50,21 +63,9 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideIn: {
-          '0%': { opacity: '0', transform: 'translateX(-12px)' },
-          '100%': { opacity: '1', transform: 'translateX(0)' },
-        },
         scrollHint: {
           '0%, 100%': { transform: 'translateY(0)', opacity: '0.5' },
           '50%': { transform: 'translateY(8px)', opacity: '1' },
-        },
-        glowPulse: {
-          '0%, 100%': { opacity: '0.4' },
-          '50%': { opacity: '0.7' },
         },
         mockupScroll: {
           '0%, 5%': { transform: 'translateY(0)' },

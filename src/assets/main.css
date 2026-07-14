@@ -16,6 +16,18 @@
     min-height: 100vh;
   }
 
+  /* One consistent keyboard-focus indicator site-wide. accent-light passes AA on
+     the dark surface. Components that draw their own ring opt out with
+     `focus-visible:outline-none` so two indicators never stack. */
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid theme('colors.accent.light');
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
   /* Respect users who prefer reduced motion — disables all animations and transitions */
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -33,73 +45,54 @@
       transform: none !important;
     }
   }
-
-  /* Stagger animation helper classes */
-  .stagger-1 { animation-delay: 0.1s; }
-  .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.3s; }
-  .stagger-4 { animation-delay: 0.4s; }
-  .stagger-5 { animation-delay: 0.5s; }
-  .stagger-6 { animation-delay: 0.6s; }
-  .stagger-7 { animation-delay: 0.7s; }
-  .stagger-8 { animation-delay: 0.8s; }
 }
 
 @layer components {
+  /* Animated hover/focus underline for nav links */
   .link-underline {
     @apply relative;
   }
 
   .link-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-[1.5px] bg-accent transition-all duration-300;
+    @apply absolute bottom-0 left-0 h-[1.5px] w-0 bg-accent transition-all duration-300;
   }
 
-  .link-underline:hover::after {
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
     @apply w-full;
   }
 
-  /* Editorial utilities */
+  /* The terracotta mono kicker that leads every section masthead. One token so the
+     label reads as a single editorial voice instead of a dozen hand-rolled copies.
+     The short accent tick before it is a fill use of the accent — WCAG-safe. */
+  .eyebrow {
+    @apply inline-flex items-center font-mono text-xs uppercase tracking-[0.25em] text-accent-light;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply mr-3 inline-block h-px w-6 shrink-0 bg-accent;
+  }
+
+  /* The single largest type on the site — committed to Space Grotesk 700 to match
+     the brand's "bold grotesque" identity (700 is loaded in index.html). */
   .massive-text {
     font-size: clamp(3rem, 10vw, 12rem);
     line-height: 0.85;
     letter-spacing: -0.04em;
-    font-weight: 400;
+    font-weight: 700;
   }
 
-  .vertical-text {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-
-  .portrait-glow {
-    position: relative;
-  }
-  .portrait-glow::before {
-    content: '';
-    position: absolute;
-    inset: -40px;
-    background: radial-gradient(ellipse at center, rgb(196 93 62 / 0.3), transparent 70%);
-    border-radius: 50%;
-    z-index: -1;
-    filter: blur(30px);
-    animation: glowPulse 3s ease-in-out infinite;
-  }
-
-
-  .portrait-seamless {
-    mask-image: radial-gradient(ellipse 55% 65% at 50% 30%, black 25%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse 55% 65% at 50% 30%, black 25%, transparent 75%);
-  }
-
+  /* Warm editorial hairline — a whisper of terracotta rather than a flat grey line. */
   .editorial-divider {
-    @apply h-px w-full bg-ink-300/50;
-  }
-
-  .scroll-indicator {
-    animation: scrollHint 2s ease-in-out infinite;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      rgb(74 63 48 / 0.6),
+      rgb(196 93 62 / 0.35) 32%,
+      transparent 88%
+    );
   }
 
   /* JS-driven animation: hero entrance */
@@ -124,5 +117,25 @@
   .scroll-reveal.revealed {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Staggered cascade for a revealed grid's children. Uses the independent
+     `translate` property (not `transform`) so it never fights a tile's hover lift.
+     No-preference only; SSG/no-JS renders the static, fully-legible rest state. */
+  @media (prefers-reduced-motion: no-preference) {
+    .cascade.revealed > * {
+      animation: tileRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(var(--i, 0) * 55ms);
+    }
+  }
+  @keyframes tileRise {
+    from {
+      opacity: 0;
+      translate: 0 22px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
   }
 }
