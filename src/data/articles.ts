@@ -568,6 +568,69 @@ Want ordering on your own site instead of renting it from an app? [Tell me about
 - Uber Eats, [Pricing for Merchants](https://merchants.ubereats.com/us/en/pricing/)
 - Grubhub for Restaurants, [Pricing](https://get.grubhub.com/pricing/)`,
   },
+  {
+    slug: 'own-your-domain-code-and-data',
+    title: 'Owning Your Domain, Code, and Data: A Small Business Guide',
+    metaTitle: 'Own Your Domain, Code, and Data: A Small Biz Guide',
+    description:
+      'Own your domain, code, and data: a small business guide to avoiding platform lock-in. What ownership means, why it matters, and how to check who holds yours.',
+    excerpt:
+      'The three things every business should hold, how lock-in happens, and a checklist to confirm the site is really yours.',
+    primaryKeyword: 'own your domain, code, and data',
+    category: 'Ownership',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `Most small business owners find out what they do not own at the worst time, when they try to leave a platform or an agency stops answering. If you own your domain, code, and data, you can move anywhere and lose nothing. If you do not, you are stuck. I build sites that hand the owner all three, so here is the plain guide to what to hold and how to check.
+
+## The three things to own
+
+A website is really three assets. The domain is your address. The code is the site itself. The data is your customers and content. Own all three and the site is yours to move, sell, or rebuild on your terms. Miss one and someone else has leverage over your business.
+
+## Your domain
+
+The domain is the easiest to lose and the easiest to protect. Register it in your own name, in an account you control, and keep the login. When an agency or a builder registers the domain for you under their account, they hold your address. If you part ways, getting it back can be slow or messy. Buy the domain yourself, or make sure it sits in your account, and you always keep the keys.
+
+## Your code
+
+The code is the site's design and everything that makes it work. On a custom build you get the files, and any developer can host them or pick up the work later. On a hosted builder the code runs only on that platform. Wix says so plainly in its help center: "the SaaS architecture does not support external hosting." That means the site cannot move, and leaving means a rebuild. I cover that trade in [custom website vs Wix](/blog/custom-website-vs-wix-small-business). When you own the code, no single company can hold your site hostage.
+
+## Your data
+
+Your data is your customer list, your orders, and your content. Some platforms let you export it. Shopify, for example, lets you download products, customers, and orders as CSV files, which I get into in [do you actually own your Shopify store](/blog/do-you-own-your-shopify-store). Others make it hard to get your information out in a usable form. Before you commit to any platform, find out exactly what you can export and in what format. If the answer is unclear, treat that as a warning.
+
+## How lock-in happens
+
+Lock-in is rarely a single decision. It builds up. The builder registers your domain. The design lives in a theme that only runs on their servers. Your customer data sits in a system with no clean export. None of it looks like a trap on day one. Then the price goes up or the service slips, and you learn that moving means starting over. The cost of ownership question is the same one I ask in [what a small business website should cost](/blog/what-a-small-business-website-should-cost).
+
+## The ownership checklist
+
+- Is the domain registered in your name, in an account you control?
+- Do you have the code, or does it only run on one platform?
+- Can you export your customers, orders, and content in a usable format?
+- If the platform doubled its price tomorrow, could you leave without rebuilding?
+
+## Owned vs locked in
+
+| | You own it | Locked to a platform |
+|---|---|---|
+| Domain | In your name, you hold the login | Registered by someone else |
+| Code | You have the files, host anywhere | Runs only on the platform |
+| Data | Yours, exportable | Export limited or unclear |
+| Leaving | Switch hosts, keep everything | Rebuild from scratch |
+
+I build with all three in the owner's hands. My [SAHA Institute](/projects/saha-institute) and [Daris](/projects/daris) builds are custom sites the owners hold outright, code and content included.
+
+Not sure who holds your domain, code, or data right now? [Send me your site](/contact) and I will tell you where you stand.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites for small businesses so the owner keeps the domain, the code, and the data, with nothing locked to a platform.
+
+### Sources
+
+- Wix Help Center, [Exporting or Embedding Your Wix Site Elsewhere](https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere)
+- Shopify Help Center, [Export or import with CSV files](https://help.shopify.com/en/manual/products/import-export)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
