@@ -514,6 +514,60 @@ Serving customers in more than one language? [Tell me who you want to reach](/co
 - U.S. Census Bureau, [Language Use in the United States (American Community Survey report)](https://www.census.gov/content/dam/Census/library/publications/2022/acs/acs-50.pdf)
 - Google Search Central, [Tell Google about localized versions of your page](https://developers.google.com/search/docs/specialty/international/localized-versions)`,
   },
+  {
+    slug: 'restaurant-online-ordering-no-commission-fees',
+    title: 'Restaurant Online Ordering Without Commission Fees',
+    metaTitle: 'Restaurant Online Ordering, No Commission Fees',
+    description:
+      'Restaurant online ordering without commission fees: how delivery apps take 15 to 30% per order, and how ordering on your own site keeps that margin.',
+    excerpt:
+      'Delivery apps take 15 to 30% per order. Ordering on your own site keeps that margin and the customer.',
+    primaryKeyword: 'restaurant online ordering without commission fees',
+    category: 'Restaurants',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `Third-party delivery apps are easy to sign up for and expensive to live with. If you want restaurant online ordering without commission fees eating your margin, the answer is to take orders on your own site. I build restaurant sites in New Orleans, including online ordering, so here is the plain version of why direct beats the apps on cost.
+
+## What the delivery apps really cost
+
+DoorDash, Uber Eats, and Grubhub charge restaurants a commission on every order. Depending on the plan and how much visibility you want, that commission commonly runs from 15% to 30% per order. Higher tiers buy better placement in the app and cost more. On a thin restaurant margin, handing over a quarter or a third of an order is the difference between a good week and a flat one.
+
+## The math on a single order
+
+Take a 30 dollar order. At a 30% commission, the app keeps 9 dollars. At 15%, it keeps 4.50. Now take that same order on your own site through a card processor at about 2.9% plus 30 cents. That costs you a little over a dollar. The gap is money that stays in your kitchen instead of leaving with the app. I break down processing rates across platforms in [website builder transaction fees compared](/blog/website-builder-transaction-fees-compared).
+
+## Ordering on your own site
+
+Your own ordering page connects straight to a payment processor like Stripe or Square. You pay the card rate and nothing else. There is no commission and no middle layer. You also keep the customer. When someone orders through an app, the app owns that relationship and the data. When they order from your site, the email and the repeat business are yours. That is the ownership side, and it works the same way I describe for stores in [do you actually own your Shopify store](/blog/do-you-own-your-shopify-store).
+
+## What you keep, what you give up
+
+The apps are not worthless. They bring reach and they handle drivers, which is real work you would otherwise arrange yourself. Direct ordering saves the commission but leaves delivery to you, whether that means pickup only, your own driver, or a flat-fee delivery service. It is a trade between reach and margin.
+
+| | Third-party delivery app | Your own ordering |
+|---|---|---|
+| Cost per order | 15% to 30% commission | Card processing only, about 2.9% + 30¢ |
+| Customer data | The app keeps it | You keep it |
+| Your brand | The app's listing | Your own site |
+| Delivery | Handled by the app | Pickup, your driver, or a flat-fee service |
+| Best for | Reach and delivery labor | Margin and repeat customers |
+
+## A path that fits most restaurants
+
+Many restaurants run both. They keep a listing on one app for reach and push regulars to order direct, where the food costs the same and the restaurant keeps more. Put the ordering link on your site, your receipts, and your window, and the repeat orders move to the channel you own. My [Yami Hibachi](/projects/yami-hibachi) build takes orders on the restaurant's own site for that reason, and the [OK Ice Cream](/projects/ok-ice-cream) shop keeps its ordering close to home too.
+
+Want ordering on your own site instead of renting it from an app? [Tell me about your restaurant](/contact) and I will set it up.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I build restaurant sites with online ordering that connects straight to a payment processor, so the kitchen keeps its margin.
+
+### Sources
+
+- DoorDash for Merchants, [Partnership Plans and Pricing](https://get.doordash.com/en-us/products/marketplace)
+- Uber Eats, [Pricing for Merchants](https://merchants.ubereats.com/us/en/pricing/)
+- Grubhub for Restaurants, [Pricing](https://get.grubhub.com/pricing/)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
