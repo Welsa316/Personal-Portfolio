@@ -344,6 +344,65 @@ Want to know why your site is slow? [Send me the link](/contact) and I will tell
 - Google Search Central, [Understanding Core Web Vitals and Google search results](https://developers.google.com/search/docs/appearance/core-web-vitals)
 - web.dev, [Web Vitals](https://web.dev/articles/vitals) (LCP, INP, and CLS thresholds)`,
   },
+  {
+    slug: 'website-builder-transaction-fees-compared',
+    title: 'Website Builder Transaction Fees Compared',
+    metaTitle: 'Website Builder Transaction Fees Compared (2026)',
+    description:
+      'Website builder transaction fees compared: Shopify, Wix, and Squarespace. What each platform adds on top of card processing, verified and dated for 2026.',
+    excerpt:
+      'Shopify, Wix, and Squarespace: the fee each platform takes on top of card processing, verified and dated.',
+    primaryKeyword: 'website builder transaction fees',
+    category: 'Fees',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `When you sell on a website builder, you often pay two cuts on every sale, not one. Website builder transaction fees are the part people miss, because they get quoted the low monthly price and never see the per-sale math. Here is what Shopify, Wix, and Squarespace actually take, checked against their own pages in July 2026, and how a custom site avoids the extra cut.
+
+## Two fees, not one
+
+Every online sale has a payment processing fee. That is the card rate charged by a processor like Stripe, PayPal, or the platform's own payment tool, usually a percentage plus a flat few cents. Some builders add a second fee on top, their own transaction fee, just for selling on their platform. The processing fee is unavoidable. The platform fee is the one worth shopping.
+
+## Shopify
+
+Shopify charges a card rate through its own tool, Shopify Payments. On the Basic plan that rate is 2.9% plus 30 cents per online transaction, dropping to 2.7% and 2.5% on the higher plans, as of July 2026. If you use a different payment gateway instead of Shopify Payments, Shopify adds its own transaction fee on top of your processor's rate. Use Shopify Payments and that extra fee is waived. The setup pushes you toward keeping checkout inside Shopify. I cover the ownership side of this in [do you actually own your Shopify store](/blog/do-you-own-your-shopify-store).
+
+## Squarespace
+
+Squarespace is clearer than most. On its current plans, physical-product sales carry no Squarespace transaction fee. Digital products and memberships do carry one, and it drops as you move up the plans: 7% on Basic, 5% on Core, 1% on Plus, and 0% on Advanced, as of July 2026. All of that is separate from the card rate your processor charges on each sale.
+
+## Wix
+
+Wix runs on a monthly subscription, and the plan price is the main cost to track. When you sell, your payment processor takes its card rate on each order. Check Wix's current plan page for any plan-specific selling costs before you commit, since the plans change.
+
+## The comparison
+
+| Platform | Card processing | Extra platform fee | Checked |
+|---|---|---|---|
+| Shopify | 2.9% + 30¢ on Basic, lower on higher plans, via Shopify Payments | Added if you use another gateway, waived with Shopify Payments | Jul 2026 |
+| Squarespace | Your processor's rate | 0% on physical (current plans), 7% down to 0% on digital by plan | Jul 2026 |
+| Wix | Your processor's rate | Mainly the plan fee | Check plan page |
+| Custom site | Your processor's rate (e.g. Stripe) | None | — |
+
+## What this means for a small shop
+
+On low volume the monthly plan hurts more than the per-sale fee. As sales grow, the per-sale cut becomes the bigger line, and a percentage of every order adds up fast. A shop doing real numbers pays attention to both. The platform fee is money leaving on top of the card rate you already owe.
+
+## The lower-fee path
+
+A custom site connects straight to a processor like Stripe or Square. You pay that processor's card rate and nothing extra to a platform sitting in the middle. There is no gateway surcharge and no plan tier deciding your cut. For a restaurant, this is the difference between keeping your margin and handing a slice to an app, which I break down in [restaurant online ordering without commission fees](/blog/restaurant-online-ordering-no-commission-fees). You can see a live restaurant build in my [Yami Hibachi](/projects/yami-hibachi) project.
+
+Want to keep more of each sale? [Tell me what you sell](/contact) and I will show you a setup with no platform markup.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I build custom sites and stores that connect straight to a payment processor, so the owner keeps more of every sale.
+
+### Sources
+
+- Shopify, [Pricing plans](https://www.shopify.com/pricing) (card rates by plan, accessed July 2026)
+- Shopify Help Center, [Third-party transaction fees](https://help.shopify.com/en/manual/your-account/manage-billing/billing-charges/types-of-charges/third-party-charges/third-party-transaction-fees)
+- Squarespace Help Center, [Transaction fees and payment processing rates](https://support.squarespace.com/hc/en-us/articles/27853679334157-Transaction-fees-and-payment-processing-rates)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
