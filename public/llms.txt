@@ -49,6 +49,21 @@
 - **Type**: Bilingual website (English/Spanish) for an immigration law firm based in New Orleans, serving clients across all 50 states
 - **Stack**: HTML, CSS, Bootstrap, JavaScript
 
+## Blog
+
+Plain-spoken guides for small business owners on website ownership, builder fees, site speed, and hiring a local developer. Index at https://walidelsayed.com/blog.
+
+- [Custom Website vs Wix: What a Small Business Actually Owns](https://walidelsayed.com/blog/custom-website-vs-wix-small-business) — ownership, fees, and speed of a custom site versus Wix.
+- [Do You Actually Own Your Shopify Store?](https://walidelsayed.com/blog/do-you-own-your-shopify-store) — what you control on Shopify, what stays locked in, and transaction fees.
+- [Wix vs Squarespace vs a Custom Website](https://walidelsayed.com/blog/wix-vs-squarespace-vs-custom-website) — the two builders and a hand-built site compared on ownership, fees, and speed.
+- [What a Small Business Website Should Cost](https://walidelsayed.com/blog/what-a-small-business-website-should-cost) — subscription total cost of ownership versus a one-time custom build.
+- [Website Speed and Local SEO: Why Core Web Vitals Matter](https://walidelsayed.com/blog/website-speed-local-seo-core-web-vitals) — how template bloat hurts Core Web Vitals and local rankings.
+- [Website Builder Transaction Fees Compared](https://walidelsayed.com/blog/website-builder-transaction-fees-compared) — Shopify, Wix, and Squarespace selling fees, verified and dated.
+- [Hiring a New Orleans Web Developer vs Using a Template](https://walidelsayed.com/blog/new-orleans-web-developer-vs-template) — local knowledge, ownership, and local SEO a template misses.
+- [Bilingual Websites for Small Business](https://walidelsayed.com/blog/bilingual-websites-small-business) — reaching Spanish and Arabic speakers, and why translate plugins fall short.
+- [Restaurant Online Ordering Without Commission Fees](https://walidelsayed.com/blog/restaurant-online-ordering-no-commission-fees) — how delivery-app commissions compare to ordering on your own site.
+- [Owning Your Domain, Code, and Data: A Small Business Guide](https://walidelsayed.com/blog/own-your-domain-code-and-data) — the three assets to own and how platform lock-in happens.
+
 ## Contact
 
 For project inquiries, freelance work, or full-time opportunities, contact Walid at walidelsayed316@gmail.com or via the contact form at https://walidelsayed.com/contact.
