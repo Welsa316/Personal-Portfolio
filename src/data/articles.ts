@@ -219,6 +219,72 @@ Not sure which fits your business? [Send me a note](/contact) and I will tell yo
 - Wix Help Center, [Canceling a Wix Premium or Studio Plan](https://support.wix.com/en/article/canceling-a-wix-premium-plan)
 - Squarespace Help Center, [Transaction fees and payment processing rates](https://support.squarespace.com/hc/en-us/articles/27853679334157-Transaction-fees-and-payment-processing-rates)`,
   },
+  {
+    slug: 'what-a-small-business-website-should-cost',
+    title: 'What a Small Business Website Should Cost',
+    metaTitle: 'What a Small Business Website Should Cost (2026)',
+    description:
+      'What a small business website should cost: builder subscriptions vs a one-time custom build, and the real total you pay over five years. A plain breakdown.',
+    excerpt:
+      'Subscriptions vs a one-time build, and the total you actually pay over five years. The math most sales pages skip.',
+    primaryKeyword: 'small business website cost',
+    category: 'Budget',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `The honest answer to small business website cost is that it depends on how you pay, not just how much. There are two shapes. You rent a builder every month for as long as the site exists, or you pay once for a custom build and then pay a little for hosting. The sticker on a builder looks small. The total over a few years is the number that matters. I build custom sites in New Orleans, so here is the math the sales pages skip.
+
+## The two ways to pay
+
+A website builder is a subscription. The monthly fee is low, and it never ends. Miss a payment and the site goes down or drops to a free branded address. A custom build is a one-time cost. After that you pay for hosting, which can be a few dollars a month or even free on a small static site, plus a domain that runs about 10 to 20 dollars a year.
+
+## What a builder costs over five years
+
+Take one published example. Shopify's Basic plan is 29 dollars a month on annual billing, as of July 2026. Over five years that is 1,740 dollars in plan fees alone, before you add a single app or pay a cent of card processing. Most stores add paid apps, and each one is another monthly line. The plan fee is the floor, not the ceiling.
+
+Other builders follow the same shape. The monthly number is small on its own and large once you multiply it by sixty months and add the extras.
+
+## What a custom site costs
+
+A custom build is one payment for the design and the code. After launch, your running costs are hosting and a domain. You own the files, so you can switch hosts to chase a better price, and nobody adds an ad to your homepage. The build costs more on day one than a month of Wix. It stops costing you a monthly plan fee after that.
+
+## Five-year total, side by side
+
+| Cost over 5 years | Builder (Shopify Basic, annual) | Custom site |
+|---|---|---|
+| Plan or platform fee | About 1,740 dollars | None |
+| Apps and add-ons | Extra, monthly | Little to none |
+| Hosting | Included in the plan | A few dollars a month, sometimes free |
+| Domain | Often extra | About 10 to 20 dollars a year |
+| Build | None | One-time |
+| Do you own it | No | Yes |
+
+The point is not that a custom site is always cheaper on paper. It is that the builder keeps charging, and the custom site does not. Once the plan fees pass the cost of a build, you are paying rent on something you will never own. Card processing fees on sales sit on top of all of this, which I cover in [website builder transaction fees compared](/blog/website-builder-transaction-fees-compared).
+
+## What drives the price of a custom build
+
+- How many pages and features the site needs
+- Whether you sell online or just show information
+- Custom design versus a clean, simple layout
+- Languages, if you need more than one
+
+A small marketing site like my [OK Ice Cream](/projects/ok-ice-cream) build is on the lighter end. A platform with logins and coursework like [Daris](/projects/daris) is more involved and costs more to build. The scope sets the price.
+
+## What you should not pay for
+
+You should not pay a monthly fee to keep your own website online when a custom site needs only cheap hosting. You should not pay for page-builder software you can never move or sell. If a site is core to how the business earns, owning it is worth the higher day-one cost. I make the ownership case in full in [custom website vs Wix](/blog/custom-website-vs-wix-small-business).
+
+## A simple rule
+
+Add up the builder's monthly cost over five years. If a custom build costs less than that total, and you get to own it, the choice makes itself. Want a real number for your project? [Tell me what you need](/contact) and I will quote it straight.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites for small businesses, no templates and no page builders, so the owner keeps the code and the domain.
+
+### Sources
+
+- Shopify, [Pricing plans](https://www.shopify.com/pricing) (Basic plan fee, accessed July 2026)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
