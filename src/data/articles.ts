@@ -285,6 +285,65 @@ Add up the builder's monthly cost over five years. If a custom build costs less 
 
 - Shopify, [Pricing plans](https://www.shopify.com/pricing) (Basic plan fee, accessed July 2026)`,
   },
+  {
+    slug: 'website-speed-local-seo-core-web-vitals',
+    title: 'Website Speed and Local SEO: Why Core Web Vitals Matter',
+    metaTitle: 'Website Speed and Local SEO: Core Web Vitals',
+    description:
+      'Website speed and local SEO: how bloated templates hurt Core Web Vitals and local rankings, and how a lean custom site loads fast. A plain guide for owners.',
+    excerpt:
+      'How template bloat drags down Core Web Vitals and your local rankings, and what a fast site does differently.',
+    primaryKeyword: 'website speed and local SEO',
+    category: 'Speed & SEO',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `Website speed and local SEO are tied together more than most owners realize. Google measures how fast your pages load and react, and those measurements feed into search rankings. When a template or a page builder loads a pile of extra code, your pages get slower, and slow pages can lose ground in local results. I build lean custom sites in New Orleans, and speed is one of the first things I tune.
+
+## What Core Web Vitals measure
+
+Google groups page speed into three numbers called Core Web Vitals. Each has a threshold for a good score, measured at the 75th percentile of real visits.
+
+| Metric | What it measures | Good score |
+|---|---|---|
+| LCP | How fast the main content paints | Under 2.5 seconds |
+| INP | How fast the page reacts to a tap or click | Under 200 milliseconds |
+| CLS | How much the layout jumps while loading | Under 0.1 |
+
+LCP is Largest Contentful Paint. INP is Interaction to Next Paint, which replaced the older First Input Delay metric in March 2024. CLS is Cumulative Layout Shift. Pass all three and Google marks the page as a good experience.
+
+## Why speed feeds local SEO
+
+Core Web Vitals are part of Google's page experience signals, which help decide rankings. Speed is not the biggest factor. Content that matches what a person searched for still matters most. Speed works as a tie-breaker. When two local businesses have similar pages, the faster one has an edge. In a city like New Orleans, where a handful of shops compete for the same "near me" searches, that edge is worth having.
+
+There is a plainer reason too. A visitor on a phone with a weak signal will leave a slow page before it loads. A fast page keeps them, and Google notices when people stay.
+
+## How templates and builders add weight
+
+Page builders load shared JavaScript and CSS to run their editors and their features. Your page carries that weight whether it uses those features or not. Heavy themes stack on sliders, tracking scripts, and fonts you never asked for. Each one pushes LCP later and can make the page slow to react, which hurts INP. Layout that loads in pieces makes the page jump, which is CLS.
+
+## What a fast site does differently
+
+A hand-built site ships only the code the page needs. No builder engine rides along. Images are sized and compressed. Fonts load without blocking the text. The layout holds its place so nothing jumps. My [SAHA Institute](/projects/saha-institute) build runs on a lean stack and loads quickly because there is nothing extra to download. The [OK Ice Cream](/projects/ok-ice-cream) shop site is built the same way, which helps it show up for local searches in New Orleans.
+
+## How to check your own site
+
+Run your page through Google's PageSpeed Insights. It reports your Core Web Vitals from real visitor data and flags what is slowing you down. If your LCP is over 2.5 seconds or the page jumps as it loads, there is room to fix. Often the culprit is a heavy theme or a stack of apps.
+
+## The local takeaway
+
+If you serve a local area, a fast site is part of showing up in search, not a nice extra. A slow template can quietly cost you the top of the map results. If you would rather hire local, I compare that path in [hiring a New Orleans web developer vs a template](/blog/new-orleans-web-developer-vs-template), and I make the ownership case in [custom website vs Wix](/blog/custom-website-vs-wix-small-business).
+
+Want to know why your site is slow? [Send me the link](/contact) and I will tell you what is dragging it down.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build fast custom sites for small businesses and tune them to pass Core Web Vitals.
+
+### Sources
+
+- Google Search Central, [Understanding Core Web Vitals and Google search results](https://developers.google.com/search/docs/appearance/core-web-vitals)
+- web.dev, [Web Vitals](https://web.dev/articles/vitals) (LCP, INP, and CLS thresholds)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
