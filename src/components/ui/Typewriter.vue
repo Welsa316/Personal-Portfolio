@@ -60,6 +60,15 @@ function tick() {
 }
 
 onMounted(() => {
+  // Reduced-motion users get the full name immediately — the CSS-only reduced-motion
+  // rule can't stop a JS setTimeout loop, so guard it here.
+  const reduce =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (reduce) {
+    displayText.value = currentText.value
+    return
+  }
   timeout = setTimeout(tick, props.initialDelay)
 })
 
@@ -71,7 +80,7 @@ onUnmounted(() => {
 <template>
   <span class="inline">
     <span>{{ displayText }}</span>
-    <span v-if="cursor" class="animate-cursor-blink">{{ cursor }}</span>
+    <span v-if="cursor" class="animate-cursor-blink" aria-hidden="true">{{ cursor }}</span>
   </span>
 </template>
 

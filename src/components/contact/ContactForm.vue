@@ -82,22 +82,22 @@ async function handleSubmit() {
   <!-- Success state -->
   <div
     v-if="submitted"
-    class="rounded-2xl border border-green-200 bg-green-50 p-8 text-center animate-fade-up"
+    class="animate-fade-up rounded-card border border-success/40 bg-surface-raised p-8 text-center"
     role="status"
     aria-live="polite"
     aria-atomic="true"
   >
-    <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-green-100">
-      <svg class="h-7 w-7 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-success/15">
+      <svg class="h-7 w-7 text-success" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
       </svg>
     </div>
     <h3 class="font-display text-2xl text-ink-950">Message Sent!</h3>
     <p class="mt-2 text-ink-500">
-      Thanks for reaching out. I'll get back to you as soon as possible.
+      Thanks for reaching out. I'll get back to you within a day or two.
     </p>
     <button
-      class="mt-4 inline-flex min-h-[44px] items-center px-2 py-2 text-sm font-medium text-accent-light hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:ring-offset-2 rounded"
+      class="mt-4 inline-flex min-h-[44px] items-center rounded px-2 py-2 text-sm font-medium text-accent-light hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
       @click="submitted = false; form.name = ''; form.email = ''; form.subject = ''; form.message = ''"
     >
       Send another message
@@ -129,10 +129,10 @@ async function handleSubmit() {
           placeholder="Jane Doe"
           :aria-invalid="!!errors.name"
           :aria-describedby="errors.name ? 'name-error' : undefined"
-          class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-          :class="errors.name ? 'border-red-400' : ''"
+          class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-500 transition-colors focus:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+          :class="errors.name ? 'border-danger' : ''"
         />
-        <p v-if="errors.name" id="name-error" class="mt-1 text-xs text-red-500">{{ errors.name }}</p>
+        <p v-if="errors.name" id="name-error" class="mt-1 text-xs text-danger">{{ errors.name }}</p>
       </div>
 
       <!-- Email -->
@@ -145,10 +145,10 @@ async function handleSubmit() {
           placeholder="jane@example.com"
           :aria-invalid="!!errors.email"
           :aria-describedby="errors.email ? 'email-error' : undefined"
-          class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-          :class="errors.email ? 'border-red-400' : ''"
+          class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-500 transition-colors focus:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+          :class="errors.email ? 'border-danger' : ''"
         />
-        <p v-if="errors.email" id="email-error" class="mt-1 text-xs text-red-500">{{ errors.email }}</p>
+        <p v-if="errors.email" id="email-error" class="mt-1 text-xs text-danger">{{ errors.email }}</p>
       </div>
     </div>
 
@@ -162,10 +162,10 @@ async function handleSubmit() {
         placeholder="Project inquiry"
         :aria-invalid="!!errors.subject"
         :aria-describedby="errors.subject ? 'subject-error' : undefined"
-        class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-        :class="errors.subject ? 'border-red-400' : ''"
+        class="w-full rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-500 transition-colors focus:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+        :class="errors.subject ? 'border-danger' : ''"
       />
-      <p v-if="errors.subject" id="subject-error" class="mt-1 text-xs text-red-500">{{ errors.subject }}</p>
+      <p v-if="errors.subject" id="subject-error" class="mt-1 text-xs text-danger">{{ errors.subject }}</p>
     </div>
 
     <!-- Message -->
@@ -178,13 +178,13 @@ async function handleSubmit() {
         placeholder="Tell me about your project…"
         :aria-invalid="!!errors.message"
         :aria-describedby="errors.message ? 'message-error' : undefined"
-        class="w-full resize-none rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-400 transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
-        :class="errors.message ? 'border-red-400' : ''"
+        class="w-full resize-none rounded-xl border border-ink-200 bg-surface-raised px-4 py-3 text-sm text-ink-950 placeholder:text-ink-500 transition-colors focus:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+        :class="errors.message ? 'border-danger' : ''"
       />
-      <p v-if="errors.message" id="message-error" class="mt-1 text-xs text-red-500">{{ errors.message }}</p>
+      <p v-if="errors.message" id="message-error" class="mt-1 text-xs text-danger">{{ errors.message }}</p>
     </div>
 
-    <p v-if="submitError" class="text-sm text-red-500" role="alert" aria-live="polite">{{ submitError }}</p>
+    <p v-if="submitError" class="text-sm text-danger" role="alert" aria-live="polite">{{ submitError }}</p>
 
     <Button size="lg" :disabled="loading" type="submit">
       <svg
@@ -192,6 +192,8 @@ async function handleSubmit() {
         class="mr-2 h-4 w-4 animate-spin"
         fill="none"
         viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
       >
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4Z" />

@@ -34,18 +34,18 @@ const competencies = [
 </script>
 
 <template>
-  <main class="pt-8">
+  <div class="pt-8">
     <!-- ======================== HERO ======================== -->
     <section class="relative overflow-hidden py-20 sm:py-28 lg:py-32">
       <div class="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full bg-accent/10 blur-[120px]"></div>
       <Container>
         <div class="scroll-reveal max-w-4xl">
-          <p class="mb-6 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">How I Work</p>
-          <h1 class="font-display text-4xl leading-[1.05] tracking-tight text-ink-950 sm:text-6xl lg:text-7xl">
-            I build websites you actually own.
+          <p class="eyebrow mb-6">How I Work</p>
+          <h1 class="text-balance font-display text-4xl leading-[1.05] tracking-tight text-ink-950 sm:text-6xl lg:text-7xl">
+            I build websites you <span class="italic">actually own</span>.
           </h1>
-          <div class="my-8 h-px w-24 bg-ink-300"></div>
-          <p class="max-w-2xl text-lg leading-relaxed text-ink-700 sm:text-xl">
+          <div class="my-8 h-px w-24 bg-accent/50"></div>
+          <p class="max-w-2xl text-pretty text-lg leading-relaxed text-ink-700 sm:text-xl">
             I'm Walid — a web developer and designer in New Orleans. I build custom sites for small
             businesses. No page builders, no templates, no monthly rent on software you'll never
             own. Just fast, clean, hand-coded work that's actually yours.
@@ -55,16 +55,16 @@ const competencies = [
     </section>
 
     <!-- ======================== NARRATIVE ======================== -->
-    <section class="scroll-reveal border-t border-ink-200/60 py-16 sm:py-24">
+    <section class="scroll-reveal border-t border-ink-200/60 py-20 sm:py-28 lg:py-32">
       <Container>
         <div class="grid grid-cols-1 gap-10 md:grid-cols-12">
           <div class="md:col-span-4">
-            <h2 class="font-display text-2xl leading-snug text-ink-950 sm:text-3xl md:sticky md:top-28">
+            <h2 class="text-balance font-display text-2xl leading-snug text-ink-950 sm:text-3xl md:sticky md:top-28">
               Why I build this way.
             </h2>
           </div>
           <div class="space-y-6 md:col-span-7 md:col-start-6">
-            <p class="text-xl leading-relaxed text-ink-800">
+            <p class="text-pretty text-xl leading-relaxed text-ink-800">
               Honestly? I started doing this because the alternative bugged me. I kept running into
               small businesses paying Wix every month for a site they didn't even own — then waiting
               a week just to change a phone number. Every tiny edit was a fight, and they were paying
@@ -99,11 +99,11 @@ const competencies = [
     <!-- ======================== STATEMENT BAND ======================== -->
     <section class="scroll-reveal bg-surface-sunken py-16 sm:py-20">
       <Container>
-        <div class="relative overflow-hidden rounded-xl border border-ink-200 bg-surface-raised px-8 py-16 sm:px-14 sm:py-24">
+        <div class="relative overflow-hidden rounded-card border border-ink-300 bg-surface-raised px-8 py-16 sm:px-14 sm:py-24">
           <div class="grain absolute inset-0"></div>
           <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/15 blur-[110px]"></div>
-          <p class="relative max-w-4xl font-display text-3xl leading-[1.08] tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
-            Small businesses deserve <span class="text-accent-light">world-class</span> websites.
+          <p class="relative max-w-4xl text-balance font-display text-3xl leading-[1.08] tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
+            Small businesses deserve <span class="italic text-accent-light">world-class</span> websites.
           </p>
           <p class="relative mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-ink-500">
             The whole reason I do this
@@ -113,32 +113,32 @@ const competencies = [
     </section>
 
     <!-- ======================== COMPETENCIES ======================== -->
-    <section class="scroll-reveal py-16 sm:py-24">
+    <section class="scroll-reveal py-20 sm:py-28 lg:py-32">
       <Container>
         <div class="mb-12 flex flex-col justify-between gap-6 border-b border-ink-200/60 pb-8 md:flex-row md:items-end">
           <div>
-            <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">What I Do</p>
+            <p class="eyebrow mb-4">The Work</p>
             <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">The whole stack</h2>
           </div>
-          <p class="max-w-sm text-ink-500">
+          <p class="max-w-sm text-pretty text-ink-500">
             I handle the whole build — design, front end, back end, and getting it shipped.
           </p>
         </div>
 
         <div class="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-3">
-          <div v-for="c in competencies" :key="c.title" class="group flex flex-col border-b border-ink-200/40 pb-8">
+          <div v-for="c in competencies" :key="c.title" class="group flex flex-col border-b border-ink-200/60 pb-8">
             <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-surface-raised text-accent-light transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
-              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path stroke-linecap="round" stroke-linejoin="round" :d="c.icon" />
               </svg>
             </div>
             <h3 class="mb-3 font-display text-xl text-ink-950">{{ c.title }}</h3>
-            <p class="mb-5 flex-grow leading-relaxed text-ink-700">{{ c.body }}</p>
+            <p class="mb-5 flex-grow text-pretty leading-relaxed text-ink-700">{{ c.body }}</p>
             <div class="flex flex-wrap gap-2">
               <span
                 v-for="t in c.tags"
                 :key="t"
-                class="rounded-full border border-ink-200 bg-surface-raised px-3 py-1 font-mono text-[11px] text-ink-600"
+                class="rounded-full border border-ink-300 bg-surface-raised px-3 py-1 font-mono text-[11px] text-ink-600"
               >{{ t }}</span>
             </div>
           </div>
@@ -147,14 +147,14 @@ const competencies = [
     </section>
 
     <!-- ======================== VALUES BENTO ======================== -->
-    <section class="scroll-reveal py-16 sm:py-24">
+    <section class="scroll-reveal py-20 sm:py-28 lg:py-32">
       <Container>
-        <h2 class="mb-10 text-center font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
+        <h2 class="mb-10 text-balance text-center font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
           What I stand for
         </h2>
         <div class="grid auto-rows-[240px] grid-cols-1 gap-4 md:grid-cols-12">
           <!-- 01 large -->
-          <div class="group flex flex-col justify-between rounded-xl border border-ink-200 bg-surface-raised p-8 transition-colors duration-300 hover:border-accent md:col-span-8">
+          <div class="group flex flex-col justify-between rounded-card border border-ink-300 bg-surface-raised p-8 transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-card md:col-span-8">
             <span class="font-mono text-xs text-accent-light">01</span>
             <div>
               <h3 class="mb-2 font-display text-2xl text-ink-950">Own it, don't rent it.</h3>
@@ -166,7 +166,7 @@ const competencies = [
           </div>
 
           <!-- identity / facts card (textured graphic, no photo) -->
-          <div class="relative flex flex-col justify-between overflow-hidden rounded-xl border border-ink-200 bg-surface-raised p-8 md:col-span-4">
+          <div class="relative flex flex-col justify-between overflow-hidden rounded-card border border-ink-300 bg-surface-raised p-8 md:col-span-4">
             <div class="grain absolute inset-0"></div>
             <div class="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-accent/15 blur-[70px]"></div>
             <span class="relative font-mono text-[11px] uppercase tracking-[0.2em] text-accent-light">Based in</span>
@@ -179,7 +179,7 @@ const competencies = [
           </div>
 
           <!-- 02 medium -->
-          <div class="group flex flex-col justify-between rounded-xl border border-ink-200 bg-surface-raised p-8 transition-colors duration-300 hover:border-accent md:col-span-6">
+          <div class="group flex flex-col justify-between rounded-card border border-ink-300 bg-surface-raised p-8 transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-accent hover:shadow-card md:col-span-6">
             <span class="font-mono text-xs text-accent-light">02</span>
             <div>
               <h3 class="mb-2 font-display text-2xl text-ink-950">Bilingual by default.</h3>
@@ -191,11 +191,11 @@ const competencies = [
           </div>
 
           <!-- 03 terracotta -->
-          <div class="relative flex flex-col justify-between overflow-hidden rounded-xl bg-accent p-8 md:col-span-6">
+          <div class="relative flex flex-col justify-between overflow-hidden rounded-card bg-accent-dark p-8 transition-transform duration-300 hover:-translate-y-0.5 md:col-span-6">
             <span class="font-mono text-xs text-white/70">03</span>
             <div>
               <h3 class="mb-2 font-display text-2xl text-white">Fast on purpose.</h3>
-              <p class="leading-relaxed text-white/85">
+              <p class="leading-relaxed text-white/90">
                 Every site is built to load quick and stay quick — not just look good the day it
                 launches.
               </p>
@@ -208,19 +208,19 @@ const competencies = [
     <!-- ======================== CTA ======================== -->
     <section class="scroll-reveal border-t border-ink-200/60 bg-surface-sunken py-24 text-center sm:py-32">
       <Container>
-        <h2 class="font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
+        <h2 class="text-balance font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
           Got something to build?
         </h2>
-        <p class="mx-auto mt-6 max-w-xl text-lg text-ink-500">
-          I'm open to freelance work and full-time roles. If you've got a project in mind, let's
-          talk.
+        <p class="mx-auto mt-6 max-w-xl text-pretty text-lg text-ink-500">
+          Like how I work? I'm taking on freelance projects and open to full-time roles —
+          tell me what you're building.
         </p>
         <div class="mt-10">
           <Button :to="{ name: 'contact' }" size="lg">Get in Touch</Button>
         </div>
       </Container>
     </section>
-  </main>
+  </div>
 </template>
 
 <style scoped>

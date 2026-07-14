@@ -24,13 +24,21 @@ function onScroll() {
   scrolled.value = window.scrollY > 100
 }
 
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape' && mobileOpen.value) {
+    mobileOpen.value = false
+  }
+}
+
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('keydown', onKeydown)
   onScroll()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('keydown', onKeydown)
 })
 </script>
 
@@ -67,7 +75,7 @@ onUnmounted(() => {
         <li>
           <RouterLink
             :to="{ name: 'contact' }"
-            class="inline-flex items-center rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent-light hover:shadow-md"
+            class="inline-flex items-center rounded-full bg-accent-dark px-5 py-2 text-sm font-semibold text-white shadow-sm transition-[color,background-color,box-shadow,transform] hover:bg-accent hover:shadow-glow active:scale-[0.98]"
           >
             Hire Me
           </RouterLink>
@@ -76,9 +84,10 @@ onUnmounted(() => {
 
       <!-- Mobile hamburger -->
       <button
-        class="relative z-50 flex h-10 w-10 items-center justify-center md:hidden"
-        aria-label="Toggle menu"
+        class="relative z-50 flex h-11 w-11 items-center justify-center md:hidden"
+        :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
         :aria-expanded="mobileOpen"
+        aria-controls="mobile-menu"
         @click="mobileOpen = !mobileOpen"
       >
         <div class="flex flex-col gap-1.5">
@@ -102,6 +111,7 @@ onUnmounted(() => {
     <transition name="mobile-menu">
       <div
         v-if="mobileOpen"
+        id="mobile-menu"
         class="absolute inset-x-0 top-full border-b border-ink-200 bg-surface px-6 pb-6 pt-2 shadow-lg md:hidden"
         style="mix-blend-mode: normal;"
       >
@@ -119,7 +129,7 @@ onUnmounted(() => {
           <li class="mt-2">
             <RouterLink
               :to="{ name: 'contact' }"
-              class="block rounded-full bg-accent px-5 py-3 text-center text-base font-semibold text-white"
+              class="block rounded-full bg-accent-dark px-5 py-3 text-center text-base font-semibold text-white active:scale-[0.98]"
               @click="closeMobile"
             >
               Hire Me

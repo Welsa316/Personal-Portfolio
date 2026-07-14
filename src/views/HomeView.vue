@@ -20,31 +20,34 @@ const features = [
     number: '01',
     title: 'Web Development',
     description:
-      'Pixel-perfect, performant interfaces built with modern frameworks. From SPAs to full-stack applications.',
+      'Fast, custom sites hand-built for your business — not dragged out of a page builder. Sharp on every screen.',
   },
   {
     number: '02',
-    title: 'AI-Assisted Development',
+    title: 'AI Where It Helps',
     description:
-      'Integrating LLMs and machine learning into real products that solve meaningful problems.',
+      'I put AI to work only where it earns its place — smarter search, less busywork — and skip the hype.',
   },
   {
     number: '03',
-    title: 'Design Systems',
+    title: 'Built to Last',
     description:
-      'Scalable component libraries and design tokens that keep teams shipping consistently and fast.',
+      'Reusable building blocks so your site stays consistent and quick to update as your business grows.',
   },
 ]
 
 const portraitUrl = '/OvalHeadshot.png'
 
 onMounted(() => {
-  // Staggered hero reveal — animate all hero elements in order
-  const heroEls = document.querySelectorAll('.hero-animate')
+  // Both hero layouts (mobile + desktop) live in the DOM at once; the hidden one is
+  // display:none. Filter to the visible layout via offsetParent so its stagger
+  // indices start at 0 — otherwise the desktop hero waited ~750ms behind the hidden
+  // mobile copies and read as a blank hero on load.
+  const heroEls = Array.from(
+    document.querySelectorAll<HTMLElement>('.hero-animate'),
+  ).filter((el) => el.offsetParent !== null)
   heroEls.forEach((el, i) => {
-    setTimeout(() => {
-      el.classList.add('revealed')
-    }, 150 + i * 150)
+    setTimeout(() => el.classList.add('revealed'), 90 + i * 110)
   })
 })
 </script>
@@ -73,7 +76,7 @@ onMounted(() => {
         <!-- Bottom gradient so text is readable — confined to lower portion -->
         <div class="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-surface via-surface/90 to-transparent pointer-events-none"></div>
 
-        <div class="relative z-20 px-5 pb-20">
+        <div class="relative z-20 px-6 pb-20">
           <h1 class="hero-animate massive-text font-hero select-none leading-[0.85]">
             <span class="block text-ink-950">
               <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
@@ -90,7 +93,7 @@ onMounted(() => {
 
         <div class="hero-animate absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
           <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
-          <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
+          <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30 animate-scroll-hint"></div>
         </div>
       </div>
 
@@ -110,24 +113,26 @@ onMounted(() => {
           </picture>
         </div>
 
-        <div class="absolute bottom-24 left-0 z-20 px-10">
-          <h1 class="hero-animate massive-text font-hero select-none leading-[0.85]">
-            <span class="block text-ink-950">
-              <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
-            </span>
-            <span class="block text-accent-light">
-              <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
-            </span>
-          </h1>
-          <div class="hero-animate mt-6 flex flex-row items-center gap-4">
-            <p class="text-base text-ink-500 font-light">— Web developer &amp; designer</p>
-            <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
+        <div class="absolute inset-x-0 bottom-24 z-20">
+          <div class="mx-auto max-w-6xl px-6">
+            <h1 class="hero-animate massive-text font-hero select-none leading-[0.85]">
+              <span class="block text-ink-950">
+                <Typewriter text="WALID" :speed="80" cursor="" :initial-delay="200" />
+              </span>
+              <span class="block text-accent-light">
+                <Typewriter text="ELSAYED" :speed="80" cursor="|" :initial-delay="700" />
+              </span>
+            </h1>
+            <div class="hero-animate mt-6 flex flex-row items-center gap-4">
+              <p class="text-base text-ink-500 font-light">— Web developer &amp; designer</p>
+              <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
+            </div>
           </div>
         </div>
 
         <div class="hero-animate absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
           <span class="text-[9px] uppercase tracking-[0.4em] text-ink-500 font-mono">Scroll down</span>
-          <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30"></div>
+          <div class="w-px h-10 bg-gradient-to-b from-ink-400 to-transparent opacity-30 animate-scroll-hint"></div>
         </div>
       </div>
     </section>
@@ -136,33 +141,27 @@ onMounted(() => {
     <section class="bg-surface-sunken py-24 sm:py-32">
       <Container>
         <div class="scroll-reveal mb-4">
-          <p class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-3">What I Do</p>
-          <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
-            Focused on craft, speed, and<br class="hidden sm:block" /> meaningful technology.
+          <p class="eyebrow mb-3">What I Do</p>
+          <h2 class="max-w-2xl text-balance font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
+            Custom-built, genuinely fast, made to last.
           </h2>
         </div>
 
-        <div class="editorial-divider scroll-reveal mt-8 mb-0"></div>
+        <div class="editorial-divider scroll-reveal mb-0 mt-8"></div>
 
-        <div class="grid sm:grid-cols-3">
+        <div class="grid gap-4 sm:grid-cols-3">
           <div
-            v-for="(feat, i) in features"
+            v-for="feat in features"
             :key="feat.title"
-            class="group scroll-reveal px-0 sm:px-8 py-10 rounded-xl transition-all duration-300 hover:bg-surface-raised hover:shadow-md"
-            :class="[
-              i === 0 ? 'sm:pl-4' : '',
-              i === features.length - 1 ? 'sm:pr-4' : '',
-              i < features.length - 1 ? 'border-b sm:border-b-0 sm:border-r border-ink-200/60' : '',
-            ]"
-            :style="`transition-delay: ${i * 100}ms`"
+            class="group scroll-reveal rounded-card px-6 py-10 transition-[background-color,box-shadow,transform,color] duration-300 hover:-translate-y-0.5 hover:bg-surface-raised hover:shadow-card"
           >
-            <span class="font-display text-6xl sm:text-7xl text-accent-light/30 leading-none transition-colors duration-300 group-hover:text-accent-light/60">
+            <span class="font-display text-6xl leading-none text-accent-light/30 transition-colors duration-300 group-hover:text-accent-light/60 sm:text-7xl">
               {{ feat.number }}
             </span>
             <h3 class="mt-4 font-display text-xl text-ink-950 transition-colors duration-300 group-hover:text-accent-light">
               {{ feat.title }}
             </h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink-500 transition-colors duration-300 group-hover:text-ink-700">
+            <p class="mt-3 text-pretty text-sm leading-relaxed text-ink-500 transition-colors duration-300 group-hover:text-ink-700">
               {{ feat.description }}
             </p>
           </div>
@@ -175,8 +174,8 @@ onMounted(() => {
       <Container>
         <div class="scroll-reveal mb-10 flex flex-wrap items-end justify-between gap-6 sm:mb-14">
           <div>
-            <p class="mb-4 font-mono text-xs uppercase tracking-[0.25em] text-accent-light">Selected Works</p>
-            <h2 class="font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
+            <p class="eyebrow mb-4">Selected Works</p>
+            <h2 class="text-balance font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
               A few favorites.
             </h2>
           </div>
@@ -193,13 +192,11 @@ onMounted(() => {
     <section class="bg-surface-sunken border-y border-ink-200/60 py-28 sm:py-36">
       <Container>
         <div class="text-center">
-          <p class="scroll-reveal font-mono text-xs tracking-[0.25em] text-accent-light uppercase mb-4">
-            Get in Touch
-          </p>
-          <h2 class="scroll-reveal font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
+          <p class="eyebrow scroll-reveal mb-4">Available for work</p>
+          <h2 class="scroll-reveal text-balance font-display text-4xl tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
             Let's build something together
           </h2>
-          <p class="scroll-reveal mx-auto mt-6 max-w-2xl text-lg text-ink-500 sm:text-xl" style="transition-delay: 100ms">
+          <p class="scroll-reveal mx-auto mt-6 max-w-2xl text-pretty text-lg text-ink-500 sm:text-xl" style="transition-delay: 100ms">
             I'm currently available for freelance work and full-time roles.
             If you have a project in mind, let's talk.
           </p>

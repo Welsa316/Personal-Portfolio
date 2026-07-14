@@ -5,8 +5,14 @@ import Footer from '@/components/layout/Footer.vue'
 
 <template>
   <div class="flex min-h-screen flex-col">
+    <a
+      href="#main"
+      class="sr-only rounded-full font-mono text-xs uppercase tracking-wider focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-accent-dark focus:px-5 focus:py-2 focus:text-white"
+    >
+      Skip to content
+    </a>
     <Navbar />
-    <main class="flex-1">
+    <main id="main" tabindex="-1" class="flex-1 focus:outline-none">
       <router-view v-slot="{ Component, route }">
         <transition name="page" mode="out-in">
           <component :is="Component" :key="route.path" />

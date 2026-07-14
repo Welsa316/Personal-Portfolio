@@ -67,9 +67,9 @@ useSiteHead({
       <Container>
         <router-link
           :to="{ name: 'projects' }"
-          class="scroll-reveal inline-flex items-center gap-2 text-sm font-medium text-ink-500 hover:text-ink-950 transition-colors"
+          class="group scroll-reveal inline-flex items-center gap-2 text-sm font-medium text-ink-500 transition-colors hover:text-ink-950"
         >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg class="h-4 w-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
           </svg>
           All Projects
@@ -94,8 +94,8 @@ useSiteHead({
     >
       <Container>
         <div class="flex flex-col items-center justify-center text-center py-16">
-          <div class="rounded-full bg-amber-100 p-4 mb-4">
-            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <div class="mb-4 rounded-full bg-warning/15 p-4">
+            <svg class="h-8 w-8 text-warning" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
           </div>
@@ -112,10 +112,10 @@ useSiteHead({
       <Container>
         <!-- Category + Title -->
         <div class="scroll-reveal">
-          <span class="font-mono text-xs tracking-[0.25em] text-accent-light uppercase">
+          <span class="eyebrow">
             {{ categoryLabels[project.category] }}
           </span>
-          <h1 class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight text-ink-950 leading-[0.95]">
+          <h1 class="mt-2 text-balance font-display text-4xl leading-[0.95] tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
             {{ project.title }}
           </h1>
         </div>
@@ -124,7 +124,7 @@ useSiteHead({
         <div class="scroll-reveal mt-6 flex flex-wrap items-center gap-3" style="transition-delay: 100ms">
           <span
             v-if="project.status === 'pending'"
-            class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700"
+            class="rounded-full bg-warning/15 px-3 py-1 text-xs font-semibold text-warning"
           >
             Coming Soon
           </span>
@@ -150,12 +150,12 @@ useSiteHead({
     <!-- Description -->
     <section class="pb-12">
       <Container>
-        <p class="scroll-reveal max-w-3xl text-lg text-ink-700 leading-relaxed">
+        <p class="scroll-reveal max-w-3xl text-pretty text-lg text-ink-700 leading-relaxed">
           {{ project.description }}
         </p>
         <p
           v-if="project.longDescription"
-          class="scroll-reveal mt-4 max-w-3xl text-base text-ink-700 leading-relaxed"
+          class="scroll-reveal mt-4 max-w-2xl text-pretty text-base text-ink-700 leading-relaxed"
           style="transition-delay: 100ms"
         >
           {{ project.longDescription }}
@@ -170,24 +170,24 @@ useSiteHead({
           <!-- Details -->
           <div class="space-y-6">
             <div v-if="project.role">
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-1">Role</p>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink-600 mb-1">Role</p>
               <p class="text-ink-800 font-medium">{{ project.role }}</p>
             </div>
             <div v-if="project.client">
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-1">Client</p>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink-600 mb-1">Client</p>
               <p class="text-ink-800 font-medium">{{ project.client }}</p>
             </div>
             <div v-if="project.year">
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-1">Year</p>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink-600 mb-1">Year</p>
               <p class="text-ink-800 font-medium">{{ project.year }}</p>
             </div>
             <div>
-              <p class="font-mono text-xs uppercase tracking-widest text-ink-600 mb-2">Tech Stack</p>
+              <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink-600 mb-2">Tech Stack</p>
               <div class="flex flex-wrap gap-2">
                 <span
                   v-for="tag in project.tags"
                   :key="tag"
-                  class="rounded-full bg-surface-sunken px-3 py-1.5 text-sm text-ink-700"
+                  class="rounded-full border border-ink-300 bg-surface-raised px-3 py-1 font-mono text-[11px] text-ink-600"
                 >
                   {{ tag }}
                 </span>
@@ -203,7 +203,7 @@ useSiteHead({
               size="lg"
             >
               View Live Site
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
               </svg>
             </Button>
@@ -214,7 +214,7 @@ useSiteHead({
               size="lg"
             >
               View Source
-              <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24">
+              <svg class="ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
               </svg>
             </Button>
@@ -232,11 +232,11 @@ useSiteHead({
             :to="{ name: 'project-detail', params: { id: adjacent.prev.id } }"
             class="group flex items-center gap-3 text-ink-500 hover:text-ink-950 transition-colors"
           >
-            <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg class="h-5 w-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M5 12l5-5M5 12l5 5" />
             </svg>
             <div class="text-left">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-ink-600">Previous</p>
+              <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-600">Previous</p>
               <p class="font-medium text-sm">{{ adjacent.prev.title }}</p>
             </div>
           </router-link>
@@ -248,10 +248,10 @@ useSiteHead({
             class="group flex items-center gap-3 text-ink-500 hover:text-ink-950 transition-colors"
           >
             <div class="text-right">
-              <p class="font-mono text-[10px] uppercase tracking-widest text-ink-600">Next</p>
+              <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-600">Next</p>
               <p class="font-medium text-sm">{{ adjacent.next.title }}</p>
             </div>
-            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg class="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M19 12l-5-5M19 12l-5 5" />
             </svg>
           </router-link>
