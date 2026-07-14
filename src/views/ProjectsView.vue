@@ -76,7 +76,7 @@ function host(p: Project): string {
                 <img
                   v-if="p.desktopScreenshot"
                   :src="p.desktopScreenshot"
-                  alt=""
+                  :alt="`${p.title} website screenshot`"
                   loading="lazy"
                   class="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />

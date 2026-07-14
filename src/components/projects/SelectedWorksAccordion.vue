@@ -125,7 +125,7 @@ const pad = (n: number) => String(n + 1).padStart(2, '0')
             <img
               v-if="active.desktopScreenshot"
               :src="active.desktopScreenshot"
-              alt=""
+              :alt="`${active.title} website screenshot`"
               loading="lazy"
               class="absolute inset-0 h-full w-full object-cover object-top"
             />
