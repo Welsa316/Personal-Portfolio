@@ -25,7 +25,7 @@ export const projects: Project[] = [
     id: 'ok-ice-cream',
     title: 'OK Ice Cream Shop',
     description:
-      'A production-ready marketing website for a local ice cream shop, focused on brand presentation, clear navigation, and mobile-first user experience. Designed to showcase products, location details, and drive in-store traffic through clean layout and optimized performance.',
+      'A marketing site for a local ice cream shop. Built mobile-first to show off the flavors and make the shop easy to find.',
     tags: ['HTML', 'CSS', 'Bootstrap', 'Responsive Design'],
     category: 'web',
     links: {
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     id: 'yami-hibachi',
     title: 'Yami Hibachi & Poboy',
     description:
-      'A full-service restaurant website for a Japanese-Cajun fusion eatery in Metairie, LA. Features online ordering integration, responsive menu display, and location/hours information to drive dine-in and takeout traffic.',
+      'A restaurant site for a Japanese-Cajun spot in Metairie, LA. Online ordering and a responsive menu, with hours and location up front.',
     tags: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     category: 'web',
     links: {
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     id: 'daris',
     title: 'Daris',
     description:
-      'An online education platform dedicated to teaching Islamic studies and Quran. Features structured coursework, interactive lessons, and progress tracking to support students in their learning journey.',
+      'An online platform for teaching Islamic studies and Quran. Structured coursework and interactive lessons, with progress tracking built in.',
     tags: ['Vue.js', 'Bootstrap', 'JavaScript', 'Responsive Design'],
     category: 'web',
     links: {
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     id: 'saha-institute',
     title: 'SAHA Institute for Learning',
     description:
-      'An educational platform for the SAHA Institute, providing tutoring services and structured learning programs. Features tutor profiles, course information, and a modern responsive design built to engage students and parents.',
+      'A site for the SAHA Institute\'s tutoring programs. Tutor profiles and course details in a clean, responsive layout for students and parents.',
     tags: ['Vue.js', 'Tailwind CSS', 'TypeScript', 'Vite'],
     category: 'web',
     links: {
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     id: 'campos-munos-law',
     title: 'Campos Muños Law',
     description:
-      'A bilingual (English/Spanish) website for an immigration law firm serving clients across all 50 states from New Orleans. Built to establish trust with a professional layout, clear service breakdowns, integrated reviews, and easy bilingual contact access.',
+      'A bilingual (English/Spanish) site for a New Orleans immigration law firm serving clients in all 50 states. Clear service breakdowns and easy contact in either language.',
     tags: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
     category: 'web',
     links: {

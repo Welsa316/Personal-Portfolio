@@ -8,13 +8,13 @@ useScrollReveal()
 useSiteHead({
   title: 'About',
   description:
-    'Walid Elsayed — a New Orleans web developer who hand-builds fast, fully-owned websites for small businesses. No templates, no monthly rent. Bilingual in English and Arabic.',
+    'Walid Elsayed is a New Orleans web developer. He hand-builds fast, fully owned websites for small businesses. No templates, no monthly rent. Bilingual in English and Arabic.',
 })
 
 const competencies = [
   {
     title: 'The Front End',
-    body: 'The part people see and use. Fast, accessible interfaces that work on every screen — from a one-page site to a full web app.',
+    body: 'The part people see and use. Fast, accessible interfaces that work on every screen, from a one-page site to a full web app.',
     tags: ['Vue 3', 'React', 'TypeScript', 'Tailwind CSS'],
     icon: 'M2.25 3h19.5M3 3v16.5A1.5 1.5 0 0 0 4.5 21h15a1.5 1.5 0 0 0 1.5-1.5V3M8.25 21v-4.5h7.5V21',
   },
@@ -46,9 +46,9 @@ const competencies = [
           </h1>
           <div class="my-8 h-px w-24 bg-accent/50"></div>
           <p class="max-w-2xl text-pretty text-lg leading-relaxed text-ink-700 sm:text-xl">
-            I'm Walid — a web developer and designer in New Orleans. I build custom sites for small
-            businesses. No page builders, no templates, no monthly rent on software you'll never
-            own. Just fast, clean, hand-coded work that's actually yours.
+            I'm Walid, a web developer and designer in New Orleans. I build custom sites for small
+            businesses. No page builders. No monthly rent on software you'll never own. Just
+            hand-coded work that's actually yours.
           </p>
         </div>
       </Container>
@@ -66,15 +66,13 @@ const competencies = [
           <div class="space-y-6 md:col-span-7 md:col-start-6">
             <p class="text-pretty text-xl leading-relaxed text-ink-800">
               Honestly? I started doing this because the alternative bugged me. I kept running into
-              small businesses paying Wix every month for a site they didn't even own — then waiting
-              a week just to change a phone number. Every tiny edit was a fight, and they were paying
-              for the privilege.
+              small businesses paying Wix every month for a site they didn't even own. Then waiting a
+              week just to change a phone number. Every tiny edit was a fight, and they paid for it.
             </p>
             <p class="leading-relaxed text-ink-700">
-              Agencies aren't much better. They overcharge, hand over a template, and lock you into a
-              subscription you don't fully understand. A local shop deserves the same quality as a
-              company with a whole design team — a site that loads fast, looks sharp, and still holds
-              up a few years from now.
+              Agencies aren't much better. They overcharge and hand you a template you're then
+              locked into. A local shop deserves the same quality as a company with a design team. A
+              site that loads fast and still holds up a few years later.
             </p>
             <blockquote class="my-8 border-l-2 border-accent bg-surface-raised/40 p-6">
               <p class="m-0 font-display text-2xl italic leading-snug text-ink-950">
@@ -82,14 +80,13 @@ const competencies = [
                 nothing left to take away.”
               </p>
               <footer class="mt-3 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-500">
-                — Antoine de Saint-Exupéry
+                Antoine de Saint-Exupéry
               </footer>
             </blockquote>
             <p class="leading-relaxed text-ink-700">
-              So I build everything custom, by hand. I cut anything that isn't pulling its weight —
-              not to look minimal, but because less code means a faster site that's easier to keep
-              running. And since I'm bilingual in English and Arabic, I can build for clients a lot
-              of developers can't reach.
+              So I build everything custom, by hand. I cut anything that isn't pulling its weight.
+              Less code means a faster site that's easier to keep running. And since I'm bilingual in
+              English and Arabic, I can build for clients a lot of developers can't reach.
             </p>
           </div>
         </div>
@@ -103,7 +100,7 @@ const competencies = [
           <div class="grain absolute inset-0"></div>
           <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-accent/15 blur-[110px]"></div>
           <p class="relative max-w-4xl text-balance font-display text-3xl leading-[1.08] tracking-tight text-ink-950 sm:text-5xl lg:text-6xl">
-            Small businesses deserve <span class="italic text-accent-light">world-class</span> websites.
+            Small businesses deserve <span class="italic text-accent-light">great</span> websites.
           </p>
           <p class="relative mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-ink-500">
             The whole reason I do this
@@ -121,7 +118,7 @@ const competencies = [
             <h2 class="font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">The whole stack</h2>
           </div>
           <p class="max-w-sm text-pretty text-ink-500">
-            I handle the whole build — design, front end, back end, and getting it shipped.
+            I handle the whole build, from design to shipping.
           </p>
         </div>
 
@@ -159,8 +156,8 @@ const competencies = [
             <div>
               <h3 class="mb-2 font-display text-2xl text-ink-950">Own it, don't rent it.</h3>
               <p class="max-w-md leading-relaxed text-ink-700">
-                You get the code, the domain, and the keys — no subscription holding your business
-                hostage, no platform you can't walk away from.
+                You own the code and the domain. No subscription holding your business hostage, no
+                platform you can't walk away from.
               </p>
             </div>
           </div>
@@ -184,8 +181,8 @@ const competencies = [
             <div>
               <h3 class="mb-2 font-display text-2xl text-ink-950">Bilingual by default.</h3>
               <p class="leading-relaxed text-ink-700">
-                English and Arabic. I build for the clients — and the communities — a lot of
-                developers can't reach.
+                English and Arabic. I build for the clients and communities a lot of developers
+                can't reach.
               </p>
             </div>
           </div>
@@ -196,8 +193,7 @@ const competencies = [
             <div>
               <h3 class="mb-2 font-display text-2xl text-white">Fast on purpose.</h3>
               <p class="leading-relaxed text-white/90">
-                Every site is built to load quick and stay quick — not just look good the day it
-                launches.
+                Every site loads quick and stays quick, long after launch day.
               </p>
             </div>
           </div>
@@ -212,8 +208,8 @@ const competencies = [
           Got something to build?
         </h2>
         <p class="mx-auto mt-6 max-w-xl text-pretty text-lg text-ink-500">
-          Like how I work? I'm taking on freelance projects and open to full-time roles —
-          tell me what you're building.
+          Like how I work? I'm taking on freelance projects and open to full-time roles.
+          Tell me what you're building.
         </p>
         <div class="mt-10">
           <Button :to="{ name: 'contact' }" size="lg">Get in Touch</Button>

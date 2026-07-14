@@ -9,7 +9,7 @@ useScrollReveal()
 useSiteHead({
   title: 'Projects',
   description:
-    'Selected works by Walid Elsayed — restaurant, education, and bilingual law-firm websites built with Vue, React, and Tailwind CSS.',
+    'Selected works by Walid Elsayed. Restaurant, education, and bilingual law-firm websites built with Vue, React, and Tailwind CSS.',
 })
 
 // Bento placement per project (index → responsive span classes). Five projects
@@ -46,7 +46,7 @@ function host(p: Project): string {
         </div>
         <p class="max-w-sm text-pretty text-lg leading-relaxed text-ink-500">
           Every project here was hand-built for a real business. Open any one for the full case
-          study — live device previews and all.
+          study, live device previews and all.
         </p>
       </header>
 

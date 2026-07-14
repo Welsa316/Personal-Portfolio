@@ -34,7 +34,7 @@ useSiteHead({
   title: () => project.value?.title,
   description: () => {
     const p = project.value
-    return p ? truncateAtWord(`${p.title} — ${p.description}`) : undefined
+    return p ? truncateAtWord(`${p.title}. ${p.description}`) : undefined
   },
   image: () => (project.value ? `${SITE_URL}/og/${project.value.id}.jpg` : undefined),
   type: 'article',

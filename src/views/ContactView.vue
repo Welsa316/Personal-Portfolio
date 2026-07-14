@@ -21,7 +21,7 @@ useSiteHead({
             Get in Touch
           </h1>
           <p class="max-w-md text-pretty leading-relaxed text-ink-500">
-            Have a project in mind, a question, or just want to say hello?
+            Have a project in mind, or just want to say hello?
             Fill out the form and I'll get back to you within a day or two.
           </p>
 

@@ -10,7 +10,7 @@ import { useSiteHead } from '@/composables/useSiteHead'
 useSiteHead({
   title: 'Home',
   description:
-    'Walid Elsayed is a full-stack web developer and designer in New Orleans, building production-grade websites with Vue, React, and modern web technologies.',
+    'Walid Elsayed is a web developer and designer in New Orleans. He hand-builds fast, custom websites for small businesses. No templates, no monthly rent.',
 })
 
 useScrollReveal()
@@ -20,13 +20,13 @@ const features = [
     number: '01',
     title: 'Web Development',
     description:
-      'Fast, custom sites hand-built for your business — not dragged out of a page builder. Sharp on every screen.',
+      'Fast, custom sites hand-built for your business, not dragged out of a page builder. Sharp on every screen.',
   },
   {
     number: '02',
     title: 'AI Where It Helps',
     description:
-      'I put AI to work only where it earns its place — smarter search, less busywork — and skip the hype.',
+      'I use AI only where it actually helps, like smarter search or less busywork. No hype.',
   },
   {
     number: '03',
@@ -86,7 +86,7 @@ onMounted(() => {
             </span>
           </h1>
           <div class="hero-animate mt-4 flex flex-col gap-3">
-            <p class="text-sm text-ink-500 font-light">— Web developer &amp; designer</p>
+            <p class="text-sm text-ink-500 font-light">Web developer &amp; designer</p>
             <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
           </div>
         </div>
@@ -124,7 +124,7 @@ onMounted(() => {
               </span>
             </h1>
             <div class="hero-animate mt-6 flex flex-row items-center gap-4">
-              <p class="text-base text-ink-500 font-light">— Web developer &amp; designer</p>
+              <p class="text-base text-ink-500 font-light">Web developer &amp; designer</p>
               <Button :to="{ name: 'projects' }" size="md">View My Work</Button>
             </div>
           </div>
@@ -143,7 +143,7 @@ onMounted(() => {
         <div class="scroll-reveal mb-4">
           <p class="eyebrow mb-3">What I Do</p>
           <h2 class="max-w-2xl text-balance font-display text-3xl tracking-tight text-ink-950 sm:text-4xl">
-            Custom-built, genuinely fast, made to last.
+            Custom-built to last.
           </h2>
         </div>
 

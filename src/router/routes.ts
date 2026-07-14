@@ -34,7 +34,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: 'About',
       description:
-        'About Walid Elsayed — full-stack web developer and designer based in New Orleans, building custom sites for small businesses without templates or page builders.',
+        'About Walid Elsayed. Full-stack web developer and designer in New Orleans, building custom sites for small businesses without templates or page builders.',
     },
   },
   {
