@@ -403,6 +403,61 @@ Want to keep more of each sale? [Tell me what you sell](/contact) and I will sho
 - Shopify Help Center, [Third-party transaction fees](https://help.shopify.com/en/manual/your-account/manage-billing/billing-charges/types-of-charges/third-party-charges/third-party-transaction-fees)
 - Squarespace Help Center, [Transaction fees and payment processing rates](https://support.squarespace.com/hc/en-us/articles/27853679334157-Transaction-fees-and-payment-processing-rates)`,
   },
+  {
+    slug: 'new-orleans-web-developer-vs-template',
+    title: 'Hiring a New Orleans Web Developer vs Using a Template',
+    metaTitle: 'New Orleans Web Developer vs a Website Template',
+    description:
+      'Hiring a New Orleans web developer vs using a template: local knowledge, a site you own, and faster pages that rank. What a template cannot match.',
+    excerpt:
+      'Local knowledge, a person to call, a site you own, and pages built to rank. What a template leaves on the table.',
+    primaryKeyword: 'New Orleans web developer',
+    category: 'Local',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `A template is cheap and quick, so it is tempting. Before you buy one, it is worth knowing what hiring a New Orleans web developer gives you that a template cannot. I build sites here in the city, so I have seen where templates leave local businesses stuck. Here is the honest side-by-side.
+
+## What a template gives you
+
+A template is a pre-made layout you fill with your own text and photos. It is cheap, it is fast to start, and it works for a simple page. If you need a basic online presence this weekend and nothing more, a template does the job. That is the whole pitch, and it is a fair one for the right business.
+
+## What a local developer gives you
+
+You get a site built around your business instead of a layout built for everyone. You get a person to call when something breaks, not a help forum and a ticket number. You get the code, so the site is yours to keep and move. And you get someone who knows the local market. A shop that lives on French Quarter foot traffic needs different things than a firm serving clients across the state. I built [Campos Muños Law](/projects/campos-munos-law) for a New Orleans firm working in two languages, and [OK Ice Cream](/projects/ok-ice-cream) for a local shop that needed to be easy to find. Neither fit a stock template.
+
+## The local SEO a template forgets
+
+Showing up in local search takes setup that templates leave to you. Your name, address, and phone number have to be consistent and marked up so Google trusts them. Local business structured data helps you appear in the map results. Pages have to load fast, because speed feeds local rankings through Core Web Vitals, which I explain in [website speed and local SEO](/blog/website-speed-local-seo-core-web-vitals). A template hands you an empty theme and wishes you luck. A local developer wires this in for your area from the start.
+
+## Side by side
+
+| | New Orleans developer | Template |
+|---|---|---|
+| Built for your business | Yes, around your goals | A generic layout |
+| Someone to call | A person who knows your site | A help forum |
+| Own the code | Yes | Depends on the platform |
+| Local SEO setup | Done for your area | Left to you |
+| Speed | Tuned to load fast | Carries theme weight |
+| Cost | Higher up front | Cheap each month |
+
+## The cost, honestly
+
+A developer costs more on day one. A template costs less to start and keeps charging every month. Over a few years the gap narrows, and the developer-built site is the one you actually own. If the website brings in customers, paying once for something you keep beats renting a layout forever. I lay out the ownership math in [custom website vs Wix](/blog/custom-website-vs-wix-small-business).
+
+## Who each is for
+
+Pick a template if you need a placeholder page and cost is the only thing that matters. Hire a developer if the site is part of how the business earns, if you want it to rank locally, and if you want to own it. For a New Orleans business that depends on being found, the second path pays off.
+
+Thinking about a site for your business here in the city? [Reach out](/contact) and I will tell you honestly whether you need a custom build or not.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites for local businesses, set up for local search and built to load fast.
+
+### Sources
+
+- Google Search Central, [Understanding Core Web Vitals and Google search results](https://developers.google.com/search/docs/appearance/core-web-vitals)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
