@@ -458,6 +458,62 @@ Thinking about a site for your business here in the city? [Reach out](/contact) 
 
 - Google Search Central, [Understanding Core Web Vitals and Google search results](https://developers.google.com/search/docs/appearance/core-web-vitals)`,
   },
+  {
+    slug: 'bilingual-websites-small-business',
+    title: 'Bilingual Websites for Small Business',
+    metaTitle: 'Bilingual Websites for Small Business (EN/ES/AR)',
+    description:
+      'Bilingual websites for small business: reaching Spanish and Arabic speakers, why translation plugins fall short, and how a custom build handles two languages.',
+    excerpt:
+      'Reaching Spanish and Arabic speakers, why translate plugins fall short, and what a real two-language site needs.',
+    primaryKeyword: 'bilingual websites for small business',
+    category: 'Bilingual',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `A second language on your site opens the door to customers who would otherwise scroll past. Bilingual websites for small business are not a luxury feature. For a lot of local businesses, the second language is where the next customers are. I build sites in English with Spanish and Arabic, so I have seen what a real bilingual build does that a quick translate button does not.
+
+## Who you reach with a second language
+
+Spanish is the most spoken language other than English in the United States. More than 40 million people speak it at home, according to the Census Bureau's American Community Survey. If your customers include Spanish speakers and your site is English only, you are asking part of your market to work harder to buy from you. Arabic-speaking communities are smaller but underserved, and a site in their language stands out fast. A law firm, a clinic, a school, or a restaurant can all reach further with the right second language.
+
+## Why translate plugins fall short
+
+The quick fix is an auto-translate widget that machine-translates your pages on the fly. It looks easy and it reads rough. Machine translation gets tone and legal or medical terms wrong, which is a real problem when trust is on the line. It also does little for search. Google ranks pages, and an on-the-fly translation usually lives at one URL with no proper signals, so the translated version rarely ranks for anyone searching in that language.
+
+## What a real bilingual site needs
+
+Done right, each language gets its own real content and its own address. You tell Google about the versions with hreflang, the method it documents for pointing search engines at localized pages. That is how a Spanish page shows up for a Spanish search. The copy is written or checked by a person, not a machine, so it reads like a native speaker wrote it. A language switch lets visitors move between versions without losing their place.
+
+## Arabic and right-to-left
+
+Arabic reads right to left, and that is not a font setting. The whole layout mirrors. Menus, buttons, and text alignment flip, and the design has to hold together in both directions. Most plugins break here. A custom build handles it properly. I built [Daris](/projects/daris), a platform for Islamic studies and Quran, with Arabic in mind, and the layout works in both directions.
+
+## Plugin vs a built-in bilingual site
+
+| | Translate plugin | Built-in bilingual site |
+|---|---|---|
+| Translation quality | Machine, often rough | Real, human-checked copy |
+| Search for each language | Weak, usually one URL | Real URLs with hreflang |
+| Right-to-left for Arabic | Usually breaks the layout | Built to mirror correctly |
+| Speed | Extra script to load | No extra weight |
+| Control over wording | Limited | Full |
+
+## A real example
+
+I built [Campos Muños Law](/projects/campos-munos-law) as an English and Spanish site for a New Orleans immigration firm serving clients across the country. Clients read the services in the language they think in, and the firm reaches people an English-only site would miss. That is the point of doing it right instead of bolting on a widget. If you are weighing a custom build against a template, I compare those in [hiring a New Orleans web developer vs a template](/blog/new-orleans-web-developer-vs-template).
+
+Serving customers in more than one language? [Tell me who you want to reach](/contact) and I will build the site to reach them.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I build bilingual sites in English with Spanish and Arabic, including right-to-left layouts, so businesses reach more of their community.
+
+### Sources
+
+- U.S. Census Bureau, [Language Use](https://www.census.gov/topics/population/language-use.html)
+- U.S. Census Bureau, [Language Use in the United States (American Community Survey report)](https://www.census.gov/content/dam/Census/library/publications/2022/acs/acs-50.pdf)
+- Google Search Central, [Tell Google about localized versions of your page](https://developers.google.com/search/docs/specialty/international/localized-versions)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
