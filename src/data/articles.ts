@@ -91,6 +91,74 @@ I build the site, you own the code and the domain, and there is no monthly rent 
 - Wix Help Center, [Canceling a Wix Premium or Studio Plan](https://support.wix.com/en/article/canceling-a-wix-premium-plan)
 - Google Search Central, [Understanding Core Web Vitals and Google search results](https://developers.google.com/search/docs/appearance/core-web-vitals)`,
   },
+  {
+    slug: 'do-you-own-your-shopify-store',
+    title: 'Do You Actually Own Your Shopify Store?',
+    metaTitle: 'Do You Actually Own Your Shopify Store? (2026)',
+    description:
+      'Do you own your Shopify store? What you control, what stays locked to Shopify, the fee for skipping Shopify Payments, and what you can actually export.',
+    excerpt:
+      'You own your data and your brand. The storefront, the theme, and the hosting stay with Shopify. Where the line sits.',
+    primaryKeyword: 'do you own your Shopify store',
+    category: 'Ownership',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `Shopify makes selling online quick, which is why so many small shops start there. Then a harder question shows up. Do you own your Shopify store, or are you renting it? The answer is some of both. You own your brand and your customer list. The store itself runs on Shopify's servers and follows Shopify's rules. I build custom online stores, and I have watched owners get surprised by where that line sits.
+
+## What you actually control
+
+You own your products, your customer records, and your order history. Shopify lets you export products, customers, and orders as CSV files, so you can take that data with you. If you registered your own domain, you own it and can point it anywhere. That part is real ownership, and it matters.
+
+## What stays locked to Shopify
+
+Your storefront is built with Shopify's theme system, written in a templating language called Liquid. That theme runs on Shopify and nowhere else. Move to another platform and the design does not come with you. The apps that add features are subscriptions from other companies, and they stop the day you leave. Shopify is a hosted service, so the store lives on Shopify's infrastructure, not yours.
+
+## The fee most owners miss
+
+Shopify sells its own payment processor, Shopify Payments. Use it and you pay the card rate for your plan. On the Basic plan that rate is 2.9% plus 30 cents per online transaction, as of July 2026. Use a different payment gateway and Shopify adds its own transaction fee on top of what your processor already charges. Switch to Shopify Payments and that extra fee goes away. The design nudges you to keep checkout inside Shopify. I break the numbers down in [website builder transaction fees compared](/blog/website-builder-transaction-fees-compared).
+
+## What you can take with you
+
+- Product, customer, and order data, exported as CSV
+- Your domain, if you own the registration
+- Your brand and your written content, which you can rebuild anywhere
+
+## What you cannot take
+
+- The theme, since Liquid only runs on Shopify
+- The apps, which are third-party subscriptions
+- The hosting, which is Shopify's
+
+## Own vs rent, side by side
+
+| | Custom store | Shopify |
+|---|---|---|
+| Hosting | Yours, movable | Shopify's servers |
+| Storefront code | Yours to keep | Liquid theme, Shopify only |
+| Product and customer data | Yours | Exportable as CSV |
+| Extra transaction fee | None | Added if you skip Shopify Payments |
+| Monthly cost | Cheap hosting | Plan fee plus app subscriptions |
+| Leaving the platform | Move the whole site | Rebuild the storefront |
+
+## When Shopify makes sense
+
+If you sell a large catalog and want inventory, shipping labels, and checkout handled for you, Shopify does heavy lifting a small custom build would take months to match. A busy store with hundreds of products is a fair fit. The trade is the monthly fees and a storefront you cannot move.
+
+## The ownership test
+
+Ask one question. If this platform doubled its price tomorrow, could I move without rebuilding? On Shopify you keep your data and rebuild the store. On a custom store you move the whole thing. For a restaurant taking orders, I lay out a lower-fee path in [restaurant online ordering without commission fees](/blog/restaurant-online-ordering-no-commission-fees), and you can see a live build in my [Yami Hibachi](/projects/yami-hibachi) project.
+
+Want a store you fully hold? [Tell me what you sell](/contact) and I will map out the build.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites and stores for small businesses so the owner keeps the code, the data, and the domain.
+
+### Sources
+
+- Shopify, [Pricing plans](https://www.shopify.com/pricing) (card rates and plan fees, accessed July 2026)
+- Shopify Help Center, [Third-party transaction fees](https://help.shopify.com/en/manual/your-account/manage-billing/billing-charges/types-of-charges/third-party-charges/third-party-transaction-fees)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
