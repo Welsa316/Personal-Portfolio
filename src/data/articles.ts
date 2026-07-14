@@ -17,7 +17,7 @@ export interface Article {
   datePublished: string
   /** YYYY-MM-DD */
   dateModified: string
-  /** Markdown body. Starts at H2 — the H1 is rendered from `title`. */
+  /** Markdown body. Starts at H2. The H1 is rendered from `title`. */
   body: string
 }
 
@@ -80,6 +80,28 @@ If you need something online this week, on a tight budget, and you do not care a
 ## How I work
 
 I build the site, you own the code and the domain, and there is no monthly rent on the software. If you want a site you actually hold, [tell me about your business](/contact) and I will lay out the plan. You can also compare the builders head to head in [Wix vs Squarespace vs a custom website](/blog/wix-vs-squarespace-vs-custom-website).
+
+## What a custom site does not do
+
+Custom is not the answer for everyone, and it is worth being clear about that. A custom site does not update itself with a drag-and-drop editor unless I build a simple content manager into it, which I often do. It does not go live in an afternoon. And it asks for a real decision about the business, because you are investing in something you keep rather than swiping a card for a month of access. For a business that treats its website as a tool that earns, those are features. For a hobby page, they are overhead. Match the tool to the job.
+
+## Common questions
+
+### Can I move my Wix site to a custom site later?
+
+You can, but not with a button. Wix does not let you export the site to run it elsewhere, so a developer rebuilds the design and moves your text and images across by hand. Your content and your domain come with you. The design gets recreated. The sooner you switch, the less there is to redo.
+
+### Is a custom website worth it for a very small business?
+
+If the website brings in customers, yes. You pay once and own it, instead of renting forever at a price the platform controls. If you only need a simple placeholder and the site will never really work for you, a builder is the cheaper fit and there is no shame in that.
+
+### Who hosts a custom website?
+
+You do, on any host you choose. A small static site runs on cheap or even free hosting, and you can switch providers whenever you want without rebuilding anything. That is the practical side of owning the code.
+
+### Will a custom site rank better on Google than Wix?
+
+It gives you more control over the things that help rankings, like speed and clean markup, which I cover in [website speed and local SEO](/blog/website-speed-local-seo-core-web-vitals). A builder can still rank, but it carries extra weight and hands you fewer levers to pull.
 
 ---
 
@@ -150,6 +172,32 @@ Ask one question. If this platform doubled its price tomorrow, could I move with
 
 Want a store you fully hold? [Tell me what you sell](/contact) and I will map out the build.
 
+## The lock-in builds up quietly
+
+No one signs up for Shopify planning to be stuck. It happens in small steps. You pick a theme and customize it, so now the design lives in Liquid. You add three apps for reviews, shipping, and email, and each is another monthly bill tied to the platform. Your product photos, descriptions, and customer notes all sit inside Shopify's system. A year in, the store works, and moving it means recreating the theme, replacing the apps, and re-testing checkout somewhere new. The data exports cleanly. The store you built around it does not. That gap is the real cost of a hosted platform, and it is worth seeing before you are deep in it.
+
+## Common questions
+
+### Can I export my Shopify store to another platform?
+
+You can export your product, customer, and order data as CSV files, and you can take your domain if you own it. What does not move is the storefront. The Liquid theme runs only on Shopify, so the design gets rebuilt wherever you land.
+
+### Does Shopify own my customer list?
+
+No. You can export your customers, so the list is yours. The store runs on Shopify's servers, but the relationship with your customers belongs to you, which is why keeping your own record of it matters.
+
+### How do I avoid Shopify's extra transaction fee?
+
+Use Shopify Payments as your processor. The extra transaction fee applies only when you route payments through a different gateway. That is the trade Shopify offers: use its processor and skip the surcharge.
+
+### Is Shopify worth it for a small store?
+
+If you sell a real catalog and want inventory, shipping, and checkout handled for you, it earns its keep. For a handful of products or a restaurant taking orders, a custom setup connected straight to a processor is often cheaper and gives you more to own.
+
+### Do I own my Shopify theme?
+
+You can download your theme files, but they are written in Liquid and run only on Shopify. So you hold a copy you cannot use anywhere else. Move platforms and the design has to be rebuilt, even though you technically have the files.
+
 ---
 
 **About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites and stores for small businesses so the owner keeps the code, the data, and the domain.
@@ -209,6 +257,28 @@ Pick Wix if you want the cheapest, fastest start and you do not mind renting. Pi
 
 Not sure which fits your business? [Send me a note](/contact) and I will tell you straight, even if that answer is a builder.
 
+## How to decide in ten minutes
+
+Answer three questions and the choice usually falls out. First, will this website earn money, or is it a brochure? If it earns, ownership and speed matter more, which points to custom. Second, how long do you plan to run it? A site you will keep for years favors a one-time build over rent that never stops. Third, do you need to move or sell it later? If yes, a builder that cannot be exported is a bad starting point. There is no single right answer for every business. There is a right answer for yours once you know what the site is for.
+
+## Common questions
+
+### Which is best for SEO, Wix, Squarespace, or custom?
+
+A custom site gives you the most control over speed and clean markup, which are the parts of SEO you can actually influence on the page. Both builders can rank, and plenty do, but they load extra code and give you fewer levers. I explain the speed side in [website speed and local SEO](/blog/website-speed-local-seo-core-web-vitals).
+
+### Can I switch from Wix to Squarespace easily?
+
+No. Neither platform lets you move a full site into the other. You rebuild the design and move your content by hand. That is true for any move off a hosted builder, which is the argument for owning your site from the start.
+
+### Is Squarespace cheaper than a custom website?
+
+Cheaper on day one, more expensive over several years, because the subscription never ends. Add up the monthly fee across five years and compare it to a one-time build. I run that math in [what a small business website should cost](/blog/what-a-small-business-website-should-cost).
+
+### Do Wix and Squarespace charge selling fees?
+
+Squarespace charges no transaction fee on physical products on its current plans, and a fee on digital products that drops as you move up plans. Wix runs mainly on its subscription. Your payment processor charges its own card rate on both. Details are in [website builder transaction fees compared](/blog/website-builder-transaction-fees-compared).
+
 ---
 
 **About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites for small businesses, no templates and no page builders, so the owner keeps the code and the domain.
@@ -231,7 +301,7 @@ Not sure which fits your business? [Send me a note](/contact) and I will tell yo
     category: 'Budget',
     datePublished: PUBLISHED,
     dateModified: PUBLISHED,
-    body: `The honest answer to small business website cost is that it depends on how you pay, not just how much. There are two shapes. You rent a builder every month for as long as the site exists, or you pay once for a custom build and then pay a little for hosting. The sticker on a builder looks small. The total over a few years is the number that matters. I build custom sites in New Orleans, so here is the math the sales pages skip.
+    body: `The honest answer to small business website cost is that how you pay matters as much as how much you pay. There are two shapes. You rent a builder every month for as long as the site exists, or you pay once for a custom build and then pay a little for hosting. The sticker on a builder looks small. The total over a few years is the number that matters. I build custom sites in New Orleans, so here is the math the sales pages skip.
 
 ## The two ways to pay
 
@@ -276,6 +346,28 @@ You should not pay a monthly fee to keep your own website online when a custom s
 ## A simple rule
 
 Add up the builder's monthly cost over five years. If a custom build costs less than that total, and you get to own it, the choice makes itself. Want a real number for your project? [Tell me what you need](/contact) and I will quote it straight.
+
+## Where the money actually goes on a custom build
+
+When you pay for a custom site, most of the cost is time, not software. It goes into understanding the business, designing pages that fit it, writing the code, making it fast, and testing it on real phones. A simple marketing site is a few days of that work. A site with logins, a booking system, or online ordering is more. The reason it feels expensive next to a monthly plan is that you are seeing the whole cost at once instead of spread thin across years of rent. The thing you get for it is an asset with your name on it.
+
+## Common questions
+
+### Why do custom websites cost more up front?
+
+You are paying for design and code built around your business, and you keep the result. A builder splits a smaller cost across monthly fees that never end, so it feels cheaper while quietly costing more over time.
+
+### Are there ongoing costs with a custom website?
+
+Yes, but they are small. You pay for hosting, which can be a few dollars a month or free on a light static site, and a domain at roughly 10 to 20 dollars a year. There is no platform plan fee.
+
+### Is a cheap template ever the right call?
+
+For a placeholder page with little traffic and no real role in the business, yes. Spend the least you can. Once the site starts bringing in customers, owning it becomes worth the higher day-one cost.
+
+### How much should a small business website cost?
+
+It depends on scope, so anyone quoting a flat number sight unseen is guessing. A simple site costs less than one with accounts, booking, or a store. The useful comparison is not the sticker, it is the five-year total against a builder subscription.
 
 ---
 
@@ -335,6 +427,32 @@ If you serve a local area, a fast site is part of showing up in search, not a ni
 
 Want to know why your site is slow? [Send me the link](/contact) and I will tell you what is dragging it down.
 
+## The usual causes of a slow site
+
+Most slow small business sites share the same few problems. A heavy theme loads sliders and scripts the page never uses. Images go up at full camera resolution instead of sized for the web, so a single photo weighs several megabytes. A stack of third-party widgets for chat, reviews, and tracking each add their own load. And fonts block the text from showing until they finish downloading. None of these are exotic. They are the default state of a builder site that nobody tuned. A hand-built site avoids them by only including what the page needs, and that is most of the speed battle right there.
+
+## Common questions
+
+### Does site speed really affect Google rankings?
+
+Yes. Core Web Vitals are part of Google's page experience signals. Speed is not the biggest factor, so a fast page with weak content still loses to a slow page with the answer someone wants. Between two similar pages, the faster one has the edge.
+
+### What is a good LCP score?
+
+Under 2.5 seconds, measured at the 75th percentile of real visits. That means most of your visitors should see the main content within 2.5 seconds. Between 2.5 and 4 seconds needs work, and over 4 is poor.
+
+### How do I make my website faster?
+
+Cut scripts and widgets you do not use, size and compress your images, and load fonts so they do not block text. On a builder that means trimming apps and picking a lighter theme. On a custom site it is built in from the start.
+
+### What tool checks Core Web Vitals?
+
+Google's PageSpeed Insights reports your scores from real visitor data and lists what is slowing the page down. Google Search Console shows the same Core Web Vitals across your whole site over time.
+
+### Does image size affect Core Web Vitals?
+
+Yes, a lot. An oversized image is often the largest element on the page, so it drives your LCP directly. Sizing and compressing images for the web, and serving modern formats, is one of the quickest speed wins there is.
+
 ---
 
 **About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build fast custom sites for small businesses and tune them to pass Core Web Vitals.
@@ -381,7 +499,7 @@ Wix runs on a monthly subscription, and the plan price is the main cost to track
 | Shopify | 2.9% + 30¢ on Basic, lower on higher plans, via Shopify Payments | Added if you use another gateway, waived with Shopify Payments | Jul 2026 |
 | Squarespace | Your processor's rate | 0% on physical (current plans), 7% down to 0% on digital by plan | Jul 2026 |
 | Wix | Your processor's rate | Mainly the plan fee | Check plan page |
-| Custom site | Your processor's rate (e.g. Stripe) | None | — |
+| Custom site | Your processor's rate (e.g. Stripe) | None | n/a |
 
 ## What this means for a small shop
 
@@ -392,6 +510,28 @@ On low volume the monthly plan hurts more than the per-sale fee. As sales grow, 
 A custom site connects straight to a processor like Stripe or Square. You pay that processor's card rate and nothing extra to a platform sitting in the middle. There is no gateway surcharge and no plan tier deciding your cut. For a restaurant, this is the difference between keeping your margin and handing a slice to an app, which I break down in [restaurant online ordering without commission fees](/blog/restaurant-online-ordering-no-commission-fees). You can see a live restaurant build in my [Yami Hibachi](/projects/yami-hibachi) project.
 
 Want to keep more of each sale? [Tell me what you sell](/contact) and I will show you a setup with no platform markup.
+
+## A worked example on 100 orders
+
+Say you take 100 orders at 40 dollars each, so 4,000 dollars in sales. Card processing at about 2.9% plus 30 cents runs roughly 146 dollars across those orders, and you owe that no matter where you sell. Now add a platform layer. A builder gateway surcharge or a digital-goods transaction fee stacks on top of that 146, and on some platforms and plans it is a meaningful second bite. On a custom site connected straight to a processor, there is no second bite. You pay the processing and keep the rest. The exact figures depend on your plan and your product, so read them off the platform's own page, but the shape holds: one fee is unavoidable, the other is a choice.
+
+## Common questions
+
+### What is the difference between a transaction fee and a processing fee?
+
+The processing fee is the card rate a payment processor charges on every sale, usually a percentage plus a few cents. The transaction fee is an extra cut the platform takes just for selling on it. The first is unavoidable. The second depends on the platform and plan you pick.
+
+### Does Shopify charge a fee if I use PayPal?
+
+Shopify adds its own transaction fee when you use a gateway other than Shopify Payments, which includes some outside options. Using Shopify Payments waives that extra fee. You still pay the card processing rate either way.
+
+### Can I avoid platform selling fees entirely?
+
+Yes, on a custom site that connects straight to a processor like Stripe or Square. There is no platform sitting in the middle taking a cut, so you pay only the processor's card rate.
+
+### Which builder has the lowest selling fees?
+
+It depends on what you sell. Squarespace charges no transaction fee on physical products on its current plans. Shopify waives its extra fee if you use Shopify Payments. The lowest of all is no platform fee, which is what a direct custom setup gives you.
 
 ---
 
@@ -450,6 +590,32 @@ Pick a template if you need a placeholder page and cost is the only thing that m
 
 Thinking about a site for your business here in the city? [Reach out](/contact) and I will tell you honestly whether you need a custom build or not.
 
+## What working with a local developer actually looks like
+
+Hiring local is about more than the code. It is about how the work goes. I can meet you, look at the business, and understand who you serve before I design a single page. When you want a change, you message one person who knows your site, not a queue. If something breaks the week of a big event, it gets fixed that day. And because I live here, I know what a New Orleans customer sees when they search, from the tourist looking for a place to eat to the resident checking hours. A template cannot give you any of that. It gives you a layout and a login. The rest is on you.
+
+## Common questions
+
+### Is a template cheaper than hiring a developer?
+
+Cheaper on day one, and it keeps charging every month. A developer costs more up front, and you own the result instead of renting it. Over a few years the gap narrows, and only one of the two leaves you with something you keep.
+
+### Can a developer help my site rank locally?
+
+Yes. Local search takes setup that templates leave undone: consistent name and address details, local business structured data, and fast pages. A developer wires that in for your area from the start.
+
+### What if I already have a template site?
+
+A developer can rebuild it as a site you own and move your content across. If the template is doing its job and you are happy renting, there is no rush. If it is slow or you want to own it, that is the time to switch.
+
+### How do I choose a web developer in New Orleans?
+
+Look at real sites they have built for local businesses, ask whether you will own the code and the domain, and check that they build for speed and local search. You want someone who hands you the keys, not someone who keeps them.
+
+### Does hiring local cost more than an overseas freelancer?
+
+Sometimes the rate is higher. What you get back is someone in your time zone who knows the local market and answers when you call. For a site that matters to the business, that access and that local knowledge are usually worth the difference.
+
 ---
 
 **About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites for local businesses, set up for local search and built to load fast.
@@ -503,6 +669,32 @@ Arabic reads right to left, and that is not a font setting. The whole layout mir
 I built [Campos Muños Law](/projects/campos-munos-law) as an English and Spanish site for a New Orleans immigration firm serving clients across the country. Clients read the services in the language they think in, and the firm reaches people an English-only site would miss. That is the point of doing it right instead of bolting on a widget. If you are weighing a custom build against a template, I compare those in [hiring a New Orleans web developer vs a template](/blog/new-orleans-web-developer-vs-template).
 
 Serving customers in more than one language? [Tell me who you want to reach](/contact) and I will build the site to reach them.
+
+## How a bilingual site is put together
+
+The clean way to build two languages is to give each one its own set of pages at its own web address, then connect them. A visitor lands on the version that matches their language, and a switch in the header lets them flip to the other. Behind the scenes, hreflang tags tell Google which page is which language so the right one shows up in search. The menus, buttons, and everything a person clicks are translated too, down to the last label. Done this way, each language feels like a site built for that reader, because it is. A widget that machine-translates on the fly cannot reach that bar, and search engines treat it accordingly.
+
+## Common questions
+
+### Are auto-translate plugins good enough for a business site?
+
+For a rough gist, maybe. For trust and for search, no. Machine translation gets tone and specific terms wrong, which is a real problem for a law firm or a clinic, and the translated pages rarely rank because they usually lack their own address and signals.
+
+### Does adding a second language help SEO?
+
+Yes, when each language has its own real pages and hreflang tags. Then those pages can rank for searches in that language, which an English-only site never reaches. A translate widget does little for search.
+
+### Can you build right-to-left sites for Arabic?
+
+Yes. Arabic reads right to left, and the whole layout mirrors, which goes well past the text. Menus, alignment, and buttons all flip, and the design has to hold together in both directions. I built [Daris](/projects/daris) with that in mind.
+
+### Which second language should my business add?
+
+Follow your customers. Spanish reaches the largest non-English audience in the United States by far. If your community includes Arabic speakers or another language, that is where a second version stands out most, since fewer competitors bother.
+
+### How much more does a bilingual website cost?
+
+More than a single-language site, since there is a second set of pages to build and real translation to place. It costs far less than two separate sites, though, because the design and the code are shared across both languages. You are paying mainly for the extra content, not a whole second build.
 
 ---
 
@@ -558,6 +750,32 @@ Many restaurants run both. They keep a listing on one app for reach and push reg
 
 Want ordering on your own site instead of renting it from an app? [Tell me about your restaurant](/contact) and I will set it up.
 
+## How to move regulars to direct ordering
+
+The apps are good at reach. You are better at loyalty, and that is where direct ordering wins. The move is simple and it takes repetition. Put the ordering link on your website, print it on receipts and takeout bags, and stick a small sign at the register. Mention it when regulars come in. Offer a reason to order direct, like a small discount or a free side, since even a dollar off beats handing 30% to an app. Over a few months the customers who order from you every week shift to the channel you own, and the app becomes what it should be, a way for new people to find you rather than the toll booth on every sale.
+
+## Common questions
+
+### How much do delivery apps charge restaurants?
+
+Commonly 15% to 30% per order, depending on the plan and how much visibility you buy. Higher tiers get better placement in the app and cost more. Some plans add fees for marketing and promotions on top of the base commission.
+
+### Is direct ordering cheaper than DoorDash or Uber Eats?
+
+Yes. On your own site you pay only the card processing rate, about 2.9% plus 30 cents per order, instead of a 15% to 30% commission. On a 30 dollar order that is a little over a dollar versus several dollars.
+
+### Can I still offer delivery without the apps?
+
+Yes. Options include pickup only, your own driver, or a flat-fee delivery service that charges a set amount instead of a percentage. You keep the order and the customer either way.
+
+### Do I need Shopify to take restaurant orders?
+
+No. A custom ordering page connects straight to a processor like Stripe or Square, with no platform commission and no monthly store plan. That is usually a better fit for a restaurant than a full store platform.
+
+### Are third-party delivery commissions negotiable?
+
+The tiers are mostly set by plan, though high-volume restaurants sometimes get custom terms. The dependable way to lower your effective fee is to move repeat orders to your own site, where there is no commission at all. The app then earns its cut only on the new customers it actually brings you, which is a fairer trade than paying it on every regular.
+
 ---
 
 **About the author.** I'm Walid Elsayed, a web developer in New Orleans. I build restaurant sites with online ordering that connects straight to a payment processor, so the kitchen keeps its margin.
@@ -584,7 +802,7 @@ Want ordering on your own site instead of renting it from an app? [Tell me about
 
 ## The three things to own
 
-A website is really three assets. The domain is your address. The code is the site itself. The data is your customers and content. Own all three and the site is yours to move, sell, or rebuild on your terms. Miss one and someone else has leverage over your business.
+A website is really three assets. The domain is your address. The code is the site itself. The data is your customers and content. Own all three and the site is yours to move, sell, or rebuild on your terms. Miss one and someone else holds part of your business.
 
 ## Your domain
 
@@ -621,6 +839,28 @@ Lock-in is rarely a single decision. It builds up. The builder registers your do
 I build with all three in the owner's hands. My [SAHA Institute](/projects/saha-institute) and [Daris](/projects/daris) builds are custom sites the owners hold outright, code and content included.
 
 Not sure who holds your domain, code, or data right now? [Send me your site](/contact) and I will tell you where you stand.
+
+## What to ask before you sign anything
+
+Before you hire an agency or sign up for a platform, get four answers in writing. Will the domain be registered in my name, in my account? Will I receive the code and be free to host it anywhere? Can I export my customers, orders, and content, and in what format? And if we part ways, what exactly do I walk away with? A good answer is specific and confident. A vague answer, or one that treats these as strange questions, tells you where you would stand later. This is not about distrust. It is about knowing who holds the keys before you need them, because the moment you need them is the worst time to find out.
+
+## Common questions
+
+### How do I know if I own my domain?
+
+Check that it is registered in your own name, in a registrar account you control, and that you hold the login and the email on file. If an agency set it up under their account, they hold your address, and you should move it into your own name.
+
+### What happens to my website if my web agency disappears?
+
+If you own the domain, the code, and the data, you hand it to any other developer and carry on. If the agency holds those, you can be locked out of your own site. That is the whole reason to sort out ownership at the start.
+
+### Can I get my data off a website builder?
+
+Sometimes. Some platforms export your content and customers cleanly, and some make it hard to get anything usable out. Check the export options before you commit, not after, so you are not trapped by a decision you made on day one.
+
+### What does it mean to own your website?
+
+It means three things are in your hands: the domain as your address, the code as the site itself, and the data as your customers and content. Hold all three and you can move, sell, or rebuild on your terms. Miss one and you have handed someone else control.
 
 ---
 
