@@ -159,6 +159,66 @@ Want a store you fully hold? [Tell me what you sell](/contact) and I will map ou
 - Shopify, [Pricing plans](https://www.shopify.com/pricing) (card rates and plan fees, accessed July 2026)
 - Shopify Help Center, [Third-party transaction fees](https://help.shopify.com/en/manual/your-account/manage-billing/billing-charges/types-of-charges/third-party-charges/third-party-transaction-fees)`,
   },
+  {
+    slug: 'wix-vs-squarespace-vs-custom-website',
+    title: 'Wix vs Squarespace vs a Custom Website',
+    metaTitle: 'Wix vs Squarespace vs Custom Website (2026)',
+    description:
+      'Wix vs Squarespace vs a custom website: ownership, transaction fees, speed, and lock-in compared. An honest take for a small business site.',
+    excerpt:
+      'Two builders and a hand-built site, compared on ownership, fees, speed, and what happens when you leave.',
+    primaryKeyword: 'Wix vs Squarespace vs custom website',
+    category: 'Comparisons',
+    datePublished: PUBLISHED,
+    dateModified: PUBLISHED,
+    body: `If you are picking a platform for a small business, the choice usually comes down to Wix vs Squarespace vs a custom website. The two builders are easy to start. A custom site takes more up front and gives you more to keep. I build custom sites in New Orleans, so I have a side in this, but I will lay out the trade honestly.
+
+## The three models
+
+Wix and Squarespace are hosted builders. You rent software, drag pieces around, and the company runs everything on its servers. A custom website is code that belongs to you. It runs on any host, and any developer can pick it up later. One is a monthly rental. The other is an asset you own.
+
+## Ownership and lock-in
+
+This is the real split. Wix does not let you export your site to run it somewhere else. Its own help center says "the SaaS architecture does not support external hosting." Squarespace lets you export some content, like blog posts and pages, but not the full design, so a move still means a rebuild. A custom site hands you the code and the files, and you can leave whenever you want.
+
+There is a quieter cost too. Cancel a Wix plan and the site drops to a free Wix address with Wix ads on your pages. A hosted builder needs an active subscription to stay online. A custom site only needs cheap hosting you control.
+
+## The fee picture
+
+Squarespace is clearer than most on selling fees. On its current plans, physical-product sales carry no Squarespace transaction fee. Digital products and memberships do carry one, from 7% on the entry plan down to 0% on the top plan, as of July 2026. Those are separate from the payment processor fee that Stripe or PayPal charges on every sale. Wix runs on a monthly subscription, and the plan price is the main line to watch. I compare selling fees across platforms in [website builder transaction fees compared](/blog/website-builder-transaction-fees-compared).
+
+## Speed
+
+Both builders load shared code to run their editors and features. That weight slows the first paint, and page speed feeds local search rankings through Core Web Vitals. A hand-built site ships only what the page needs. My [SAHA Institute](/projects/saha-institute) build runs on a lean custom stack and loads fast for that reason.
+
+## The full comparison
+
+| | Custom site | Wix | Squarespace |
+|---|---|---|---|
+| Own the code | Yes | No | No |
+| Export and self-host | Yes | No | Content only, not the design |
+| Cost shape | One-time build, cheap hosting | Monthly subscription | Monthly subscription |
+| Platform selling fee | None | Subscription-based | 0% on physical (current plans), fee on digital |
+| If you stop paying | Site stays on your host | Reverts to free URL with ads | Subscription needed to stay online |
+| Editing | CMS or a developer | Drag and drop | Drag and drop |
+| Best for | Owning the site long term | A fast, cheap start | Design-led sites with light selling |
+
+## Which one to pick
+
+Pick Wix if you want the cheapest, fastest start and you do not mind renting. Pick Squarespace if design matters and you sell a little, since its templates look sharp out of the box. Pick a custom site if the website is a real part of the business and you want to own it, move it, and keep it fast. I go deeper on the builder trade in [custom website vs Wix](/blog/custom-website-vs-wix-small-business), and on budget in [what a small business website should cost](/blog/what-a-small-business-website-should-cost).
+
+Not sure which fits your business? [Send me a note](/contact) and I will tell you straight, even if that answer is a builder.
+
+---
+
+**About the author.** I'm Walid Elsayed, a web developer in New Orleans. I hand-build custom sites for small businesses, no templates and no page builders, so the owner keeps the code and the domain.
+
+### Sources
+
+- Wix Help Center, [Exporting or Embedding Your Wix Site Elsewhere](https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere)
+- Wix Help Center, [Canceling a Wix Premium or Studio Plan](https://support.wix.com/en/article/canceling-a-wix-premium-plan)
+- Squarespace Help Center, [Transaction fees and payment processing rates](https://support.squarespace.com/hc/en-us/articles/27853679334157-Transaction-fees-and-payment-processing-rates)`,
+  },
 ]
 
 // Sorted newest first for the index; stable when dates match (keeps array order).
