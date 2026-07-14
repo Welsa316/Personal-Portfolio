@@ -345,7 +345,7 @@ You should not pay a monthly fee to keep your own website online when a custom s
 
 ## A simple rule
 
-Add up the builder's monthly cost over five years. If a custom build costs less than that total, and you get to own it, the choice makes itself. Want a real number for your project? [Tell me what you need](/contact) and I will quote it straight.
+Add up the builder's monthly cost over five years. If a custom build costs less than that total, and you get to own it, the choice makes itself. Run the numbers for your own case with the [website cost calculator](/tools/website-cost-calculator). Want a real number for your project? [Tell me what you need](/contact) and I will quote it straight.
 
 ## Where the money actually goes on a custom build
 
@@ -513,7 +513,7 @@ Want to keep more of each sale? [Tell me what you sell](/contact) and I will sho
 
 ## A worked example on 100 orders
 
-Say you take 100 orders at 40 dollars each, so 4,000 dollars in sales. Card processing at about 2.9% plus 30 cents runs roughly 146 dollars across those orders, and you owe that no matter where you sell. Now add a platform layer. A builder gateway surcharge or a digital-goods transaction fee stacks on top of that 146, and on some platforms and plans it is a meaningful second bite. On a custom site connected straight to a processor, there is no second bite. You pay the processing and keep the rest. The exact figures depend on your plan and your product, so read them off the platform's own page, but the shape holds: one fee is unavoidable, the other is a choice.
+Say you take 100 orders at 40 dollars each, so 4,000 dollars in sales. Card processing at about 2.9% plus 30 cents runs roughly 146 dollars across those orders, and you owe that no matter where you sell. Now add a platform layer. A builder gateway surcharge or a digital-goods transaction fee stacks on top of that 146, and on some platforms and plans it is a meaningful second bite. On a custom site connected straight to a processor, there is no second bite. You pay the processing and keep the rest. The exact figures depend on your plan and your product, so read them off the platform's own page, but the shape holds: one fee is unavoidable, the other is a choice. To see how those fees add up over a few years, run your figures through the [website cost calculator](/tools/website-cost-calculator).
 
 ## Common questions
 

@@ -24,6 +24,12 @@ const currentYear = new Date().getFullYear()
             Blog
           </router-link>
           <router-link
+            :to="{ name: 'cost-calculator' }"
+            class="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
+          >
+            Calculator
+          </router-link>
+          <router-link
             :to="{ name: 'about' }"
             class="text-sm font-medium text-ink-600 transition-colors hover:text-ink-950"
           >

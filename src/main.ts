@@ -24,7 +24,14 @@ export const createApp = ViteSSG(
 export function includedRoutes(_paths: string[]) {
   // Static routes plus dynamic /projects/:id and /blog/:slug for every known
   // project and article.
-  const staticRoutes = ['/', '/projects', '/about', '/contact', '/blog']
+  const staticRoutes = [
+    '/',
+    '/projects',
+    '/about',
+    '/contact',
+    '/blog',
+    '/tools/website-cost-calculator',
+  ]
   const projectRoutes = projects.map((p) => `/projects/${p.id}`)
   const articleRoutes = articles.map((a) => `/blog/${a.slug}`)
   return [...staticRoutes, ...projectRoutes, ...articleRoutes]

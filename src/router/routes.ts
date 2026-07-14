@@ -64,6 +64,16 @@ export const routes: RouteRecordRaw[] = [
     },
   },
   {
+    path: '/tools/website-cost-calculator',
+    name: 'cost-calculator',
+    component: () => import('@/views/ToolCostCalculatorView.vue'),
+    meta: {
+      title: 'Website Cost Calculator',
+      description:
+        'Free website cost calculator. Compare years of Wix, Shopify, or Squarespace subscription fees against a one-time custom build, and find the break-even year.',
+    },
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),

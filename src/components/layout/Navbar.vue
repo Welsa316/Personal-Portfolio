@@ -14,6 +14,7 @@ const navLinks = [
   { name: 'Home', to: { name: 'home' } },
   { name: 'Projects', to: { name: 'projects' } },
   { name: 'Blog', to: { name: 'blog' } },
+  { name: 'Calculator', to: { name: 'cost-calculator' } },
   { name: 'About', to: { name: 'about' } }
 ]
 
