@@ -901,6 +901,53 @@ export function getReadingTime(article: Article): number {
   return Math.max(1, Math.round(words / 200))
 }
 
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
+/**
+ * Reduce a short slice of Markdown to plain text for JSON-LD answer fields.
+ * Unwraps links to their label, drops bold/italic/code markers, and collapses
+ * whitespace so a multi-line answer becomes one clean sentence group.
+ */
+function markdownToPlainText(md: string): string {
+  return md
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // [label](url) -> label
+    .replace(/\*\*([^*]+)\*\*/g, '$1') // **bold** -> bold
+    .replace(/\*([^*]+)\*/g, '$1') // *italic* -> italic
+    .replace(/`([^`]+)`/g, '$1') // `code` -> code
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+/**
+ * Extract the question/answer pairs from an article's "Common questions"
+ * section. Questions are the H3 headings inside it; the answer is the prose
+ * that follows each heading up to the next H3. The section itself ends at the
+ * next H2 or a horizontal rule (which precedes the author note and sources).
+ * Returns [] when an article has no FAQ section.
+ */
+export function getArticleFaqs(article: Article): FaqItem[] {
+  const start = article.body.match(/^##\s+Common questions\s*$/im)
+  if (!start || start.index === undefined) return []
+
+  const afterHeading = article.body.slice(start.index + start[0].length)
+  const end = afterHeading.match(/\n(?:##\s|---)/)
+  const section = end && end.index !== undefined ? afterHeading.slice(0, end.index) : afterHeading
+
+  const faqs: FaqItem[] = []
+  for (const chunk of section.split(/^###\s+/m)) {
+    const trimmed = chunk.trim()
+    if (!trimmed) continue
+    const breakAt = trimmed.indexOf('\n')
+    const question = (breakAt === -1 ? trimmed : trimmed.slice(0, breakAt)).trim()
+    const answer = breakAt === -1 ? '' : markdownToPlainText(trimmed.slice(breakAt + 1))
+    if (question && answer) faqs.push({ question, answer })
+  }
+  return faqs
+}
+
 /** Human date, e.g. "July 13, 2026". Parsed as UTC to stay stable in SSG. */
 export function formatArticleDate(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number)

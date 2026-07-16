@@ -41,12 +41,14 @@ useSiteHead({
   schema: () => {
     const p = project.value
     if (!p) return undefined
-    return {
-      '@context': 'https://schema.org',
+
+    const projectUrl = `${SITE_URL}/projects/${p.id}`
+
+    const creativeWork = {
       '@type': 'CreativeWork',
       name: p.title,
       description: p.description,
-      url: `${SITE_URL}/projects/${p.id}`,
+      url: projectUrl,
       image: `${SITE_URL}/og/${p.id}.jpg`,
       creator: {
         '@type': 'Person',
@@ -55,6 +57,20 @@ useSiteHead({
       },
       keywords: p.tags.join(', '),
       ...(p.links.demo && p.links.demo !== '#' && { sameAs: p.links.demo }),
+    }
+
+    const breadcrumb = {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Projects', item: `${SITE_URL}/projects` },
+        { '@type': 'ListItem', position: 3, name: p.title, item: projectUrl },
+      ],
+    }
+
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [creativeWork, breadcrumb],
     }
   },
 })

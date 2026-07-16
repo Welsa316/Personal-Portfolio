@@ -6,11 +6,33 @@ import Typewriter from '@/components/ui/Typewriter.vue'
 import SelectedWorksAccordion from '@/components/projects/SelectedWorksAccordion.vue'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 import { useSiteHead } from '@/composables/useSiteHead'
+import { SITE_URL } from '@/config/constants'
 
 useSiteHead({
   title: 'Home',
   description:
     'Walid Elsayed is a web developer and designer in New Orleans. He hand-builds fast, custom websites for small businesses. No templates, no monthly rent.',
+  // Site identity for local search. Modeled as a service-area business: no
+  // street address, since there is no public storefront. Only truthful, known
+  // fields are listed here — no phone, price, or rating is invented.
+  schema: {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${SITE_URL}/#business`,
+    name: 'Walid Elsayed',
+    url: SITE_URL,
+    description:
+      'Walid Elsayed is a New Orleans web developer who hand-builds fast, custom websites for small businesses and remote clients. No templates, no monthly rent.',
+    telephone: '+1-504-230-9499',
+    areaServed: { '@type': 'AdministrativeArea', name: 'Greater New Orleans area' },
+    knowsLanguage: ['English', 'Arabic', 'Spanish'],
+    founder: {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#person`,
+      name: 'Walid Elsayed',
+      url: `${SITE_URL}/`,
+    },
+  },
 })
 
 useScrollReveal()

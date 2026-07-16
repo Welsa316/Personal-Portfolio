@@ -7,6 +7,7 @@ import IconArrow from '@/components/ui/IconArrow.vue'
 import {
   getArticleBySlug,
   getAdjacentArticles,
+  getArticleFaqs,
   getReadingTime,
   formatArticleDate,
 } from '@/data/articles'
@@ -58,8 +59,10 @@ useSiteHead({
   schema: () => {
     const a = article.value
     if (!a) return undefined
-    return {
-      '@context': 'https://schema.org',
+
+    const articleUrl = `${SITE_URL}/blog/${a.slug}`
+
+    const blogPosting = {
       '@type': 'BlogPosting',
       headline: a.title,
       description: a.description,
@@ -82,9 +85,41 @@ useSiteHead({
       image: DEFAULT_OG_IMAGE,
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `${SITE_URL}/blog/${a.slug}`,
+        '@id': articleUrl,
       },
       keywords: a.primaryKeyword,
+    }
+
+    const breadcrumb = {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+        { '@type': 'ListItem', position: 3, name: a.title, item: articleUrl },
+      ],
+    }
+
+    // FAQPage is emitted only when the article renders a "Common questions"
+    // section, so the structured data matches what a visitor actually sees.
+    const faqs = getArticleFaqs(a)
+    const faqPage =
+      faqs.length > 0
+        ? {
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: f.answer,
+              },
+            })),
+          }
+        : undefined
+
+    return {
+      '@context': 'https://schema.org',
+      '@graph': [blogPosting, breadcrumb, ...(faqPage ? [faqPage] : [])],
     }
   },
 })

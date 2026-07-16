@@ -8,7 +8,6 @@
 - **Role**: Full-stack web developer and designer
 - **Location**: New Orleans, Louisiana, USA
 - **Email**: walidelsayed316@gmail.com
-- **GitHub**: https://github.com/Welsa316
 - **Specialties**: Vue 3, React, TypeScript, Tailwind CSS, responsive design, performance optimization, AI-assisted development, design systems
 
 ## Services
