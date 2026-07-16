@@ -23,21 +23,14 @@ useSiteHead({
     url: SITE_URL,
     description:
       'Walid Elsayed is a New Orleans web developer who hand-builds fast, custom websites for small businesses and remote clients. No templates, no monthly rent.',
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'New Orleans',
-        containedInPlace: { '@type': 'AdministrativeArea', name: 'Louisiana, US' },
-      },
-      'Remote clients',
-    ],
+    telephone: '+1-504-230-9499',
+    areaServed: { '@type': 'AdministrativeArea', name: 'Greater New Orleans area' },
     knowsLanguage: ['English', 'Arabic', 'Spanish'],
     founder: {
       '@type': 'Person',
       '@id': `${SITE_URL}/#person`,
       name: 'Walid Elsayed',
       url: `${SITE_URL}/`,
-      sameAs: ['https://github.com/Welsa316'],
     },
   },
 })
